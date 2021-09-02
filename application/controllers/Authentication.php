@@ -42,10 +42,10 @@ class Authentication extends CI_Controller
 
                 switch ($auth->role) {
                     case 1:
-                        redirect('welcome');
+                        redirect('dashboard');
                         break;
                     case 2:
-                        redirect('welcome');
+                        redirect('dashboard');
                         break;
                     default:
                         break;
