@@ -1,6 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
+<!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
@@ -22,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/extensions/tether-theme-arrows.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/extensions/tether.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/extensions/shepherd-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/tables/datatable/datatables.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -151,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">John Doe</span><span class="user-status">Available</span></div><span><img class="round" src="<?php echo base_url(); ?>app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="auth-login.html"><i class="feather icon-power"></i> Logout</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('index.php/authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -567,6 +569,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="content-header row">
             </div>
             <div class="content-body">
+                <section id="dashboard-analytics">
+                    <div class="row my-3">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Contoh aja yaa</h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 397.875px;">Name</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 617.359px;">Position</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 299.234px;">Office</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 142.531px;">Age</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 245.531px;">Start date</th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 208.875px;">Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($sekolah as $s) : ?>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1"><?php echo $s['nama']; ?></td>
+                                                    <td><?php echo $s['alamat'] ?></td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>2008/11/28</td>
+                                                    <td>$162,700</td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="card bg-analytics text-white">
+                                <div class="card-content">
+                                    <div class="card-body text-center">
+                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-left.png" class="img-left" alt="card-img-left">
+                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-right.png" class="img-right" alt="card-img-right">
+                                        <div class="avatar avatar-xl bg-primary shadow mt-0">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-award white font-large-1"></i>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <h1 class="mb-2 text-white">Congratulations John,</h1>
+                                            <p class="m-auto w-75">You have done <strong>57.6%</strong> more sales today. Check your new badge in your profile.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <!-- Dashboard Analytics Start -->
                 <section id="dashboard-analytics">
                     <div class="row">
@@ -574,10 +632,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card bg-analytics text-white">
                                 <div class="card-content">
                                     <div class="card-body text-center">
-                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-left.png" class="img-left" alt="
-            card-img-left">
-                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-right.png" class="img-right" alt="
-            card-img-right">
+                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-left.png" class="img-left" alt="card-img-left">
+                                        <img src="<?php echo base_url(); ?>app-assets/images/elements/decore-right.png" class="img-right" alt="card-img-right">
                                         <div class="avatar avatar-xl bg-primary shadow mt-0">
                                             <div class="avatar-content">
                                                 <i class="feather icon-award white font-large-1"></i>
@@ -624,7 +680,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-				</section>
+                </section>
             </div>
         </div>
     </div>
@@ -659,8 +715,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo base_url(); ?>app-assets/js/scripts/components.js"></script>
     <!-- END: Theme JS-->
 
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
     <!-- BEGIN: Page JS-->
     <script src="<?php echo base_url(); ?>app-assets/js/scripts/pages/dashboard-analytics.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/js/scripts/datatables/datatable.js"></script>
     <!-- END: Page JS-->
 
 </body>
