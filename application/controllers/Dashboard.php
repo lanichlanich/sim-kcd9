@@ -24,14 +24,14 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata('pengguna_level') != '1') {
+        if ($this->session->userdata('role') != '1') {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                     Maaf, Anda belum Login!
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                       </button>
                     </div>');
-            redirect('admin/auth/login');
+            redirect('authentication/login');
         }
     }
 

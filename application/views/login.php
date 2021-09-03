@@ -102,7 +102,7 @@
                                                         <div class="text-right"><a href="auth-forgot-password" class="card-link">Lupa Password?</a></div>
                                                     </div>
                                                     <!-- <a href="auth-register.html" class="btn btn-outline-primary float-left btn-inline">Register</a> -->
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
+                                                    <button type="submit" class="btn btn-primary float-right btn-inline mb-2">Login</button>
                                                 </form>
                                             </div>
                                         </div>
