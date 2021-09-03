@@ -60,7 +60,7 @@
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">John Doe</span><span class="user-status">Available</span></div><span><img class="round" src="<?php echo base_url(); ?>app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="feather icon-user"></i> Edit Profile</a>
-                                <a class="dropdown-item" href="<?php echo base_url('index.php/authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
+                                <a class="dropdown-item" href="<?php echo base_url('authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -75,7 +75,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?php echo base_url(); ?>html/ltr/vertical-menu-template/index.html">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?php echo base_url(); ?>">
                         <!-- <div class="brand-logo"></div> -->
                         <h2 class="brand-text mb-0"><?php echo $title ?></h2>
                     </a></li>
@@ -87,17 +87,17 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Data Sekolah</span></a>
                     <ul class="menu-content">
-                        <li class="active"><a href="#"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
+                        <li class="active"><a href="<?php echo base_url() ?>dashboard"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                         </li>
-                        <li><a href="#"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
+                        <li><a href="<?php echo base_url() ?>datasiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-upload"></i><span class="menu-title">Import Data</span></a>
                     <ul class="menu-content">
-                        <li><a href="#"><i class="feather icon-upload"></i><span class="menu-item">Import Siswa</span></a>
+                        <li><a href="<?php echo base_url() ?>importsiswa"><i class="feather icon-upload"></i><span class="menu-item">Import Siswa</span></a>
                         </li>
-                        <li><a href="#"><i class="feather icon-upload"></i><span class="menu-item">Import PTK</span></a>
+                        <li><a href="<?php echo base_url() ?>importptk"><i class="feather icon-upload"></i><span class="menu-item">Import PTK</span></a>
                         </li>
                     </ul>
                 </li>
