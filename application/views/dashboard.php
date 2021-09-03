@@ -29,6 +29,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/ui/prism.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/tables/datatable/datatables.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -151,14 +152,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="table-responsive">
-                                                <table class="table table-hover mb-0">
+                                                <table class="table table-hover mb-0" id="sekolah">
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Sekolah</th>
                                                             <th>Alamat</th>
-                                                            <th></th>
-                                                            <th></th>
-                                                            <th></th>
+                                                            <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -166,9 +165,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <tr role="row" class="odd">
                                                                 <td class="sorting_1"><?php echo $s['nama']; ?></td>
                                                                 <td><?php echo $s['alamat'] ?></td>
-                                                                <td><button class="btn btn-outline-primary">View</button> </td>
-                                                                <td><button class="btn btn-success">Edit</button></td>
-                                                                <td><button class="btn btn-warning">Delete</button></td>
+                                                                <td class="btn-group">
+                                                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="feather icon-eye"> </i></button>
+                                                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i></button>
+                                                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><i class="feather icon-trash"> </i></button>
+                                                                </td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
@@ -208,15 +209,36 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="<?php echo base_url(); ?>app-assets/vendors/js/ui/prism.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
     <script src="<?php echo base_url(); ?>app-assets/js/core/app-menu.js"></script>
     <script src="<?php echo base_url(); ?>app-assets/js/core/app.js"></script>
+    <script src="<?php echo base_url(); ?>app-assets/js/scripts/components.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
+    <script src="<?php echo base_url(); ?>app-assets/js/scripts/datatables/datatable.js"></script>
     <!-- END: Page JS-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#sekolah').DataTable();
+        })
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
 
 </body>
 <!-- END: Body-->
