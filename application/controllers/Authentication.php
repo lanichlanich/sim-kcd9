@@ -21,7 +21,7 @@ class Authentication extends CI_Controller
      */
     public function login()
     {
-        $this->form_validation->set_rules('id', 'Username', 'required', ['required' => 'Username wajib diisi!']);
+        $this->form_validation->set_rules('id', 'Username', 'integer', 'required', ['required' => 'Username wajib diisi!']);
         $this->form_validation->set_rules('password', 'Password', 'required', ['required' => 'Password wajib diisi!']);
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = "Login";
