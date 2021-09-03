@@ -19,6 +19,22 @@ class ImportPtk extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('pengguna_level') != '1') {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    Maaf, Anda belum Login!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>');
+            redirect('admin/auth/login');
+        }
+    }
+
     public function index()
     {
         $data['title'] = "SIM KCD-IX";
