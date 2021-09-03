@@ -23,6 +23,8 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = "SIM KCD9";
         $data['sekolah'] = $this->db->query("SELECT * FROM sekolah ORDER BY id")->result_array();
+        $this->load->view('template/header', $data);
         $this->load->view('dashboard', $data);
+        $this->load->view('template/footer');
     }
 }
