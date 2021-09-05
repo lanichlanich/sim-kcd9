@@ -180,7 +180,7 @@
 
                                                     </tbody>
                                                 </table>
-                                                <button type="button" class="btn btn-success float-right mt-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i>Edit</button>
+                                                <button type="button" class="btn btn-success float-right mx-2 my-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i>Edit</button>
                                             </div>
                                         </div>
                                     </div>
