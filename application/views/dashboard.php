@@ -16,7 +16,7 @@
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="table-responsive">
-                                                <table class="table table-hover mb-0" id="sekolah">
+                                                <table class="table table-hover display nowrap" id="sekolah">
                                                     <thead>
                                                         <tr>
                                                             <th>Nama Sekolah</th>
