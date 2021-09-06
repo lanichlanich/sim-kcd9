@@ -3,75 +3,110 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
-            <div class="content-body">
-                <section id="description">
-                    <style>
-                        .rekap {
-                            font-size: 60px;
-                            text-align: right;
-                            color: white;
-                        }
+            <style>
+                .rekap:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 
-                        @media only screen and (max-width: 600px) {
-                            .rekap {
-                                font-size: 30px;
-                            }
-                        }
-                    </style>
+                }
+            </style>
+            <div class="content-body">
+                <section id="statistics-card">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-info rekap">
                                 <div class="card-content">
-                                    <img class="card-img img-fluid" src="<?php echo base_url() ?>app-assets/images/banner/banner-1.jpg" alt="Card image">
-                                    <div class="card-img-overlay overflow-hidden overlay-danger overlay-lighten-2">
-                                        <h4 class="card-title text-white">PENDIDIK</h4>
-                                        <strong>
-                                            <div class="rekap">56</div>
-                                        </strong>
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-info p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-user-check text-info font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">56</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Pendidik</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card text-white border-0 box-shadow-0">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-warning rekap">
                                 <div class="card-content">
-                                    <img class="card-img img-fluid" src="<?php echo base_url() ?>app-assets/images/banner/banner-1.jpg" alt="Card image">
-                                    <div class="card-img-overlay overflow-hidden overlay-success">
-                                        <h4 class="card-title text-white">TENAGA KEPENDIDIKAN</h4>
-                                        <strong>
-                                            <div class="rekap">26</div>
-                                        </strong>
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-warning p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-user-check text-warning font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">16</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Tenaga Kependidikan</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-danger rekap">
                                 <div class="card-content">
-                                    <img class="card-img img-fluid" src="<?php echo base_url() ?>app-assets/images/banner/banner-1.jpg" alt="Card image">
-                                    <div class="card-img-overlay overflow-hidden overlay-warning">
-                                        <h4 class="card-title text-white">SISWA</h4>
-                                        <strong>
-                                            <div class="rekap">1256</div>
-                                        </strong>
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-layers text-danger font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">36</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Rombel</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="card text-white border-0 box-shadow-0">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-primary rekap">
                                 <div class="card-content">
-                                    <img class="card-img img-fluid" src="<?php echo base_url() ?>app-assets/images/banner/banner-1.jpg" alt="Card image">
-                                    <div class="card-img-overlay overflow-hidden overlay-info">
-                                        <h4 class="card-title text-white">ROMBEL</h4>
-                                        <strong>
-                                            <div class="rekap">36</div>
-                                        </strong>
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-primary p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-users text-primary font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">1256</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Siswa</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card text-center">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-success p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-award text-success font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">689</h2>
+                                        <p class="mb-0 line-ellipsis">Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card text-center">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-truck text-danger font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">2.1k</h2>
+                                        <p class="mb-0 line-ellipsis">Returns</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
+
+
+
                 </section>
                 <section id="description" class="card">
                     <?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
