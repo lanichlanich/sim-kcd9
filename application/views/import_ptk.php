@@ -7,15 +7,16 @@
                 <!-- Description -->
                 <section id="description" class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Dalam Pengembangan</h4>
+                        <h4 class="card-title">Import Data PTK</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
+                            <h6><i>Download Template Excel: <a href="#">Template PTK.xls</a></i></h6>
                             <div class="row" id="table-hover-row">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-content">
-                                            <img src="<?php echo base_url() ?>app-assets/images/pages/graphic-1.png">
+                                            <input type="file">
                                         </div>
                                     </div>
                                 </div>

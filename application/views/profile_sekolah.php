@@ -6,8 +6,8 @@
             <div class="content-body">
                 <!-- Description -->
                 <section id="description" class="card">
-                    <div class="card-header bg-secondary bg-darken-4">
-                        <h3 class="text-white">Profile Sekolah</h4>
+                    <div class="card-header">
+                        <h4 class="card-title">Profile Sekolah</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
