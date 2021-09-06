@@ -70,15 +70,15 @@
                                             <div class="card-body pt-1">
                                                 <form method="post" action="<?php echo base_url('authentication/login') ?>">
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" class="form-control" id="user-name" placeholder="Username" name="id" required>
-                                                        <?php echo form_error('id', '<div class="text-danger small">', '</div>'); ?>
+                                                        <input type="text" class="form-control" id="user-name" placeholder="Username" name="nama_pengguna">
+                                                        <?php echo form_error('nama_pengguna', '<div class="text-danger small">', '</div>'); ?>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
                                                         <label for="user-name">Username</label>
                                                     </fieldset>
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required>
+                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" name="password">
                                                         <?php echo form_error('password', '<div class="text-danger small">', '</div>'); ?>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>

@@ -57,9 +57,20 @@
                             <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
                         </ul>
                     </div>
+                    <?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
                     <ul class="nav navbar-nav float-right">
-                        <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                                <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">John Doe</span><span class="user-status">Available</span></div><span><img class="round" src="<?php echo base_url(); ?>app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
+                        <li class="dropdown dropdown-user nav-item">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                                <div class="user-nav d-sm-flex d-none">
+                                    <span class="user-name text-bold-600">
+                                        <strong><?php echo $rows['nama'] ?></strong>
+                                    </span>
+                                    <span class="user-status"><?php echo $rows['sekolah'] ?></span>
+                                </div>
+                                <span>
+                                    <!-- <img class="round" src="<?php echo base_url(); ?>app-assets/images/portrait/small/avatar-s-20.jpg" alt="avatar" height="40" width="40"> -->
+                                    <h1><i class="fa fa-user-circle"></i></h1>
+                                </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="feather icon-user"></i> Edit Profile</a>
                                 <a class="dropdown-item" href="<?php echo base_url('authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
