@@ -7,7 +7,7 @@
                 <!-- Description -->
                 <section id="description" class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Profile Sekolah</h4>
+                        <h4 class="card-title">Profile Sekolah (Dapodik)</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -180,7 +180,8 @@
 
                                                     </tbody>
                                                 </table>
-                                                <button type="button" class="btn btn-success float-right mx-2 my-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i>Edit</button>
+                                                <button type="button" class="btn btn-primary float-right mx-1 my-2" data-toggle="tooltip" data-placement="top" title="Import dari Dapodik"><i class="feather icon-upload"> </i>Import Profile Dapodik</button>
+                                                <button type="button" class="btn btn-success float-right mx-1 my-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i>Edit</button>
                                             </div>
                                         </div>
                                     </div>
