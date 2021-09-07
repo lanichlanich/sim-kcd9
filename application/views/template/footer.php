@@ -27,6 +27,9 @@
 <script src="<?php echo base_url(); ?>app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url(); ?>app-assets/vendors/js/extensions/jquery.steps.min.js"></script>
+<script src="<?php echo base_url(); ?>app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
@@ -37,6 +40,7 @@
 
 <!-- BEGIN: Page JS-->
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/datatables/datatable.js"></script>
+<script src="<?php echo base_url(); ?>app-assets/js/scripts/forms/wizard-steps.js"></script>
 <!-- END: Page JS-->
 <script type="text/javascript">
     $(document).ready(function() {
