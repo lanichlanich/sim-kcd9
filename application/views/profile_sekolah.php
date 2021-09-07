@@ -3,11 +3,186 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
+            <style>
+                .rekap:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+
+                }
+            </style>
             <div class="content-body">
-                <!-- Description -->
+                <section id="statistics-card">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-info rekap">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-info p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-user-check text-info font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">56</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Pendidik</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-warning rekap">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-warning p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-user-check text-warning font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">16</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Tenaga Kependidikan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-danger rekap">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-layers text-danger font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">36</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Rombel</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6">
+                            <div class="card text-center border-primary rekap">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-primary p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-users text-primary font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">1256</h2>
+                                        <p class="mb-0 line-ellipsis">Jumlah Siswa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card text-center">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-success p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-award text-success font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">689</h2>
+                                        <p class="mb-0 line-ellipsis">Reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-4 col-sm-6">
+                            <div class="card text-center">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
+                                            <div class="avatar-content">
+                                                <i class="feather icon-truck text-danger font-medium-5"></i>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-bold-700">2.1k</h2>
+                                        <p class="mb-0 line-ellipsis">Returns</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+
+
+                </section>
                 <section id="description" class="card">
+                    <?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
+                    <div class="card-content">
+                        <div class="card-header bg-primary">
+                            <h4 class="mb-1" style="color: white;"><strong><?php echo $rows['sekolah'] ?></strong></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4 text-center">
+                                    <img src="<?php echo base_url() ?>app-assets/images/pages/graphic-1.png" alt="" width="70%">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover display nowrap mb-0" id="sekolah">
+                                            <tr>
+                                                <td>NPSN</td>
+                                                <td>:</td>
+                                                <td><strong><?php echo $rows['nama_pengguna'] ?></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Operator</td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['nama'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sekolah </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['sekolah'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bentuk </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['bentuk'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['status'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alamat </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['alamat'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Desa </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['desa'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kecamatan </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['kecamatan'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kabupaten </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['kabupaten'] ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Provinsi </td>
+                                                <td>:</td>
+                                                <td><?php echo $rows['provinsi'] ?></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Description -->
+                <!-- <section id="description" class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Profile Sekolah (Dapodik)</h4>
+                        <h4 class="card-title">Profile Sekolah</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -17,171 +192,27 @@
                                         <div class="card-content">
                                             <div class="table-responsive">
                                                 <table class="table table-hover display nowrap mb-0" id="sekolah">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Sekolah</th>
+                                                            <th>Alamat</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="bg-secondary bg-darken-2 h6" colspan="2">IDENTITAS SEKOLAH</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h5">Nama Sekolah</td>
-                                                            <td class="h6">tampil nama sekolah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">NPSN</td>
-                                                            <td class="h6">tampil nama NPSN</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Jenjang Pendidikan</td>
-                                                            <td class="h6">tampil nama Jenjang Pendidikan</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Status Sekolah</td>
-                                                            <td class="h6">tampil nama Status Sekolah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Alamat Sekolah</td>
-                                                            <td class="h6">tampil nama Alamat Sekolah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">RT/RW</td>
-                                                            <td class="h6">tampil nama RT/RW</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Kode Pos</td>
-                                                            <td class="h6">tampil nama Kode Pos</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Kelurahan</td>
-                                                            <td class="h6">tampil nama Kelurahan</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Kecamatan</td>
-                                                            <td class="h6">tampil nama Kecamatan</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Kabupaten</td>
-                                                            <td class="h6">tampil nama Kabupaten</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Titik Koordinat</td>
-                                                            <td class="h6">tampil nama Titik Koordinat</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="bg-secondary bg-darken-2 h6" colspan="2">DATA PELENGKAP</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">SK Pendirian</td>
-                                                            <td class="h6">tampil SK Pendirian</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Tanggal SK Pendirian</td>
-                                                            <td class="h6">tampil Tanggal SK Pendirian</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Status Kepemilikan</td>
-                                                            <td class="h6">tampil Status Kepemilikan</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">SK Izin Operasional</td>
-                                                            <td class="h6">tampil SK Izin Operasional</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Kebutuhan Khusus Dilayani</td>
-                                                            <td class="h6">tampil Kebutuhan Khusus Dilayani</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nomor Rekening Sekolah</td>
-                                                            <td class="h6">tampil Nomor Rekening Sekolah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nama Bank</td>
-                                                            <td class="h6">tampil Nama Bank</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Cabang KCP/Unit</td>
-                                                            <td class="h6">tampil Cabang KCP/Unit</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Rekening Atas Nama</td>
-                                                            <td class="h6">tampil Rekening Atas Nama</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">MBS</td>
-                                                            <td class="h6">tampil MBS</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Memungut Iuran</td>
-                                                            <td class="h6">tampil Memungut Iuran</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nominal/Siswa</td>
-                                                            <td class="h6">tampil Nominal/Siswa</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nama Wajib Pajak</td>
-                                                            <td class="h6">tampil Nama Wajib Pajak</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">NPWP</td>
-                                                            <td class="h6">tampil NPWP</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="bg-secondary bg-darken-2 h6" colspan="2">KONTAK SEKOLAH</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nomor Telepon</td>
-                                                            <td class="h6">tampil Nomor Telepon</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Nomor Fax</td>
-                                                            <td class="h6">tampil Nomor Fax</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Email</td>
-                                                            <td class="h6">tampil Email</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Website</td>
-                                                            <td class="h6">tampil Website</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="bg-secondary bg-darken-2 h6" colspan="2">DATA PERIODIK</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Waktu Penyelenggaraan</td>
-                                                            <td class="h6">tampil Waktu Penyelenggaraan</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Bersedia Menerima BOS?</td>
-                                                            <td class="h6">tampil Bersedia Menerima BOS?</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Sertifikat ISO</td>
-                                                            <td class="h6">tampil Sertifikat ISO</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Sumber Listrik</td>
-                                                            <td class="h6">tampil Sumber Listrik</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Daya Listrik</td>
-                                                            <td class="h6">tampil Daya Listrik</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Akses Intenet</td>
-                                                            <td class="h6">tampil Akses Intenet</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="table-secondary h6">Akses Internet Alternatif</td>
-                                                            <td class="h6">tampil Akses Internet Alternatif</td>
-                                                        </tr>
-
+                                                        <?php foreach ($sekolah as $s) : ?>
+                                                            <tr role="row" class="odd">
+                                                                <td class="sorting_1"><?php echo $s['nama']; ?></td>
+                                                                <td><?php echo $s['alamat'] ?></td>
+                                                                <td class="btn-group">
+                                                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="feather icon-eye"> </i></button>
+                                                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i></button>
+                                                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><i class="feather icon-trash"> </i></button>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
-                                                <button type="button" class="btn btn-primary float-right mx-1 my-2" data-toggle="tooltip" data-placement="top" title="Import dari Dapodik"><i class="feather icon-upload"> </i>Import Profile Dapodik</button>
-                                                <button type="button" class="btn btn-success float-right mx-1 my-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i>Edit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -189,10 +220,8 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 <!--/ Description -->
-
-
             </div>
         </div>
     </div>

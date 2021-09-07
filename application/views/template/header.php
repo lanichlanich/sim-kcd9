@@ -104,6 +104,7 @@
                                         echo "active";
                                     } ?>"><a href="<?php echo base_url() ?>dashboard"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Dashboard</span></a>
                         </li>
+
                         <li class="<?php if ($this->uri->segment(1) == "profilesekolah") {
                                         echo "active";
                                     } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
@@ -124,6 +125,14 @@
                         <li class="<?php if ($this->uri->segment(1) == "importptk") {
                                         echo "active";
                                     } ?>"><a href="<?php echo base_url() ?>importptk"><i class="feather icon-upload"></i><span class="menu-item">Import PTK</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title">Data KCD-IX</span></a>
+                    <ul class="menu-content">
+                        <li class="<?php if ($this->uri->segment(1) == "daftarsekolah") {
+                                        echo "active";
+                                    } ?>"><a href="<?php echo base_url() ?>daftarsekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Daftar Sekolah</span></a>
                         </li>
                     </ul>
                 </li>
