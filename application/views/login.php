@@ -70,15 +70,15 @@
                                             <div class="card-body pt-1">
                                                 <form method="post" action="<?php echo base_url('authentication/login') ?>">
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" class="form-control" id="user-name" placeholder="Username" name="id" required>
-                                                        <?php echo form_error('id', '<div class="text-danger small">', '</div>'); ?>
+                                                        <input type="text" class="form-control" id="user-name" placeholder="Username" name="nama_pengguna">
+                                                        <?php echo form_error('nama_pengguna', '<div class="text-danger small">', '</div>'); ?>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
                                                         <label for="user-name">Username</label>
                                                     </fieldset>
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" name="password" required>
+                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" name="password">
                                                         <?php echo form_error('password', '<div class="text-danger small">', '</div>'); ?>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
@@ -95,19 +95,19 @@
                                                                             <i class="vs-icon feather icon-check"></i>
                                                                         </span>
                                                                     </span>
-                                                                    <span class="">Remember me</span>
+                                                                    <span class="">Ingatkan saya</span>
                                                                 </div>
                                                             </fieldset>
                                                         </div>
-                                                        <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
+                                                        <div class="text-right"><a href="auth-forgot-password" class="card-link">Lupa Password?</a></div>
                                                     </div>
-                                                    <a href="auth-register.html" class="btn btn-outline-primary float-left btn-inline">Register</a>
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
+                                                    <!-- <a href="auth-register.html" class="btn btn-outline-primary float-left btn-inline">Register</a> -->
+                                                    <button type="submit" class="btn btn-primary float-right btn-inline mb-2">Login</button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="login-footer">
-                                            <div class="divider">
+                                            <!-- <div class="divider">
                                                 <div class="divider-text">OR</div>
                                             </div>
                                             <div class="footer-btn d-inline">
@@ -115,7 +115,7 @@
                                                 <a href="#" class="btn btn-twitter white"><span class="fa fa-twitter"></span></a>
                                                 <a href="#" class="btn btn-google"><span class="fa fa-google"></span></a>
                                                 <a href="#" class="btn btn-github"><span class="fa fa-github-alt"></span></a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
