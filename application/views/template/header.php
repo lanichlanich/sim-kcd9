@@ -75,7 +75,7 @@
                                     <h1><i class="fa fa-user-circle"></i></h1>
                                 </span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="feather icon-user"></i> Edit Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?php echo base_url() ?>profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
                                 <a class="dropdown-item" href="<?php echo base_url('authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>

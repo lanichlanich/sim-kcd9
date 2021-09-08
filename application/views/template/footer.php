@@ -29,7 +29,6 @@
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url(); ?>app-assets/vendors/js/extensions/jquery.steps.min.js"></script>
 <script src="<?php echo base_url(); ?>app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->

@@ -42,4 +42,60 @@ class ProfileSekolah extends CI_Controller
     $this->load->view('profile_sekolah', $data);
     $this->load->view('template/footer');
   }
+
+  public function edit_profile()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $this->load->view('template/header', $data);
+    $this->load->view('edit_profile', $data);
+    $this->load->view('template/footer');
+  }
+
+  public function update_pengguna()
+  {
+    $id             = $this->input->post('id');
+    $nama_pengguna  = $this->input->post('nama_pengguna');
+    $password       = $this->input->post('password');
+    $role_id        = $this->input->post('role_id');
+    $koreg          = $this->input->post('koreg');
+    $nama           = $this->input->post('nama');
+    $sekolah        = $this->input->post('sekolah');
+    $bentuk         = $this->input->post('bentuk');
+    $status         = $this->input->post('status');
+    $alamat         = $this->input->post('alamat');
+    $desa           = $this->input->post('desa');
+    $kecamatan      = $this->input->post('kecamatan');
+    $kabupaten      = $this->input->post('kabupaten');
+    $provinsi       = $this->input->post('provinsi');
+    $kodepos        = $this->input->post('kodepos');
+    $add_by         = $this->input->post('add_by');
+    $add_time       = $this->input->post('add_time');
+    $update_time    = $this->input->post('update_time');
+
+    $data = array(
+      'nama_pengguna'      => $nama_pengguna,
+      'password'           => $password,
+      'role_id'            => $role_id,
+      'koreg'              => $koreg,
+      'nama'               => $nama,
+      'sekolah'            => $sekolah,
+      'bentuk'             => $bentuk,
+      'status'             => $status,
+      'alamat'             => $alamat,
+      'desa'               => $desa,
+      'kecamatan'          => $kecamatan,
+      'kabupaten'          => $kabupaten,
+      'provinsi'           => $provinsi,
+      'kodepos'            => $kodepos,
+      'add_by'             => $add_by,
+      'add_time'           => $add_time,
+      'update_by'          => $nama,
+      'update_time'        => $update_time
+    );
+
+    $where = array('id' => $id,);
+
+    $this->M_profile->update_profile('pengguna', $data, $where);
+    redirect('dashboard');
+  }
 }
