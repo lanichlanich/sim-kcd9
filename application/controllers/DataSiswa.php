@@ -23,6 +23,7 @@ class DataSiswa extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+		$this->load->model("m_daftarsiswa");
 
     if ($this->session->userdata('role_id') != '2') {
       $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
@@ -38,8 +39,10 @@ class DataSiswa extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["daftar_siswa"] = $this->m_daftarsiswa->getAll();
     $this->load->view('template/header', $data);
-    $this->load->view('data_siswa', $data);
+    $this->load->view('daftar_siswa', $data);
     $this->load->view('template/footer');
+
   }
 }
