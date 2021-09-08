@@ -14,6 +14,8 @@
                     </div>
                     <div class="card-body">
                         <a href="daftarsiswa/#"><button class="btn btn-success">Tambah Siswa</button></a>
+                        <a href="daftarsiswa/#"><button class="btn btn-success float-right">Export Excel</button></a>
+                        <a href="daftarsiswa/#"><button class="btn btn-danger float-right mr-1">Export PDF</button></a>
                         <div class="row">
 
 
