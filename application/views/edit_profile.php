@@ -57,7 +57,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="emailAddress11">Nama Sekolah</label>
-                                                        <input type="text" class="form-control" name="sekolah" id="emailAddress11" value="<?php echo $rows['sekolah']; ?>" disabled>
+                                                        <input type="text" class="form-control" name="sekolah" id="emailAddress11" value="<?php echo $rows['sekolah']; ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,19 +86,19 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idsatu">Kode Registrasi</label>
-                                                        <input type="text" class="form-control" name="koreg" id="idsatu" value="<?php echo $rows['koreg'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="koreg" id="idsatu" value="<?php echo $rows['koreg'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="iddua">Bentuk</label>
-                                                        <input type="text" class="form-control" name="bentuk" id="iddua" value="<?php echo $rows['bentuk'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="bentuk" id="iddua" value="<?php echo $rows['bentuk'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idtiga">Status</label>
-                                                        <input type="text" class="form-control" name="status" id="idtiga" value="<?php echo $rows['status'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="status" id="idtiga" value="<?php echo $rows['status'] ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,49 +124,49 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idempat">Alamat</label>
-                                                        <input type="text" class="form-control" name="alamat" id="idempat" value="<?php echo $rows['alamat'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="alamat" id="idempat" value="<?php echo $rows['alamat'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idlima">Desa/Kelurahan</label>
-                                                        <input type="text" class="form-control" name="desa" id="idlima" value="<?php echo $rows['desa'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="desa" id="idlima" value="<?php echo $rows['desa'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idenam">Kecamatan</label>
-                                                        <input type="text" class="form-control" name="kecamatan" id="idenam" value="<?php echo $rows['kecamatan'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="kecamatan" id="idenam" value="<?php echo $rows['kecamatan'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idtujuh">Kabupaten/Kota</label>
-                                                        <input type="text" class="form-control" name="kabupaten" id="idtujuh" value="<?php echo $rows['kabupaten'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="kabupaten" id="idtujuh" value="<?php echo $rows['kabupaten'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="iddelapan">Provinsi</label>
-                                                        <input type="text" class="form-control" name="provinsi" id="iddelapan" value="<?php echo $rows['provinsi'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="provinsi" id="iddelapan" value="<?php echo $rows['provinsi'] ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idsembilan">Kode Pos</label>
-                                                        <input type="text" class="form-control" name="kodepos" id="idsembilan" value="<?php echo $rows['kodepos'] ?>" disabled>
+                                                        <input type="text" class="form-control" name="kodepos" id="idsembilan" value="<?php echo $rows['kodepos'] ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>
                                             <script>
                                                 $(document).ready(function() {
                                                     $("#klik").click(function() {
-                                                        $("input").removeAttr("disabled");
+                                                        $("input").removeAttr("readonly");
                                                     });
                                                 });
                                                 $(document).ready(function() {
                                                     $("#klik").click(function() {
-                                                        $(".remove").attr("disabled", "disabled");
+                                                        $(".remove").attr("readonly", "readonly");
                                                     });
                                                 });
                                             </script>
