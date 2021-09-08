@@ -22,12 +22,12 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Siswa</th>
-                                            <th>NPSN</th>
-                                            <th>Jenis</th>
-                                            <th>Status</th>
-                                            <th>Kabupaten</th>
-                                            <th>Kabupaten</th>
-                                            <th>Alamat</th>
+                                            <th>No Induk</th>
+                                            <th>NISN</th>
+                                            <th>JK</th>
+                                            <th>Tempat Lahir</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Kelas</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
