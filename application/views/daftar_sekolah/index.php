@@ -13,6 +13,7 @@
                         <h4 class="mb-1" style="color: white;"><strong>Daftar Sekolah</strong></h4>
                     </div>
                     <div class="card-body">
+                        <a href="daftarsekolah/tambah_sekolah"><button class="btn btn-success">Tambah Sekolah</button></a>
                         <div class="row">
 
 
@@ -20,23 +21,28 @@
                                 <table class="table table-hover display nowrap mb-0" id="sekolah">
                                     <thead>
                                         <tr>
-                                            <th>NPSN</th>
                                             <th>Nama Sekolah</th>
+                                            <th>NPSN</th>
                                             <th>Jenis</th>
                                             <th>Status</th>
                                             <th>Kabupaten</th>
                                             <th>Alamat</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($daftar_sekolah as $row) : ?>
                                             <tr>
-                                                <td><?= $row->nama_pengguna ?></td>
                                                 <td><?= $row->nama ?></td>
+                                                <td><?= $row->nama_pengguna ?></td>
                                                 <td><?= $row->bentuk ?></td>
                                                 <td><?= $row->status ?></td>
                                                 <td><?= $row->kabupaten ?></td>
                                                 <td><?= $row->alamat ?></td>
+                                                <td>
+                                                    <a href="daftarsekolah/#"><button class="btn btn-warning">Edit</button></a>
+                                                    <a href="daftarsekolah/#"><button class="btn btn-danger">Hapus</button></a>
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
 

@@ -24,14 +24,14 @@ class DaftarSekolah extends CI_Controller
     $data["title"] = "SIM KCD-IX";
     $data["daftar_sekolah"] = $this->M_Sekolah->getAll();
     $this->load->view('template/header', $data);
-    $this->load->view('daftar_sekolah', $data);
+    $this->load->view('daftar_sekolah/index', $data);
     $this->load->view('template/footer');
   }
   public function tambah_sekolah()
   {
     $data["title"] = "SIM KCD-IX";
     $this->load->view('template/header', $data);
-    $this->load->view('tambah_sekolah');
+    $this->load->view('daftar_sekolah/tambah');
     $this->load->view('template/footer');
   }
 
