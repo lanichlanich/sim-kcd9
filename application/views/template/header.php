@@ -112,9 +112,9 @@
                                         echo "active";
                                     } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                         </li>
-                        <li class="<?php if ($this->uri->segment(1) == "datasiswa") {
+                        <li class="<?php if ($this->uri->segment(1) == "daftarsiswa") {
                                         echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>datasiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
+                                    } ?>"><a href="<?php echo base_url() ?>daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Daftar Siswa</span></a>
                         </li>
                     </ul>
                 </li>
