@@ -11,20 +11,19 @@
     				</div>
     				<div class="card-content">
     					<div class="card-body">
-							<?php
-							if($this->session->flashdata('message'))
-							{
-							echo $this->session->flashdata('message');
+    						<?php
+							if ($this->session->flashdata('message')) {
+								echo $this->session->flashdata('message');
 							}
 							?>
     						<h6><i>Download Template Excel: <a href="#">Template Siswa.xls</a></i></h6>
     						<div class="row" id="table-hover-row">
-    							<form method="post" action="<?php echo base_url('importsiswa/spreadsheet_import');?>" class="" enctype="multipart/form-data">
+    							<form method="post" action="<?php echo base_url('importsiswa/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
     								<div class="col-12">
     									<div class="card">
     										<div class="card-content">
-											<input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
-											<input type="submit" name="submit" class="btn btn-primary">
+    											<input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
+    											<input type="submit" name="submit" class="btn btn-primary">
     										</div>
     									</div>
     								</div>

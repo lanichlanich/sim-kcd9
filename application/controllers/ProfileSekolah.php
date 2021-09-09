@@ -38,6 +38,7 @@ class ProfileSekolah extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
     $this->load->view('template/header', $data);
     $this->load->view('profile_sekolah', $data);
     $this->load->view('template/footer');
@@ -46,6 +47,7 @@ class ProfileSekolah extends CI_Controller
   public function edit_profile()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
     $this->load->view('template/header', $data);
     $this->load->view('edit_profile', $data);
     $this->load->view('template/footer');
@@ -96,6 +98,7 @@ class ProfileSekolah extends CI_Controller
     $where = array('id' => $id,);
 
     $this->M_profile->update_profile('pengguna', $data, $where);
+    $this->session->set_flashdata('pesan', 'success');
     redirect('dashboard');
   }
 }
