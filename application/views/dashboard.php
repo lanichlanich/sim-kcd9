@@ -14,7 +14,7 @@ if ($row->nama == $row->sekolah) {
         <div class="content-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card bg-gradient-primary">
                         <div class="card-body">
                             <h2><strong>Selamat datang <?php echo $row->sekolah; ?></strong></h2>
                             <p>
@@ -36,7 +36,7 @@ if ($row->nama == $row->sekolah) {
                                 <div class="container">
                                     Untuk keamanan data silahkan ganti password.
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                        <p class="text-secondary font-small-1">2021-09-01</p>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@ if ($row->nama == $row->sekolah) {
                                 <div class="container">
                                     Panduan upload data <a href="#"><i class="fa fa-download"></i> Download</a>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                        <p class="text-secondary font-small-1">2021-09-01</p>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ if ($row->nama == $row->sekolah) {
                                 <div class="container">
                                     Proses upload data dilakukan paling lambat 21 September 2021 pukul 23:59:59 WIB
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                        <p class="text-secondary font-small-1">2021-09-01</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ if ($row->nama == $row->sekolah) {
                             <div class="table-responsive">
                                 <table class="table dataTable">
                                     <thead>
-                                        <tr>
+                                        <tr class="bg-gradient-primary text-center">
                                             <th>Status</th>
                                             <th>Waktu</th>
                                             <th>Nama</th>
@@ -75,9 +75,9 @@ if ($row->nama == $row->sekolah) {
                                         <?php foreach ($riwayat as $r) : ?>
                                             <tr>
                                                 <td><?php echo $r->status; ?></td>
-                                                <td><?php echo $r->waktu; ?></td>
+                                                <td class="text-center"><?php echo $r->waktu; ?></td>
                                                 <td><?php echo $r->nama; ?></td>
-                                                <td><?php echo $r->ipaddress; ?></td>
+                                                <td class="text-center"><?php echo $r->ipaddress; ?></td>
                                                 <td><?php echo $r->browser; ?></td>
                                                 <td><?php echo $r->os; ?></td>
                                             </tr>
