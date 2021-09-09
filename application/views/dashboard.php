@@ -35,16 +35,25 @@ if ($row->nama == $row->sekolah) {
                             <div class="alert alert-danger" role="alert">
                                 <div class="container">
                                     Untuk keamanan data silahkan ganti password.
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="alert alert-primary" role="alert">
                                 <div class="container">
                                     Panduan upload data <a href="#"><i class="fa fa-download"></i> Download</a>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="alert alert-info" role="alert">
                                 <div class="container">
                                     Proses upload data dilakukan paling lambat 21 September 2021 pukul 23:59:59 WIB
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <p class="text-dark"><small><i>2021-09-01</i></small></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
