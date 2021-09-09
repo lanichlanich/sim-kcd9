@@ -8,7 +8,7 @@ class M_Riwayat extends CI_model
     {
         $this->db->from($this->table);
         $query = $this->db
-            ->where('npsn', $this->session->nama_pengguna)->get();
+            ->where('npsn', $this->session->nama_pengguna)->limit(5)->order_by("id", "desc")->get();
         return $query->result();
     }
 

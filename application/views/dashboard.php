@@ -27,10 +27,10 @@ if ($row->nama == $row->sekolah) {
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-2 text-center">
+                        <div class="col-md-3 text-center">
                             <img src="<?php echo base_url() ?>app-assets/images/logo/cropped-LOGO9-web.png" alt="Logo Sekolah" class="my-2" width="100%">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <h3 class="mb-1">Info penting</h3>
                             <div class="alert alert-danger" role="alert">
                                 <div class="container">
