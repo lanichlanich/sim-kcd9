@@ -40,6 +40,7 @@
 <!-- BEGIN: Page JS-->
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/datatables/datatable.js"></script>
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/forms/wizard-steps.js"></script>
+<script src="<?php echo base_url(); ?>app-assets/js/scripts/pages/bootstrap-toast.js"></script>
 <!-- END: Page JS-->
 <script type="text/javascript">
     $(document).ready(function() {

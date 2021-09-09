@@ -1,4 +1,3 @@
-<?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -24,7 +23,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700">56</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Pendidik</p>
+                                    <p class="mb-0 line-ellipsis">Pendidik</p>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +38,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700">16</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Tenaga Kependidikan</p>
+                                    <p class="mb-0 line-ellipsis">Tenaga Kependidikan</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +53,7 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700">36</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Rombel</p>
+                                    <p class="mb-0 line-ellipsis">Rombel</p>
                                 </div>
                             </div>
                         </div>
@@ -69,50 +68,19 @@
                                         </div>
                                     </div>
                                     <h2 class="text-bold-700">1256</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Siswa</p>
+                                    <p class="mb-0 line-ellipsis">Siswa</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-xl-2 col-md-4 col-sm-6">
-                            <div class="card text-center">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="avatar bg-rgba-success p-50 m-0 mb-1">
-                                            <div class="avatar-content">
-                                                <i class="feather icon-award text-success font-medium-5"></i>
-                                            </div>
-                                        </div>
-                                        <h2 class="text-bold-700">689</h2>
-                                        <p class="mb-0 line-ellipsis">Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-6">
-                            <div class="card text-center">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
-                                            <div class="avatar-content">
-                                                <i class="feather icon-truck text-danger font-medium-5"></i>
-                                            </div>
-                                        </div>
-                                        <h2 class="text-bold-700">2.1k</h2>
-                                        <p class="mb-0 line-ellipsis">Returns</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                 </div>
-
-
-
             </section>
+            <?php foreach ($pengguna as $row) : ?>
+            <?php endforeach; ?>
             <section id="description" class="card">
                 <div class="card-content">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-1" style="color: white;"><strong><?php echo $rows['sekolah'] ?></strong></h4>
+                        <h4 class="mb-1" style="color: white;"><strong><?php echo $row->sekolah; ?></strong></h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -125,52 +93,52 @@
                                         <tr>
                                             <td>NPSN</td>
                                             <td>:</td>
-                                            <td><strong><?php echo $rows['nama_pengguna'] ?></strong></td>
+                                            <td><strong><?php echo $row->nama_pengguna; ?></strong></td>
                                         </tr>
                                         <tr>
                                             <td>Nama Operator</td>
                                             <td>:</td>
-                                            <td><?php echo $rows['nama'] ?></td>
+                                            <td><?php echo $row->nama; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Sekolah </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['sekolah'] ?></td>
+                                            <td><?php echo $row->sekolah; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Bentuk </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['bentuk'] ?></td>
+                                            <td><?php echo $row->bentuk; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Status </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['status'] ?></td>
+                                            <td><?php echo $row->status; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Alamat </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['alamat'] ?></td>
+                                            <td><?php echo $row->alamat; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Desa </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['desa'] ?></td>
+                                            <td><?php echo $row->desa; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Kecamatan </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['kecamatan'] ?></td>
+                                            <td><?php echo $row->kecamatan; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Kabupaten </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['kabupaten'] ?></td>
+                                            <td><?php echo $row->kabupaten; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Provinsi </td>
                                             <td>:</td>
-                                            <td><?php echo $rows['provinsi'] ?></td>
+                                            <td><?php echo $row->provinsi; ?></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -179,49 +147,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Description -->
-            <!-- <section id="description" class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Profile Sekolah</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body">
-                            <div class="row" id="table-hover-row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="table-responsive">
-                                                <table class="table table-hover display nowrap mb-0" id="sekolah">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Nama Sekolah</th>
-                                                            <th>Alamat</th>
-                                                            <th>Aksi</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($sekolah as $s) : ?>
-                                                            <tr role="row" class="odd">
-                                                                <td class="sorting_1"><?php echo $s['nama']; ?></td>
-                                                                <td><?php echo $s['alamat'] ?></td>
-                                                                <td class="btn-group">
-                                                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="feather icon-eye"> </i></button>
-                                                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i></button>
-                                                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><i class="feather icon-trash"> </i></button>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-            <!--/ Description -->
         </div>
     </div>
 </div>
