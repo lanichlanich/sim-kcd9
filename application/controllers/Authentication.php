@@ -19,6 +19,56 @@ class Authentication extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+    // Record Addr
+
+    public function get_client_ip_env()
+    {
+        $ipaddress  = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if (getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if (getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if (getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if (getenv('HTTP_FORWARDED'))
+            $ipaddress = getenv('HTTP_FORWARDED');
+        else if (getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN IP Address';
+
+        return $ipaddress;
+    }
+
+    public function get_os()
+    {
+        $os_platform = $_SERVER['HTTP_USER_AGENT'];
+        return $os_platform;
+    }
+
+    public function getting_browser()
+    {
+        $browser = '';
+        if (strpos($_SERVER['HTTP_USER_AGENT'], 'Netscape'))
+            $browser = 'Netscape';
+        else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox'))
+            $browser = 'Firefox';
+        else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome'))
+            $browser = 'Chrome';
+        else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera'))
+            $browser = 'Opera';
+        else if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE'))
+            $browser = 'Internet Explorer';
+        else
+            $browser = 'Other';
+        return $browser;
+    }
+
+    // Record Addr
+
     public function login()
     {
         $this->form_validation->set_rules('nama_pengguna', 'Username', 'required', ['required' => 'Username wajib diisi!']);
@@ -40,6 +90,33 @@ class Authentication extends CI_Controller
                 $this->session->set_userdata('nama_pengguna', $auth->nama_pengguna);
                 $this->session->set_userdata('role_id', $auth->role_id);
 
+                //Add riwayat login
+                $npsn               =   $auth->nama_pengguna;
+                $nama               =   $auth->nama;
+                $sekolah            =   $auth->sekolah;
+                $role_id            =   $auth->role_id;
+                $status             =   "Login";
+                $waktu              =   date_default_timezone_set('Asia/Jakarta');
+                $waktu              =   date('Y-m-d H:i:s');
+                $user_os            =   $this->get_os();
+                $user_browser       =   $this->getting_browser();
+                $ip_user            =   $this->get_client_ip_env();
+
+                $data               =   array(
+                    'npsn'          =>  $npsn,
+                    'nama'          =>  $nama,
+                    'sekolah'       =>  $sekolah,
+                    'role_id'       =>  $role_id,
+                    'status'        =>  $status,
+                    'waktu'         =>  $waktu,
+                    'ipaddress'     =>  $ip_user,
+                    'browser'       =>  $user_browser,
+                    'os'            =>  $user_os
+                );
+
+                //Login session
+                $this->M_riwayat->add_riwayat('pengguna_riwayat', $data);
+
                 switch ($auth->role_id) {
                     case 1:
                         redirect('dashboard');
@@ -56,6 +133,35 @@ class Authentication extends CI_Controller
 
     public function logout()
     {
+        //Add riwayat logout
+        $pengguna           =   $this->session->nama_pengguna;
+        $auth               =   $this->db->query("SELECT * FROM pengguna WHERE nama_pengguna = '$pengguna'")->row_array();
+        $npsn               =   $auth['nama_pengguna'];
+        $nama               =   $auth['nama'];
+        $sekolah            =   $auth['sekolah'];
+        $role_id            =   $auth['role_id'];
+        $status             =   "Logout";
+        $waktu              =   date_default_timezone_set('Asia/Jakarta');
+        $waktu              =   date('Y-m-d H:i:s');
+        $user_os            =   $this->get_os();
+        $user_browser       =   $this->getting_browser();
+        $ip_user            =   $this->get_client_ip_env();
+
+        $data               =   array(
+            'npsn'          =>  $npsn,
+            'nama'          =>  $nama,
+            'sekolah'       =>  $sekolah,
+            'role_id'       =>  $role_id,
+            'status'        =>  $status,
+            'waktu'         =>  $waktu,
+            'ipaddress'     =>  $ip_user,
+            'browser'       =>  $user_browser,
+            'os'            =>  $user_os
+        );
+
+        $this->M_riwayat->add_riwayat('pengguna_riwayat', $data);
+
+        // Logout session
         $this->session->sess_destroy();
         redirect('authentication/login');
     }

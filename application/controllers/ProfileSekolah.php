@@ -98,7 +98,6 @@ class ProfileSekolah extends CI_Controller
     $where = array('id' => $id,);
 
     $this->M_profile->update_profile('pengguna', $data, $where);
-    $this->session->set_flashdata('pesan', 'success');
     redirect('dashboard');
   }
 }

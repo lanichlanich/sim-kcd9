@@ -101,16 +101,16 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class="nav-item <?php if ($this->uri->segment(1) == "dashboard") {
+                                        echo "active";
+                                    } ?>"><a href="<?php echo base_url() ?>dashboard"><i class="feather icon-grid"></i><span class="menu-title">Dashboard</span></a>
+                </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Data Sekolah</span></a>
                     <ul class="menu-content">
-                        <li class="<?php if ($this->uri->segment(1) == "dashboard") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>dashboard"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Dashboard</span></a>
-                        </li>
 
                         <li class="<?php if ($this->uri->segment(1) == "profilesekolah") {
                                         echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
+                                    } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                         </li>
                         <li class="<?php if ($this->uri->segment(1) == "daftarsiswa") {
                                         echo "active";
@@ -131,7 +131,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title">Data KCD-IX</span></a>
+                <li class=" nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title">Data KCD-IX</span></a>
                     <ul class="menu-content">
                         <li class="<?php if ($this->uri->segment(1) == "daftarsekolah") {
                                         echo "active";

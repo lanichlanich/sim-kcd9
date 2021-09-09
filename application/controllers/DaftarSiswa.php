@@ -22,7 +22,7 @@ class DaftarSiswa extends CI_Controller
     public function index()
     {
         $data["title"] = "SIM KCD-IX";
-        $data["daftar_siswa"] = $this->M_Siswa->getAll();
+        $data["daftar_siswa"] = $this->M_siswa->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('daftar_siswa/index', $data);
         $this->load->view('template/footer');

@@ -63,46 +63,16 @@ if ($row->nama == $row->sekolah) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Login</td>
-                                            <td>2021-09-03 10:00:00</td>
-                                            <td>Operator</td>
-                                            <td>172.0.0.1</td>
-                                            <td>Firefox</td>
-                                            <td>Windows 10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logout</td>
-                                            <td>2021-09-01 07:00:00</td>
-                                            <td>Operator</td>
-                                            <td>172.0.0.1</td>
-                                            <td>Chrome</td>
-                                            <td>Windows 10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Login</td>
-                                            <td>2021-09-07 12:00:00</td>
-                                            <td>Operator</td>
-                                            <td>172.0.0.1</td>
-                                            <td>Chrome</td>
-                                            <td>Windows 10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logout</td>
-                                            <td>2021-09-11 07:00:00</td>
-                                            <td>Operator</td>
-                                            <td>172.0.0.1</td>
-                                            <td>Chrome</td>
-                                            <td>Windows 10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Login</td>
-                                            <td>2021-09-27 12:00:00</td>
-                                            <td>Operator</td>
-                                            <td>172.0.0.1</td>
-                                            <td>Chrome</td>
-                                            <td>Windows 10</td>
-                                        </tr>
+                                        <?php foreach ($riwayat as $r) : ?>
+                                            <tr>
+                                                <td><?php echo $r->status; ?></td>
+                                                <td><?php echo $r->waktu; ?></td>
+                                                <td><?php echo $r->nama; ?></td>
+                                                <td><?php echo $r->ipaddress; ?></td>
+                                                <td><?php echo $r->browser; ?></td>
+                                                <td><?php echo $r->os; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
