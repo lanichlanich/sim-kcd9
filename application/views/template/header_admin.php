@@ -14,13 +14,17 @@
         </li>
         <li class=" nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title">Settings</span></a>
             <ul class="menu-content">
-                <li class="<?php if ($this->uri->segment(2) == "infromasi") {
+                <li class="<?php if ($this->uri->segment(3) == "informasi") {
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>admin/settings/informasi"><i class="feather icon-info"></i><span class="menu-item" data-i18n="Fixed navbar">Informasi</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "pengguna") {
+                <li class="<?php if ($this->uri->segment(3) == "pengguna") {
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>admin/profilesekolah/pengguna"><i class="feather icon-user"></i><span class="menu-item" data-i18n="Fixed navbar">Pengguna</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(3) == "reset_password") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>admin/settings/reset_password"><i class="fa fa-key"></i><span class="menu-item" data-i18n="Fixed navbar">Reset Passowrd</span></a>
                 </li>
             </ul>
         </li>

@@ -79,12 +79,14 @@ class Authentication extends CI_Controller
         } else {
             $auth = $this->M_authentication->cek_login();
             if ($auth == FALSE) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role_id="alert">
-                    Maaf, Username atau Password Anda Salah!
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>');
+                $this->session->set_flashdata('pesan_login', '
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        Maaf, Username dan Password salah!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                ');
                 redirect('authentication/login');
             } else {
                 $this->session->set_userdata('nama_pengguna', $auth->nama_pengguna);
@@ -164,5 +166,63 @@ class Authentication extends CI_Controller
         // Logout session
         $this->session->sess_destroy();
         redirect('authentication/login');
+    }
+
+    public function forgot_password()
+    {
+        $data['title'] = "Forgot Password";
+        $this->load->view('forgot_password', $data);
+    }
+
+    public function recovery_password()
+    {
+        $this->form_validation->set_rules('npsn', 'npsn', 'required', ['required' => 'NPSN wajib diisi!']);
+        $this->form_validation->set_rules('nohp', 'nohp', 'required', ['required' => 'Nomor handphone wajib diisi!']);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = "Forgot Password";
+            $this->load->view('forgot_password', $data);
+        } else {
+            $npsn = $this->M_authentication->cek_npsn();
+            if ($npsn == FALSE) {
+                $this->session->set_flashdata('pesan_reset', '
+                    <div class="alert alert-danger alert-dismissible fade show my-1" role="alert">
+                        Maaf, NPSN tidak ditemukan.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                ');
+                redirect('authentication/forgot_password');
+            } else {
+                $npsn           =   $this->input->post('npsn');
+                $nohp           =   $this->input->post('nohp');
+                $time           =   date_default_timezone_set('Asia/Jakarta');
+                $time           =   date('d-m-Y H:i:s');
+                $status         =   '0';
+                $aprv_by        =   'NULL';
+                $aprv_time      =   'NULL';
+
+                $data = array(
+                    'npsn'          => $npsn,
+                    'nohp'          => $nohp,
+                    'add_time'      => $time,
+                    'status'        => $status,
+                    'aprove_by'     => $aprv_by,
+                    'aprove_time'   => $aprv_time
+                );
+
+                $this->M_authentication->recovery_password('recovery_password', $data);
+                $this->session->set_flashdata('pesan_reset', '
+                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        Permintaan reset password berhasil.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>            
+                ');
+                redirect('authentication/forgot_password');
+            }
+        }
     }
 }

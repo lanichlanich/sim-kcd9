@@ -35,6 +35,8 @@ class Settings extends CI_Controller
         }
     }
 
+    //Informasi
+
     public function informasi()
     {
         $data['title'] = "SIM KCD-IX";
@@ -115,5 +117,39 @@ class Settings extends CI_Controller
     {
         $this->M_settings->delete_informasi($id);
         redirect('admin/settings/informasi');
+    }
+
+    //Reset Password
+
+    public function reset_password()
+    {
+        $data['title'] = "SIM KCD-IX";
+        $data['pengguna'] = $this->M_profile->getAll();
+        $data["user"] = $this->M_profile->getAllPengguna();
+        $data['reset'] = $this->M_settings->getAllResetPassword();
+        $this->load->view('template/header', $data);
+        $this->load->view('reset_password', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function aprove()
+    {
+        $id_reset       =   $this->input->post('id_reset');
+        $id             =   $this->input->post('id_pengguna');
+        $nama_pengguna  =   $this->input->post('nama_pengguna');
+        $password       =   $this->input->post('password');
+        $update_by      =   $this->input->post('update_by');
+        $time           =   date_default_timezone_set('Asia/Jakarta');
+        $time           =   date('d-m-Y H:i:s');
+        $status         =   '1';
+
+        $data = array('nama_pengguna' => $nama_pengguna, 'password' => $password, 'update_by' => $update_by, 'update_time' => $time);
+        $where = array('id' => $id);
+        $data_reset = array('status' => $status);
+        $where_reset = array('id' => $id_reset);
+
+        $this->M_profile->update_profile('pengguna', $data, $where);
+        $this->M_settings->update_reset('recovery_password', $data_reset, $where_reset);
+        redirect('admin/settings/reset_password');
     }
 }
