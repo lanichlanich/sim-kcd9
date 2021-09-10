@@ -32,30 +32,20 @@ if ($row->nama == $row->sekolah) {
                         </div>
                         <div class="col-md-3">
                             <h3 class="mb-1">Info penting</h3>
-                            <div class="alert alert-danger" role="alert">
-                                <div class="container">
-                                    Untuk keamanan data silahkan ganti password.
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-secondary font-small-1">2021-09-01</p>
+                            <?php foreach ($informasi as $row) : ?>
+                                <?php if ($row->status == 2) { ?>
+
+                                <?php } else { ?>
+                                    <div class="alert alert-<?= $row->tema; ?>" role="alert">
+                                        <div class="container">
+                                            <?= $row->informasi; ?>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <p class="text-secondary font-small-1"><?= $row->add_time; ?></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="alert alert-primary" role="alert">
-                                <div class="container">
-                                    Panduan upload data <a href="#"><i class="fa fa-download"></i> Download</a>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-secondary font-small-1">2021-09-01</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert alert-info" role="alert">
-                                <div class="container">
-                                    Proses upload data dilakukan paling lambat 21 September 2021 pukul 23:59:59 WIB
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <p class="text-secondary font-small-1">2021-09-01</p>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php } ?>
+                            <?php endforeach; ?>
                         </div>
                         <div class="col-md-6">
                             <h3>Riwayat pengguna</h3>
@@ -73,7 +63,7 @@ if ($row->nama == $row->sekolah) {
                                     </thead>
                                     <tbody>
                                         <?php foreach ($riwayat as $r) : ?>
-                                            <tr>
+                                            <tr class="font-small-1">
                                                 <td><?php echo $r->status; ?></td>
                                                 <td class="text-center"><?php echo $r->waktu; ?></td>
                                                 <td><?php echo $r->nama; ?></td>

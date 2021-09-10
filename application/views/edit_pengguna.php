@@ -4,13 +4,18 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
         <div class="content-body">
-            <?php foreach ($pengguna as $row) : ?>
+            <!-- Data User     -->
+            <?php foreach ($user as $u) : ?>
             <?php endforeach; ?>
+            <!-- Data Admin -->
+            <?php foreach ($pengguna as $p) : ?>
+            <?php endforeach; ?>
+
             <!-- Description -->
             <section id="icon-tabs validation">
                 <div class="row">
                     <div class="col-12">
-                        <?php if ($row->nama == $row->sekolah) { ?>
+                        <?php if ($u->nama == $u->sekolah) { ?>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <p class="mb-0">
                                     Untuk keamanan data silahkan lakukan ubah <strong>nama operator sekolah</strong> dan <strong>password</strong>!
@@ -33,7 +38,7 @@
                             <div class="card-content">
                                 <div class="card-body">
                                     <!-- <p>Add <code>.icons-tab-steps</code> class to get desired icons in tab.</p> -->
-                                    <form method="POST" action="<?php echo base_url() ?>profilesekolah/update_pengguna" class="steps-validation wizard-circle">
+                                    <form method="POST" action="<?php echo base_url() ?>admin/profilesekolah/update_pengguna" class="steps-validation wizard-circle">
 
                                         <!-- Step 1 -->
                                         <h6><i class="step-icon feather icon-user"></i> Step 1</h6>
@@ -42,18 +47,18 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="operator">Nama Operator Sekolah</label>
-                                                        <?php if ($row->nama == $row->sekolah) { ?>
+                                                        <?php if ($u->nama == $u->sekolah) { ?>
                                                             <input type="text" class="form-control" name="nama" id="operator" placeholder="Nama Operator Sekolah" required>
                                                         <?php } else { ?>
-                                                            <input type="text" class="form-control" name="nama" id="operator" value="<?php echo $row->nama; ?>" required>
+                                                            <input type="text" class="form-control" name="nama" id="operator" value="<?php echo $u->nama; ?>" required>
                                                         <?php } ?>
-                                                        <input type="hidden" name="id" value="<?php echo $row->id; ?>">
-                                                        <input type="hidden" name="nama_pengguna" value="<?php echo $row->nama_pengguna; ?>">
-                                                        <input type="hidden" name="role_id" value="<?php echo $row->role_id; ?>">
-                                                        <input type="hidden" name="koreg" value="<?php echo $row->koreg; ?>">
-                                                        <input type="hidden" name="bentuk" value="<?php echo $row->bentuk; ?>">
-                                                        <input type="hidden" name="status" value="<?php echo $row->status; ?>">
-                                                        <input type="hidden" name="add_by" value="<?php echo $row->add_by; ?>">
+                                                        <input type="hidden" name="id" value="<?php echo $u->id; ?>">
+                                                        <input type="hidden" name="nama_pengguna" value="<?php echo $u->nama_pengguna; ?>">
+                                                        <input type="hidden" name="role_id" value="<?php echo $u->role_id; ?>">
+                                                        <input type="hidden" name="koreg" value="<?php echo $u->koreg; ?>">
+                                                        <input type="hidden" name="bentuk" value="<?php echo $u->bentuk; ?>">
+                                                        <input type="hidden" name="status" value="<?php echo $u->status; ?>">
+                                                        <input type="hidden" name="add_by" value="<?php echo $p->add_by; ?>">
                                                         <input type="hidden" name="add_time" value="2021-09-01 07:00:00">
                                                         <input type="hidden" name="update_time" value="<?php echo $times; ?>">
                                                     </div>
@@ -62,7 +67,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="emailAddress11">Nama Sekolah</label>
-                                                        <input type="text" class="form-control" name="sekolah" id="emailAddress11" value="<?php echo $row->sekolah; ?>" readonly>
+                                                        <input type="text" class="form-control" name="sekolah" id="emailAddress11" value="<?php echo $u->sekolah; ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,13 +80,13 @@
                                                     </div>
                                                 </div>
 
-                                                <?php if ($row->role_id == 1) { ?>
+                                                <?php if ($p->role_id == 1) { ?>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="role">Hak Akses</label>
                                                             <select class="form-control" id="role" name="role_id">
-                                                                <option value="<?php echo $row->role_id; ?>">
-                                                                    <?php if ($row->role_id == '1') {
+                                                                <option value="<?php echo $u->role_id; ?>">
+                                                                    <?php if ($u->role_id == '1') {
                                                                         echo "Admin";
                                                                     } else {
                                                                         echo "Operator Sekolah";
@@ -110,19 +115,19 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idsatu">Kode Registrasi</label>
-                                                        <input type="text" class="form-control" name="koreg" id="idsatu" value="<?php echo $row->koreg ?>" readonly>
+                                                        <input type="text" class="form-control" name="koreg" id="idsatu" value="<?php echo $u->koreg ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="iddua">Bentuk</label>
-                                                        <input type="text" class="form-control" name="bentuk" id="iddua" value="<?php echo $row->bentuk ?>" readonly>
+                                                        <input type="text" class="form-control" name="bentuk" id="iddua" value="<?php echo $u->bentuk ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idtiga">Status</label>
-                                                        <input type="text" class="form-control" name="status" id="idtiga" value="<?php echo $row->status ?>" readonly>
+                                                        <input type="text" class="form-control" name="status" id="idtiga" value="<?php echo $u->status ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,37 +153,37 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idempat">Alamat</label>
-                                                        <input type="text" class="form-control" name="alamat" id="idempat" value="<?php echo $row->alamat ?>" readonly>
+                                                        <input type="text" class="form-control" name="alamat" id="idempat" value="<?php echo $u->alamat ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idlima">Desa/Kelurahan</label>
-                                                        <input type="text" class="form-control" name="desa" id="idlima" value="<?php echo $row->desa ?>" readonly>
+                                                        <input type="text" class="form-control" name="desa" id="idlima" value="<?php echo $u->desa ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idenam">Kecamatan</label>
-                                                        <input type="text" class="form-control" name="kecamatan" id="idenam" value="<?php echo $row->kecamatan ?>" readonly>
+                                                        <input type="text" class="form-control" name="kecamatan" id="idenam" value="<?php echo $u->kecamatan ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idtujuh">Kabupaten/Kota</label>
-                                                        <input type="text" class="form-control" name="kabupaten" id="idtujuh" value="<?php echo $row->kabupaten ?>" readonly>
+                                                        <input type="text" class="form-control" name="kabupaten" id="idtujuh" value="<?php echo $u->kabupaten ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="iddelapan">Provinsi</label>
-                                                        <input type="text" class="form-control" name="provinsi" id="iddelapan" value="<?php echo $row->provinsi ?>" readonly>
+                                                        <input type="text" class="form-control" name="provinsi" id="iddelapan" value="<?php echo $u->provinsi ?>" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="idsembilan">Kode Pos</label>
-                                                        <input type="text" class="form-control" name="kodepos" id="idsembilan" value="<?php echo $row->kodepos ?>" readonly>
+                                                        <input type="text" class="form-control" name="kodepos" id="idsembilan" value="<?php echo $u->kodepos ?>" readonly>
                                                     </div>
                                                 </div>
                                             </div>

@@ -119,7 +119,7 @@ class Authentication extends CI_Controller
 
                 switch ($auth->role_id) {
                     case 1:
-                        redirect('dashboard');
+                        redirect('admin/dashboard');
                         break;
                     case 2:
                         redirect('dashboard');
