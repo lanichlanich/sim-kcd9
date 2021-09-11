@@ -13,9 +13,9 @@
                         <h4 class="mb-1" style="color: white;"><strong>Daftar Siswa</strong></h4>
                     </div>
                     <div class="card-body">
-                        <a href="daftarsiswa/#"><button class="btn btn-success">Tambah Siswa</button></a>
+                        <!-- <a href="daftarsiswa/#"><button class="btn btn-success">Tambah Siswa</button></a>
                         <a href="daftarsiswa/#"><button class="btn btn-success float-right">Export Excel</button></a>
-                        <a href="daftarsiswa/#"><button class="btn btn-danger float-right mr-1">Export PDF</button></a>
+                        <a href="daftarsiswa/#"><button class="btn btn-danger float-right mr-1">Export PDF</button></a> -->
                         <div class="row">
 
 
@@ -30,7 +30,7 @@
                                             <th>Tempat Lahir</th>
                                             <th>Tanggal Lahir</th>
                                             <th>Kelas</th>
-                                            <th>Aksi</th>
+                                            <!-- <th>Aksi</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,10 +43,10 @@
                                                 <td><?= $row->tempat_lahir ?></td>
                                                 <td><?= $row->tanggal_lahir ?></td>
                                                 <td><?= $row->rombel ?></td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="daftarsiswa/#"><button class="btn btn-warning">Edit</button></a>
                                                     <a href="daftarsiswa/#"><button class="btn btn-danger">Hapus</button></a>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         <?php endforeach; ?>
 

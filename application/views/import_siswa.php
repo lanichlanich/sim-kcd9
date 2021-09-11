@@ -16,7 +16,7 @@
 								echo $this->session->flashdata('message');
 							}
 							?>
-    						<h6><i>Download Template Excel: <a href="#">Template Siswa.xls</a></i></h6>
+    						<h6><i>Silahkan upload file excel yang di unduh dari daftar siswa dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>
     						<div class="row" id="table-hover-row">
     							<form method="post" action="<?php echo base_url('importsiswa/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
     								<div class="col-12">
