@@ -57,7 +57,7 @@ class ProfileSekolah extends CI_Controller
   {
     $id             = $this->input->post('id');
     $nama_pengguna  = $this->input->post('nama_pengguna');
-    $password       = $this->input->post('password');
+    $password       = md5($this->input->post('password'));
     $role_id        = $this->input->post('role_id');
     $koreg          = $this->input->post('koreg');
     $nama           = $this->input->post('nama');

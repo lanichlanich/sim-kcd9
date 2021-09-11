@@ -1,9 +1,14 @@
 <?php foreach ($pengguna as $row) : ?>
 <?php endforeach; ?>
 <?php
-if ($row->nama == $row->sekolah) {
-    redirect('profilesekolah/edit_profile');
+if ($row->role_id == '1') {
+    if ($row->nama == $row->sekolah) {
+        redirect('admin/profilesekolah/edit_profile');
+    }
 } else {
+    if ($row->nama == $row->sekolah) {
+        redirect('profilesekolah/edit_profile');
+    }
 }
 ?>
 <!-- BEGIN: Content-->
@@ -16,7 +21,7 @@ if ($row->nama == $row->sekolah) {
                 <div class="col-md-12">
                     <div class="card bg-gradient-primary">
                         <div class="card-body">
-                            <h2><strong>Selamat datang <?php echo $row->sekolah; ?></strong></h2>
+                            <h2 style="color: white;"><strong>Selamat datang <?php echo $row->nama; ?></strong></h2>
                             <p>
                                 SIM KCD-IX merupakan sistem manajemen data pendidikan berbasis dapodik sekolah khusus lingkungan Kantor Cabang Dinas Pendidikan Wilayah IX, Dinas Pendidikan Provinsi Jawa Barat
                             </p>

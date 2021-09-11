@@ -142,14 +142,15 @@ class Settings extends CI_Controller
         $time           =   date_default_timezone_set('Asia/Jakarta');
         $time           =   date('d-m-Y H:i:s');
         $status         =   '1';
-
+        //Update data pengguna
         $data = array('nama_pengguna' => $nama_pengguna, 'password' => $password, 'update_by' => $update_by, 'update_time' => $time);
         $where = array('id' => $id);
-        $data_reset = array('status' => $status);
-        $where_reset = array('id' => $id_reset);
-
         $this->M_profile->update_profile('pengguna', $data, $where);
+        //Update data recovery password
+        $data_reset = array('status' => $status, 'aprove_by' => $update_by, 'aprove_time' => $time);
+        $where_reset = array('id' => $id_reset);
         $this->M_settings->update_reset('recovery_password', $data_reset, $where_reset);
+
         redirect('admin/settings/reset_password');
     }
 }

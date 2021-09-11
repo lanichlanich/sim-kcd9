@@ -2,11 +2,11 @@
 
 class M_Profile extends CI_model
 {
-    private $table = 'pengguna';
+    private $table_pengguna = 'pengguna';
 
     public function getAll()
     {
-        $this->db->from($this->table);
+        $this->db->from($this->table_pengguna);
         $query = $this->db
             ->where('nama_pengguna', $this->session->nama_pengguna)->get();
         return $query->result();
@@ -14,13 +14,13 @@ class M_Profile extends CI_model
 
     public function getAllPengguna()
     {
-        $this->db->from($this->table);
+        $this->db->from($this->table_pengguna);
         $this->db->order_by('id', 'asc');
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function add_profile($table, $data)
+    public function simpan_pengguna($table, $data)
     {
         $this->db->insert($table, $data);
     }

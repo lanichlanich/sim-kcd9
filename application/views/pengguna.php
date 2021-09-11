@@ -6,11 +6,17 @@
         <div class="content-body">
             <div class="card">
                 <div class="card-header">
-                    <a href="<?php echo base_url() ?>admin/profilesekolah/add_pengguna">
-                        <button class="btn btn-success">
-                            <i class="fa fa-plus"></i> Add
-                        </button>
-                    </a>
+                    <div class="btn-group mb-1">
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle mr-1 waves-effect waves-light" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tambah Pengguna
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <a class="dropdown-item" href="<?php echo base_url(); ?>admin/profilesekolah/add_pengguna/admin">Admin</a>
+                                <a class="dropdown-item" href="<?php echo base_url(); ?>admin/profilesekolah/add_pengguna/operator_sekolah">Operator Sekolah</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive mx-1">

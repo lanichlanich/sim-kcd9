@@ -6,7 +6,8 @@ class M_authentication extends CI_model
 	public function cek_login()
 	{
 		$nama_pengguna	=	set_value('nama_pengguna');
-		$password		=	set_value('password');
+		$set_password	=	set_value('password');
+		$password		=	md5($set_password);
 
 		$result			=	$this->db
 			->where('nama_pengguna', $nama_pengguna)

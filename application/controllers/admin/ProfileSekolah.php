@@ -57,9 +57,57 @@ class ProfileSekolah extends CI_Controller
     {
         $data['title'] = "SIM KCD-IX";
         $data["pengguna"] = $this->M_profile->getAll();
+        $data["user"] = $this->M_profile->getAllPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('add_pengguna', $data);
         $this->load->view('template/footer');
+    }
+
+    public function simpan_pengguna()
+    {
+        $nama           = $this->input->post('nama');
+        $sekolah        = $this->input->post('sekolah');
+        $nama_pengguna  = $this->input->post('nama_pengguna');
+        $password       = md5($this->input->post('password'));
+        $role_id        = $this->input->post('role_id');
+        $koreg          = $this->input->post('koreg');
+        $sekolah        = $this->input->post('sekolah');
+        $bentuk         = $this->input->post('bentuk');
+        $status         = $this->input->post('status');
+        $alamat         = $this->input->post('alamat');
+        $desa           = $this->input->post('desa');
+        $kecamatan      = $this->input->post('kecamatan');
+        $kabupaten      = $this->input->post('kabupaten');
+        $provinsi       = $this->input->post('provinsi');
+        $kodepos        = $this->input->post('kodepos');
+        $add_by         = $this->input->post('add_by');
+        $add_time       = $this->input->post('add_time');
+        $update_by      = 'NULL';
+        $update_time    = 'NULL';
+
+        $data = array(
+            'nama_pengguna' => $nama_pengguna,
+            'password' => $password,
+            'role_id' => $role_id,
+            'koreg' => $koreg,
+            'nama' => $nama,
+            'sekolah' => $sekolah,
+            'bentuk' => $bentuk,
+            'status' => $status,
+            'alamat' => $alamat,
+            'desa' => $desa,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'provinsi' => $provinsi,
+            'kodepos' => $kodepos,
+            'add_by' => $add_by,
+            'add_time' => $add_time,
+            'update_by' => $update_by,
+            'update_time' => $update_time
+        );
+
+        $this->M_profile->simpan_pengguna('pengguna', $data);
+        redirect('admin/profilesekolah/pengguna');
     }
 
     //Profile pribadi
@@ -88,7 +136,7 @@ class ProfileSekolah extends CI_Controller
     {
         $id             = $this->input->post('id');
         $nama_pengguna  = $this->input->post('nama_pengguna');
-        $password       = $this->input->post('password');
+        $password       = md5($this->input->post('password'));
         $role_id        = $this->input->post('role_id');
         $koreg          = $this->input->post('koreg');
         $nama           = $this->input->post('nama');

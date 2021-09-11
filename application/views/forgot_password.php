@@ -77,7 +77,7 @@
                                                     <div class="form-label-group">
                                                         <input type="text" id="nohp" name="nohp" class="form-control" placeholder="Nomor Handphone">
                                                         <?php echo form_error('nohp', '<div class="text-danger small">', '</div>'); ?>
-                                                        <label for="nohp">NPSN</label>
+                                                        <label for="nohp">Nomor Handphone</label>
                                                     </div>
                                                     <div class="float-md-right d-block mb-1">
                                                         <button type="submit" class="btn btn-primary btn-block px-75">Reset Password</button>
