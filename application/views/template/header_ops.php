@@ -24,9 +24,9 @@
                             } ?>">
                     <a href="<?php echo base_url() ?>importsiswa"><i class="feather icon-upload"></i><span class="menu-item">Import Siswa</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(1) == "importptk") {
+                <li class="<?php if ($this->uri->segment(1) == "importprofile") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>importptk"><i class="feather icon-upload"></i><span class="menu-item">Import PTK</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>importprofile"><i class="feather icon-upload"></i><span class="menu-item">Import Profile</span></a>
                 </li>
             </ul>
         </li>
