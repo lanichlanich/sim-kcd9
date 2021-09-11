@@ -45,6 +45,7 @@ class ImportProfile extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
     $this->load->view('template/header', $data);
     $this->load->view('import_profile', $data);
     $this->load->view('template/footer');
@@ -68,6 +69,8 @@ class ImportProfile extends CI_Controller
     // echo '<pre>';
     // print_r($sheetdata); test upload file excel nya :)
 
+    $kode = $this->input->post('kode');
+
     //$user_id=$sheetdata[$i][4];
     $nama_sekolah = $sheetdata->getCell('D4');
     $npsn = $sheetdata->getCell('D5');
@@ -87,7 +90,7 @@ class ImportProfile extends CI_Controller
 
     date_default_timezone_set("Asia/Jakarta");
 
-    $data[] = array(
+    $data = array(
       'nama_sekolah'  => $nama_sekolah,
       'npsn'          => $npsn,
       'jenjang'       => $jenjang,
@@ -102,17 +105,22 @@ class ImportProfile extends CI_Controller
       'provinsi'      => $provinsi,
       'negara'        => $negara,
       'lintang'       => $lintang,
-      'bujur'         => $bujur,
-      //'user_id'=>$user_id,
+      'bujur'         => $bujur
     );
 
-    $inserdata = $this->m_importprofile->insert_batch($data);
-    if ($inserdata) {
-      $this->session->set_flashdata('message', '<div class="alert alert-success">Data siswa sukses terupload.</div>');
-      redirect('importprofile');
-    } else {
-      $this->session->set_flashdata('message', '<div class="alert alert-danger">Data siswa gagal terupload. Coba lagi.</div>');
-      redirect('importprofile');
-    }
+    $where = array(
+      'id_profile'    => $kode
+    );
+
+    $this->m_importprofile->update_profile('profile_sekolah', $data, $where);
+    $this->session->set_flashdata('success', '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Data profile sekolah sukses terupload.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    ');
+    redirect('profilesekolah');
   }
 }

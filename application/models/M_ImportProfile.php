@@ -17,4 +17,9 @@ class M_ImportProfile extends CI_model
             return 0;
         }
     }
+
+    public function update_profile($table, $data, $where)
+    {
+        $this->db->update($table, $data, $where);
+    }
 }

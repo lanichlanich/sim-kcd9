@@ -4,11 +4,19 @@ class M_Profile extends CI_model
 {
     private $table_pengguna = 'pengguna';
 
+    private $table_profile = 'profile_sekolah';
+
     public function getAll()
     {
         $this->db->from($this->table_pengguna);
-        $query = $this->db
-            ->where('nama_pengguna', $this->session->nama_pengguna)->get();
+        $query = $this->db->where('nama_pengguna', $this->session->nama_pengguna)->get();
+        return $query->result();
+    }
+
+    public function getAllProfile()
+    {
+        $this->db->from($this->table_profile);
+        $query = $this->db->where('npsn', $this->session->nama_pengguna)->get();
         return $query->result();
     }
 
