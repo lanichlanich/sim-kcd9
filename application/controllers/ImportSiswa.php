@@ -215,13 +215,7 @@ class ImportSiswa extends CI_Controller
 			}
 
 			$inserdata = $this->m_importsiswa->insert_batch($data);
-			if ($inserdata) {
-				$this->session->set_flashdata('message', '<div class="alert alert-success">Data siswa sukses terupload.</div>');
-				redirect('importsiswa');
-			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger">Data siswa gagal terupload. Coba lagi.</div>');
-				redirect('importsiswa');
-			}
+			redirect('profilesekolah');
 		}
 	}
 }

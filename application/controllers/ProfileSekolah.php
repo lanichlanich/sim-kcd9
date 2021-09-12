@@ -40,7 +40,10 @@ class ProfileSekolah extends CI_Controller
     $data['title'] = "SIM KCD-IX";
     $data["pengguna"] = $this->M_profile->getAll();
     $data['profile'] = $this->M_profile->getAllProfile();
-    $data['siswa'] = $this->M_siswa->countAll();
+    $data['siswa'] = $this->M_siswa->countAllSiswa();
+    $data['rombel'] = $this->M_profile->countAllRombel();
+    $data['guru'] = $this->M_gtk->countAllGuru();
+    $data['tendik'] = $this->M_gtk->countAllTendik();
     $this->load->view('template/header', $data);
     $this->load->view('profile_sekolah', $data);
     $this->load->view('template/footer');

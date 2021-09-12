@@ -8,18 +8,18 @@ class M_ImportProfile extends CI_model
         parent::__construct();
     }
 
-    public function insert_batch($data)
+    public function update_profile($table, $data, $where)
     {
-        $this->db->insert_batch('profile_sekolah', $data);
+        $this->db->update($table, $data, $where);
+    }
+
+    public function insert_rombel($data)
+    {
+        $this->db->insert_batch('daftar_rombel', $data);
         if ($this->db->affected_rows() > 0) {
             return 1;
         } else {
             return 0;
         }
-    }
-
-    public function update_profile($table, $data, $where)
-    {
-        $this->db->update($table, $data, $where);
     }
 }

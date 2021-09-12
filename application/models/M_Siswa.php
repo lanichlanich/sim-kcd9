@@ -13,7 +13,7 @@ class M_Siswa extends CI_Model
         return $query->result();
     }
 
-    public function countAll()
+    public function countAllSiswa()
     {
         $this->db->from($this->table);
         $query = $this->db->where('periode', '2122')->get();

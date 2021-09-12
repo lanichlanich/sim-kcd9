@@ -28,7 +28,7 @@
                                             <i class="feather icon-user-check text-info font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">56</h2>
+                                    <h2 class="text-bold-700"><?php echo $guru; ?></h2>
                                     <p class="mb-0 line-ellipsis">Pendidik</p>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                             <i class="feather icon-user-check text-warning font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">16</h2>
+                                    <h2 class="text-bold-700"><?php echo $tendik; ?></h2>
                                     <p class="mb-0 line-ellipsis">Tenaga Kependidikan</p>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                             <i class="feather icon-layers text-danger font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">36</h2>
+                                    <h2 class="text-bold-700"><?php echo $rombel; ?></h2>
                                     <p class="mb-0 line-ellipsis">Rombel</p>
                                 </div>
                             </div>

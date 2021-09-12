@@ -6,6 +6,8 @@ class M_Profile extends CI_model
 
     private $table_profile = 'profile_sekolah';
 
+    private $table_rombel = 'daftar_rombel';
+
     public function getAll()
     {
         $this->db->from($this->table_pengguna);
@@ -26,6 +28,13 @@ class M_Profile extends CI_model
         $this->db->order_by('id', 'asc');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function countAllRombel()
+    {
+        $this->db->from($this->table_rombel);
+        $query = $this->db->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->num_rows();
     }
 
     public function simpan_pengguna($table, $data)

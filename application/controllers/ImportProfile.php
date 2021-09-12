@@ -113,14 +113,52 @@ class ImportProfile extends CI_Controller
     );
 
     $this->m_importprofile->update_profile('profile_sekolah', $data, $where);
-    $this->session->set_flashdata('success', '
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data profile sekolah sukses terupload.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    ');
-    redirect('profilesekolah');
+
+    $upload_file = $_FILES['upload_file']['name'];
+    $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
+    if ($extension == 'csv') {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+    } else if ($extension == 'xls') {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+    } else {
+      $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+    }
+    $spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
+    $sheetRombel = $spreadsheet->getSheetByName('Rombongan Belajar')->toArray();
+
+    $sheetcount = count($sheetRombel);
+    if ($sheetcount > 1) {
+      $data = array();
+      for ($i = 7; $i < $sheetcount; $i++) {
+        $periode    = '2122';
+        $npsn       = $this->session->nama_pengguna;
+        $nama       = $sheetRombel[$i][1];
+        $tingkat    = $sheetRombel[$i][2];
+        $lk         = $sheetRombel[$i][3];
+        $pr         = $sheetRombel[$i][4];
+        $jml        = $sheetRombel[$i][5];
+        $walikelas  = $sheetRombel[$i][6];
+        $kurikulum  = $sheetRombel[$i][7];
+        $ruangan    = $sheetRombel[$i][8];
+
+        date_default_timezone_set("Asia/Jakarta");
+
+        $data[] = array(
+          'periode'     => $periode,
+          'npsn'        => $npsn,
+          'nama'        => $nama,
+          'tingkat'     => $tingkat,
+          'lk'          => $lk,
+          'pr'          => $pr,
+          'jml'         => $jml,
+          'walikelas'   => $walikelas,
+          'kurikulum'   => $kurikulum,
+          'ruangan'     => $ruangan
+        );
+      }
+
+      $this->m_importprofile->insert_rombel($data);
+      redirect('profilesekolah');
+    }
   }
 }
