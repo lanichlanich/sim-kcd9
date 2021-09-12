@@ -7,7 +7,7 @@
                 <!-- Description -->
                 <section id="description" class="card container">
                     <div class="card-header">
-                        <h4 class="card-title">Data Siswa</h4>
+                        <h4 class="card-title">Data Guru</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -19,26 +19,32 @@
                                                 <table class="table table-hover display nowrap mb-0" id="sekolah">
                                                     <thead>
                                                         <tr>
-                                                            <th>Nama Siswa</th>
-                                                            <th>No Induk</th>
-                                                            <th>NISN</th>
-                                                            <th>JK</th>
-                                                            <th>Tempat Lahir</th>
-                                                            <th>Tanggal Lahir</th>
-                                                            <th>Kelas</th>
+                                                            <th>Nama</th>
+                                                            <th>Tempat, Tanggal Lahir</th>
+                                                            <th>NIP/NUPTK</th>
+                                                            <th>Status Pegawai</th>
                                                             <!-- <th>Aksi</th> -->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($siswa as $s) : ?>
+                                                        <?php foreach ($guru as $g) : ?>
                                                             <tr>
-                                                                <td><?php echo $s->nama; ?></td>
-                                                                <td><?php echo $s->nipd; ?></td>
-                                                                <td><?php echo $s->nisn; ?></td>
-                                                                <td><?php echo $s->jk; ?></td>
-                                                                <td><?php echo $s->tempat_lahir; ?></td>
-                                                                <td><?php echo $s->tanggal_lahir; ?></td>
-                                                                <td><?php echo $s->rombel; ?></td>
+                                                                <td><?php echo $g->nama; ?></td>
+                                                                <td><?php echo $g->status_kepegawaian; ?></td>
+                                                                <td><?php echo $g->tempat_lahir . ", " . $g->tanggal_lahir; ?></td>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($g->status_kepegawaian == "PNS") {
+                                                                        echo $g->nip;
+                                                                    } else {
+                                                                        if ($g->nuptk == "") {
+                                                                            echo "-";
+                                                                        } else {
+                                                                            echo $g->nuptk;
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </td>
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>

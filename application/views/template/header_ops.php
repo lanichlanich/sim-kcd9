@@ -7,13 +7,25 @@
         <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Data Sekolah</span></a>
             <ul class="menu-content">
 
-                <li class="<?php if ($this->uri->segment(1) == "profilesekolah") {
+                <li class="<?php if ($this->uri->segment(2) == "index") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/index"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(1) == "daftarsiswa") {
+                <li class="<?php if ($this->uri->segment(2) == "data_siswa") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Daftar Siswa</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_siswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(2) == "data_rombel") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_rombel"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="Floating navbar">Data Rombel</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(2) == "data_guru") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_guru"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="Floating navbar">Data Guru</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(2) == "data_tendik") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_tendik"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="Floating navbar">Data Tendik</span></a>
                 </li>
             </ul>
         </li>
@@ -40,13 +52,5 @@
                 </li>
             </ul>
         </li>
-        <!-- <li class=" nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title">Data KCD-IX</span></a>
-            <ul class="menu-content">
-                <li class="<?php if ($this->uri->segment(1) == "daftarsekolah") {
-                                echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>daftarsekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Daftar Sekolah</span></a>
-                </li>
-            </ul>
-        </li> -->
     </ul>
 </div>

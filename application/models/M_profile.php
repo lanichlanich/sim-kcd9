@@ -6,7 +6,15 @@ class M_Profile extends CI_model
 
     private $table_profile = 'profile_sekolah';
 
+    private $table_siswa = 'daftar_pd';
+
     private $table_rombel = 'daftar_rombel';
+
+    private $table_guru = 'daftar_guru';
+
+    private $table_tendik = 'daftar_tendik';
+
+    //DATA
 
     public function getAll()
     {
@@ -30,12 +38,70 @@ class M_Profile extends CI_model
         return $query->result();
     }
 
+    public function getAllSiswa()
+    {
+        $this->db->from($this->table_siswa);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->result();
+    }
+
+    public function getAllRombel()
+    {
+        $this->db->from($this->table_rombel);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->result();
+    }
+
+    public function getAllGuru()
+    {
+        $this->db->from($this->table_guru);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->result();
+    }
+
+    public function getAllTendik()
+    {
+        $this->db->from($this->table_tendik);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->result();
+    }
+
+    //HITUNG JUMLAH
+
+    public function countAllSiswa()
+    {
+        $this->db->from($this->table_siswa);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->num_rows();
+    }
+
     public function countAllRombel()
     {
         $this->db->from($this->table_rombel);
         $query = $this->db->where('npsn', $this->session->nama_pengguna)->get();
         return $query->num_rows();
     }
+
+    public function countAllGuru()
+    {
+        $this->db->from($this->table_guru);
+        $query = $this->db->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->num_rows();
+    }
+
+    public function countAllTendik()
+    {
+        $this->db->from($this->table_tendik);
+        $query = $this->db->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->num_rows();
+    }
+
+    //FUNGSI CRUD
 
     public function simpan_pengguna($table, $data)
     {

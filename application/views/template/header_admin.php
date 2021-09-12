@@ -8,7 +8,11 @@
             <ul class="menu-content">
                 <li class="<?php if ($this->uri->segment(2) == "daftarsekolah") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>admin/daftarsekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Daftar Sekolah</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftarsekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Data Sekolah</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(2) == "daftarsiswa") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Siswa</span></a>
                 </li>
             </ul>
         </li>

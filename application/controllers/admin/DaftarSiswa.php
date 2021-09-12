@@ -1,0 +1,101 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class DaftarSiswa extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("M_siswa"); //load model mahasiswa
+        if ($this->session->userdata('role_id') != '1') {
+            $this->session->set_flashdata('pesan', '
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                Maaf, Anda belum Login!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
+            redirect('authentication/login');
+        }
+    }
+
+    public function index()
+    {
+        $data["title"] = "SIM KCD-IX";
+        $data["siswa"] = $this->M_siswa->getAll();
+        $data["sekolah"] = $this->M_sekolah->getAll();
+        $this->load->view('template/header', $data);
+        $this->load->view('daftar_siswa/index', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function export()
+    {
+        $npsn = $this->input->post('sekolah');
+        if ($npsn == 'all') {
+            //All Data
+            $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+            $no = 3; //Mulai baris
+            foreach ($this->M_siswa->generateAll() as $all) {
+                $npsn = $all->npsn;
+                $judul = 'Data Siswa di Cabang Dinas Pendidikan Wilayah IX';
+                $sheet->getCell('A1')->setValue($judul);
+                $sheet->getCell('A2')->setValue('Nama Siswa');
+                $sheet->getCell('B2')->setValue('NISN');
+                $sheet->getCell('C2')->setValue('JK');
+                $sheet->getCell('D2')->setValue('Tempat Tanggal Lahir');
+                $sheet->getCell('E2')->setValue('Kelas');
+                $sheet->getCell('F2')->setValue('Sekolah');
+                $sheet->getCell('A' . $no++)->setValue($all->nama);
+                $sheet->getCell('B' . $no++)->setValue("'" . $all->nisn);
+                $sheet->getCell('C' . $no++)->setValue($all->jk);
+                $sheet->getCell('D' . $no++)->setValue($all->tempat_lahir . ', ' . $all->tanggal_lahir);
+                $sheet->getCell('E' . $no++)->setValue($all->rombel);
+                foreach ($this->M_sekolah->getWhere($npsn) as $sekolah) {
+                    $sheet->getCell('F' . $no++)->setValue($sekolah->nama_sekolah);
+                }
+            };
+
+            $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+
+            $filename = 'Data Siswa di CADISDIK WIL-IX';
+
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+            header('Cache-Control: max-age=0');
+
+            $writer->save('php://output');
+        } else {
+            //Data by Sekolah
+            foreach ($this->M_sekolah->getWHere($npsn) as $s) {
+                $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
+                $sheet = $spreadsheet->getActiveSheet();
+                $no = 3; //Mulai baris
+                foreach ($this->M_siswa->getWhere($npsn) as $row) {
+                    $judul = 'Data Siswa di ' . $s->nama_sekolah;
+                    $sheet->getCell('A1')->setValue($judul);
+                    $sheet->getCell('A2')->setValue('Nama Siswa');
+                    $sheet->getCell('B2')->setValue('NISN');
+                    $sheet->getCell('C2')->setValue('JK');
+                    $sheet->getCell('D2')->setValue('Tempat Tanggal Lahir');
+                    $sheet->getCell('E2')->setValue('Kelas');
+                    $sheet->getCell('A' . $no++)->setValue($row->nama);
+                    $sheet->getCell('B' . $no++)->setValue("'" . $row->nisn);
+                    $sheet->getCell('C' . $no++)->setValue($row->jk);
+                    $sheet->getCell('D' . $no++)->setValue($row->tempat_lahir . ', ' . $row->tanggal_lahir);
+                    $sheet->getCell('E' . $no++)->setValue($row->rombel);
+                };
+                $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+
+                $filename = 'Data Siswa di ' . $s->nama_sekolah;
+
+                header('Content-Type: application/vnd.ms-excel');
+                header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+                header('Cache-Control: max-age=0');
+
+                $writer->save('php://output');
+            }
+        }
+    }
+}

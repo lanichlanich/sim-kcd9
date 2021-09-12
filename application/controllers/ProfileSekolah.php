@@ -40,12 +40,56 @@ class ProfileSekolah extends CI_Controller
     $data['title'] = "SIM KCD-IX";
     $data["pengguna"] = $this->M_profile->getAll();
     $data['profile'] = $this->M_profile->getAllProfile();
-    $data['siswa'] = $this->M_siswa->countAllSiswa();
+    $data['siswa'] = $this->M_profile->countAllSiswa();
     $data['rombel'] = $this->M_profile->countAllRombel();
-    $data['guru'] = $this->M_gtk->countAllGuru();
-    $data['tendik'] = $this->M_gtk->countAllTendik();
+    $data['guru'] = $this->M_profile->countAllGuru();
+    $data['tendik'] = $this->M_profile->countAllTendik();
     $this->load->view('template/header', $data);
     $this->load->view('profile_sekolah', $data);
+    $this->load->view('template/footer');
+  }
+
+  //Data Siswa
+  public function data_siswa()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
+    $data["siswa"] = $this->M_profile->getAllSiswa();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_siswa', $data);
+    $this->load->view('template/footer');
+  }
+
+  //Data Rombel
+  public function data_rombel()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
+    $data["rombel"] = $this->M_profile->getAllRombel();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_rombel', $data);
+    $this->load->view('template/footer');
+  }
+
+  //Data Guru
+  public function data_guru()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
+    $data["guru"] = $this->M_profile->getAllGuru();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_guru', $data);
+    $this->load->view('template/footer');
+  }
+
+  //Data Tendik
+  public function data_tendik()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
+    $data["tendik"] = $this->M_profile->getAllTendik();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_tendik', $data);
     $this->load->view('template/footer');
   }
 
