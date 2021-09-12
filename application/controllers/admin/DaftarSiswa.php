@@ -36,7 +36,13 @@ class DaftarSiswa extends CI_Controller
             //All Data
             $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
-            $no = 3; //Mulai baris
+            //Mulai baris
+            $noA = 3;
+            $noB = 3;
+            $noC = 3;
+            $noD = 3;
+            $noE = 3;
+            $noF = 3;
             foreach ($this->M_siswa->generateAllSiswa() as $all) {
                 $npsn = $all->npsn;
                 $judul = 'Data Siswa di Cabang Dinas Pendidikan Wilayah IX';
@@ -47,13 +53,13 @@ class DaftarSiswa extends CI_Controller
                 $sheet->getCell('D2')->setValue('Tempat Tanggal Lahir');
                 $sheet->getCell('E2')->setValue('Kelas');
                 $sheet->getCell('F2')->setValue('Sekolah');
-                $sheet->getCell('A' . $no++)->setValue($all->nama);
-                $sheet->getCell('B' . $no++)->setValue("'" . $all->nisn);
-                $sheet->getCell('C' . $no++)->setValue($all->jk);
-                $sheet->getCell('D' . $no++)->setValue($all->tempat_lahir . ', ' . $all->tanggal_lahir);
-                $sheet->getCell('E' . $no++)->setValue($all->rombel);
+                $sheet->getCell('A' . $noA++)->setValue($all->nama);
+                $sheet->getCell('B' . $noB++)->setValue("'" . $all->nisn);
+                $sheet->getCell('C' . $noC++)->setValue($all->jk);
+                $sheet->getCell('D' . $noD++)->setValue($all->tempat_lahir . ', ' . $all->tanggal_lahir);
+                $sheet->getCell('E' . $noE++)->setValue($all->rombel);
                 foreach ($this->M_sekolah->getWhere($npsn) as $sekolah) {
-                    $sheet->getCell('F' . $no++)->setValue($sekolah->nama_sekolah);
+                    $sheet->getCell('F' . $noF++)->setValue($sekolah->nama_sekolah);
                 }
             };
 
@@ -71,7 +77,12 @@ class DaftarSiswa extends CI_Controller
             foreach ($this->M_sekolah->getWHere($npsn) as $s) {
                 $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
                 $sheet = $spreadsheet->getActiveSheet();
-                $no = 3; //Mulai baris
+                //Mulai baris
+                $noA = 3;
+                $noB = 3;
+                $noC = 3;
+                $noD = 3;
+                $noE = 3;
                 foreach ($this->M_siswa->getWhere($npsn) as $row) {
                     $judul = 'Data Siswa di ' . $s->nama_sekolah;
                     $sheet->getCell('A1')->setValue($judul);
@@ -80,11 +91,11 @@ class DaftarSiswa extends CI_Controller
                     $sheet->getCell('C2')->setValue('JK');
                     $sheet->getCell('D2')->setValue('Tempat Tanggal Lahir');
                     $sheet->getCell('E2')->setValue('Kelas');
-                    $sheet->getCell('A' . $no++)->setValue($row->nama);
-                    $sheet->getCell('B' . $no++)->setValue("'" . $row->nisn);
-                    $sheet->getCell('C' . $no++)->setValue($row->jk);
-                    $sheet->getCell('D' . $no++)->setValue($row->tempat_lahir . ', ' . $row->tanggal_lahir);
-                    $sheet->getCell('E' . $no++)->setValue($row->rombel);
+                    $sheet->getCell('A' . $noA++)->setValue($row->nama);
+                    $sheet->getCell('B' . $noB++)->setValue("'" . $row->nisn);
+                    $sheet->getCell('C' . $noC++)->setValue($row->jk);
+                    $sheet->getCell('D' . $noD++)->setValue($row->tempat_lahir . ', ' . $row->tanggal_lahir);
+                    $sheet->getCell('E' . $noE++)->setValue($row->rombel);
                 };
                 $writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 
