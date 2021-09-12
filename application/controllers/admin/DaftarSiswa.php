@@ -37,7 +37,7 @@ class DaftarSiswa extends CI_Controller
             $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
             $no = 3; //Mulai baris
-            foreach ($this->M_siswa->generateAll() as $all) {
+            foreach ($this->M_siswa->generateAllSiswa() as $all) {
                 $npsn = $all->npsn;
                 $judul = 'Data Siswa di Cabang Dinas Pendidikan Wilayah IX';
                 $sheet->getCell('A1')->setValue($judul);

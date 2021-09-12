@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_ImportSiswa extends CI_model
 {
@@ -8,16 +8,13 @@ class M_ImportSiswa extends CI_model
 		parent::__construct();
 	}
 
-	public function insert_batch($data)
+	public function insert_pd($data)
 	{
-        $this->db->insert_batch('daftar_pd',$data);
-		if($this->db->affected_rows()>0)
-		{
+		$this->db->insert_batch('daftar_pd', $data);
+		if ($this->db->affected_rows() > 0) {
 			return 1;
-		}
-        else
-		{
+		} else {
 			return 0;
 		}
-    }
+	}
 }

@@ -49,6 +49,9 @@
         $('#sekolah').DataTable({
             responsive: true
         });
+		$('#daftar_siswa').DataTable({
+            responsive: true
+        });
     })
 </script>
 <script>
