@@ -143,12 +143,12 @@ class ImportSiswa extends CI_Controller
 
 				$data[] = array(
 					//'user_id'=>$user_id,
+					'nisn' => $nisn,
 					'periode' => $periode,
 					'npsn' => $npsn,
 					'nama' => $nama,
 					'nipd' => $nipd,
 					'jk' => $jk,
-					'nisn' => $nisn,
 					'tempat_lahir' => $tempat_lahir,
 					'tanggal_lahir' => $tanggal_lahir,
 					'nik' => $nik,
@@ -213,8 +213,12 @@ class ImportSiswa extends CI_Controller
 					'tanggal_daftar' => date("Y-m-d h:i:sa")
 				);
 			}
+			$keyArray = array('npsn' => $this->session->nama_pengguna, 'periode' => $periode);
+			//$this->m_importsiswa->delete_pd($keyArray);
+			$this->db->where($keyArray);
+			$this->db->delete('daftar_pd');
 
-			$inserdata = $this->m_importsiswa->insert_batch($data);
+			$inserdata = $this->m_importsiswa->insert_pd($data);
 			redirect('profilesekolah');
 		}
 	}
