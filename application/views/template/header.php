@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/tables/datatable/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/vendors/css/extensions/toastr.css">
 
     <!-- END: Vendor CSS-->
 
@@ -32,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/css/themes/semi-dark-layout.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/css/plugins/forms/wizard.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/css/plugins/extensions/toastr.css">
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -75,7 +77,12 @@
                                     <h1><i class="fa fa-user-circle"></i></h1>
                                 </span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?php echo base_url() ?>profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <?php if ($rows['role_id'] == 1) { ?>
+                                    <a class="dropdown-item" href="<?php echo base_url() ?>admin/profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
+                                <?php } else { ?>
+                                    <a class="dropdown-item" href="<?php echo base_url() ?>profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
+                                <?php } ?>
                                 <a class="dropdown-item" href="<?php echo base_url('authentication/logout') ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
@@ -99,51 +106,11 @@
             </ul>
         </div>
         <div class="shadow-bottom"></div>
-        <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Data Sekolah</span></a>
-                    <ul class="menu-content">
-                        <li class="<?php if ($this->uri->segment(1) == "dashboard") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>dashboard"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Dashboard</span></a>
-                        </li>
-
-                        <li class="<?php if ($this->uri->segment(1) == "profilesekolah") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>profilesekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
-                        </li>
-                        <li class="<?php if ($this->uri->segment(1) == "daftarsiswa") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Daftar Siswa</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-upload"></i><span class="menu-title">Import Data</span></a>
-                    <ul class="menu-content">
-                        <li class="<?php if ($this->uri->segment(1) == "importsiswa") {
-                                        echo "active";
-                                    } ?>">
-                            <a href="<?php echo base_url() ?>importsiswa"><i class="feather icon-upload"></i><span class="menu-item">Import Siswa</span></a>
-                        </li>
-                        <li class="<?php if ($this->uri->segment(1) == "importptk") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>importptk"><i class="feather icon-upload"></i><span class="menu-item">Import PTK</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title">Data KCD-IX</span></a>
-                    <ul class="menu-content">
-                        <li class="<?php if ($this->uri->segment(1) == "daftarsekolah") {
-                                        echo "active";
-                                    } ?>"><a href="<?php echo base_url() ?>daftarsekolah"><i class="feather icon-home"></i><span class="menu-item" data-i18n="Fixed navbar">Daftar Sekolah</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- <li class=" nav-item"><a href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation"><i class="feather icon-folder"></i><span class="menu-title" data-i18n="Documentation">Documentation</span></a>
-                </li>
-                <li class=" nav-item"><a href="https://pixinvent.ticksy.com/"><i class="feather icon-life-buoy"></i><span class="menu-title" data-i18n="Raise Support">Raise Support</span></a>
-                </li> -->
-            </ul>
-        </div>
+        <?php if ($rows['role_id'] == '1') {
+            $this->load->view('template/header_admin');
+        } else {
+            $this->load->view('template/header_ops');
+        }
+        ?>
     </div>
     <!-- END: Main Menu-->

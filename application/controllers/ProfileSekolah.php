@@ -38,6 +38,12 @@ class ProfileSekolah extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
+    $data['profile'] = $this->M_profile->getAllProfile();
+    $data['siswa'] = $this->M_siswa->countAllSiswa();
+    $data['rombel'] = $this->M_profile->countAllRombel();
+    $data['guru'] = $this->M_gtk->countAllGuru();
+    $data['tendik'] = $this->M_gtk->countAllTendik();
     $this->load->view('template/header', $data);
     $this->load->view('profile_sekolah', $data);
     $this->load->view('template/footer');
@@ -46,6 +52,7 @@ class ProfileSekolah extends CI_Controller
   public function edit_profile()
   {
     $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->M_profile->getAll();
     $this->load->view('template/header', $data);
     $this->load->view('edit_profile', $data);
     $this->load->view('template/footer');
@@ -55,7 +62,7 @@ class ProfileSekolah extends CI_Controller
   {
     $id             = $this->input->post('id');
     $nama_pengguna  = $this->input->post('nama_pengguna');
-    $password       = $this->input->post('password');
+    $password       = md5($this->input->post('password'));
     $role_id        = $this->input->post('role_id');
     $koreg          = $this->input->post('koreg');
     $nama           = $this->input->post('nama');

@@ -12,4 +12,11 @@ class M_Siswa extends CI_Model
             ->where('npsn', $this->session->nama_pengguna)->get();
         return $query->result();
     }
+
+    public function countAllSiswa()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->where('periode', '2122')->get();
+        return $query->num_rows();
+    }
 }

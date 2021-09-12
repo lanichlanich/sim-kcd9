@@ -15,9 +15,7 @@
                     <div class="card-body">
                         <a href="daftarsekolah/tambah_sekolah"><button class="btn btn-success">Tambah Sekolah</button></a>
                         <div class="row">
-
-
-                            <div class="table-responsive">
+                            <div class="table-responsive mx-1">
                                 <table class="table table-hover display nowrap mb-0" id="sekolah">
                                     <thead>
                                         <tr>
@@ -33,28 +31,25 @@
                                     <tbody>
                                         <?php foreach ($daftar_sekolah as $row) : ?>
                                             <tr>
-                                                <td><?= $row->nama ?></td>
+                                                <td><?= $row->sekolah ?></td>
                                                 <td><?= $row->nama_pengguna ?></td>
                                                 <td><?= $row->bentuk ?></td>
                                                 <td><?= $row->status ?></td>
                                                 <td><?= $row->kabupaten ?></td>
                                                 <td><?= $row->alamat ?></td>
                                                 <td>
-                                                    <a href="daftarsekolah/#"><button class="btn btn-warning">Edit</button></a>
-                                                    <a href="daftarsekolah/#"><button class="btn btn-danger">Hapus</button></a>
+                                                    <a href="daftarsekolah/#"><button class="btn btn-warning" style="width: 100px;">Edit</button></a>
+                                                    <a href="daftarsekolah/#"><button class="btn btn-danger" style="width: 100px;">Hapus</button></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </div>
 </div>

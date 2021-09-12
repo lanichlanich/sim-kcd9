@@ -55,15 +55,15 @@
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
                                 <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                    <img src="<?php echo base_url() ?>app-assets/images/pages/login.png" alt="branding logo">
+                                    <img src="<?php echo base_url() ?>app-assets/images/logo/cropped-LOGO9-web.png" alt="branding logo" width="50%">
                                 </div>
                                 <div class="col-lg-6 col-12 p-0">
                                     <div class="card rounded-0 mb-0 px-2">
+                                        <?php echo $this->session->flashdata('pesan_login'); ?>
                                         <div class="card-header pb-1">
                                             <div class="card-title">
                                                 <h4 class="mb-0">Login</h4>
                                             </div>
-                                            <?php echo $this->session->flashdata('pesan'); ?>
                                         </div>
                                         <!-- <p class="px-2">Welcome back, please login to your account.</p> -->
                                         <div class="card-content">
@@ -99,7 +99,7 @@
                                                                 </div>
                                                             </fieldset>
                                                         </div>
-                                                        <div class="text-right"><a href="auth-forgot-password" class="card-link">Lupa Password?</a></div>
+                                                        <div class="text-right"><a href="<?php echo base_url(); ?>authentication/forgot_password" class="card-link">Lupa Password?</a></div>
                                                     </div>
                                                     <!-- <a href="auth-register.html" class="btn btn-outline-primary float-left btn-inline">Register</a> -->
                                                     <button type="submit" class="btn btn-primary float-right btn-inline mb-2">Login</button>

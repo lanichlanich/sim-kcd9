@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ImportPtk extends CI_Controller
+class Dashboard extends CI_Controller
 {
 
   /**
@@ -24,7 +24,7 @@ class ImportPtk extends CI_Controller
   {
     parent::__construct();
 
-    if ($this->session->userdata('role_id') != '2') {
+    if ($this->session->userdata('role_id') != '1') {
       $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                     Maaf, Anda belum Login!
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,8 +38,11 @@ class ImportPtk extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
+    $data['pengguna'] = $this->M_profile->getAll();
+    $data['riwayat'] = $this->M_riwayat->getAll();
+    $data['informasi'] = $this->M_settings->getAllInformasi();
     $this->load->view('template/header', $data);
-    $this->load->view('import_ptk', $data);
+    $this->load->view('dashboard', $data);
     $this->load->view('template/footer');
   }
 }

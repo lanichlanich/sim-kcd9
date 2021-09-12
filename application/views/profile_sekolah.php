@@ -1,4 +1,9 @@
-<?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
+<?php echo $this->session->flashdata('pesan'); ?>
+<?php foreach ($pengguna as $pg) : ?>
+<?php endforeach; ?>
+<?php foreach ($profile as $pr) : ?>
+<?php endforeach; ?>
+
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -23,8 +28,8 @@
                                             <i class="feather icon-user-check text-info font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">56</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Pendidik</p>
+                                    <h2 class="text-bold-700"><?php echo $guru; ?></h2>
+                                    <p class="mb-0 line-ellipsis">Pendidik</p>
                                 </div>
                             </div>
                         </div>
@@ -38,8 +43,8 @@
                                             <i class="feather icon-user-check text-warning font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">16</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Tenaga Kependidikan</p>
+                                    <h2 class="text-bold-700"><?php echo $tendik; ?></h2>
+                                    <p class="mb-0 line-ellipsis">Tenaga Kependidikan</p>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +58,8 @@
                                             <i class="feather icon-layers text-danger font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">36</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Rombel</p>
+                                    <h2 class="text-bold-700"><?php echo $rombel; ?></h2>
+                                    <p class="mb-0 line-ellipsis">Rombel</p>
                                 </div>
                             </div>
                         </div>
@@ -68,160 +73,115 @@
                                             <i class="feather icon-users text-primary font-medium-5"></i>
                                         </div>
                                     </div>
-                                    <h2 class="text-bold-700">1256</h2>
-                                    <p class="mb-0 line-ellipsis">Jumlah Siswa</p>
+                                    <h2 class="text-bold-700"><?php echo $siswa; ?></h2>
+                                    <p class="mb-0 line-ellipsis">Siswa</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-xl-2 col-md-4 col-sm-6">
-                            <div class="card text-center">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="avatar bg-rgba-success p-50 m-0 mb-1">
-                                            <div class="avatar-content">
-                                                <i class="feather icon-award text-success font-medium-5"></i>
-                                            </div>
-                                        </div>
-                                        <h2 class="text-bold-700">689</h2>
-                                        <p class="mb-0 line-ellipsis">Reviews</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-md-4 col-sm-6">
-                            <div class="card text-center">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="avatar bg-rgba-danger p-50 m-0 mb-1">
-                                            <div class="avatar-content">
-                                                <i class="feather icon-truck text-danger font-medium-5"></i>
-                                            </div>
-                                        </div>
-                                        <h2 class="text-bold-700">2.1k</h2>
-                                        <p class="mb-0 line-ellipsis">Returns</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                 </div>
-
-
-
             </section>
             <section id="description" class="card">
                 <div class="card-content">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-1" style="color: white;"><strong><?php echo $rows['sekolah'] ?></strong></h4>
+                        <h4 class="mb-1" style="color: white;"><strong><?php echo $pr->nama_sekolah; ?></strong></h4>
                     </div>
                     <div class="card-body">
+                        <?php if ($pg->provinsi == $pr->provinsi) {
+                            echo $this->session->flashdata('success');
+                        } else {
+                        } ?>
                         <div class="row">
                             <div class="col-lg-4 text-center">
                                 <img src="<?php echo base_url() ?>app-assets/images/pages/graphic-1.png" alt="" width="70%">
                             </div>
                             <div class="col-lg-8">
                                 <div class="table-responsive">
-                                    <table class="table table-hover display nowrap mb-0" id="sekolah">
-                                        <tr>
-                                            <td>NPSN</td>
-                                            <td>:</td>
-                                            <td><strong><?php echo $rows['nama_pengguna'] ?></strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Operator</td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['nama'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sekolah </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['sekolah'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bentuk </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['bentuk'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Status </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['status'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['alamat'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Desa </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['desa'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kecamatan </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['kecamatan'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kabupaten </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['kabupaten'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Provinsi </td>
-                                            <td>:</td>
-                                            <td><?php echo $rows['provinsi'] ?></td>
-                                        </tr>
-                                    </table>
+                                    <?php if ($pg->provinsi == $pr->provinsi) { ?>
+                                        <table class="table table-hover display nowrap mb-0" id="sekolah">
+                                            <tr>
+                                                <td>Nama Sekolah</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->nama_sekolah; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>NPSN</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->npsn; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jenjang</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->jenjang; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->status; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alamat</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->alamat; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>RT</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->rt; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>RW</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->rw; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kode Pos</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->kode_pos; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kelurahan</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->kelurahan; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kecamatan</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->kecamatan; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kabupaten</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->kabupaten; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Provinsi</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->provinsi; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Negara</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->negara; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lintang</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->lintang; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bujur</td>
+                                                <td>:</td>
+                                                <td><?php echo $pr->bujur; ?></td>
+                                            </tr>
+                                        </table>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Description -->
-            <!-- <section id="description" class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Profile Sekolah</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body">
-                            <div class="row" id="table-hover-row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-content">
-                                            <div class="table-responsive">
-                                                <table class="table table-hover display nowrap mb-0" id="sekolah">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Nama Sekolah</th>
-                                                            <th>Alamat</th>
-                                                            <th>Aksi</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($sekolah as $s) : ?>
-                                                            <tr role="row" class="odd">
-                                                                <td class="sorting_1"><?php echo $s['nama']; ?></td>
-                                                                <td><?php echo $s['alamat'] ?></td>
-                                                                <td class="btn-group">
-                                                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="feather icon-eye"> </i></button>
-                                                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="feather icon-edit"> </i></button>
-                                                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><i class="feather icon-trash"> </i></button>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-            <!--/ Description -->
         </div>
     </div>
 </div>
