@@ -16,7 +16,8 @@ class M_Siswa extends CI_Model
     public function countAllSiswa()
     {
         $this->db->from($this->table);
-        $query = $this->db->where('periode', '2122')->get();
+		$dataArray = array('periode' => '2122', 'npsn' => $this->session->nama_pengguna);
+        $query = $this->db->where($dataArray)->get();
         return $query->num_rows();
     }
 }
