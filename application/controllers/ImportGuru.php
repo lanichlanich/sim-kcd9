@@ -28,7 +28,7 @@ class ImportGuru extends CI_Controller
     {
         parent::__construct();
 
-        $this->load->model('m_importgtk');
+        $this->load->model('Gtk_model');
         //$this->load->library('excel');
 
         if ($this->session->userdata('role_id') != '2') {
@@ -45,7 +45,7 @@ class ImportGuru extends CI_Controller
     public function index()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAll();
+        $data["pengguna"] = $this->Profile_model->getPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('import_guru', $data);
         $this->load->view('template/footer');
@@ -182,7 +182,7 @@ class ImportGuru extends CI_Controller
                 );
             }
 
-            $this->M_importgtk->insert_guru($data);
+            $this->Gtk_model->insert_guru($data);
             redirect('profilesekolah');
         }
     }

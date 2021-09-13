@@ -28,7 +28,7 @@ class ImportSiswa extends CI_Controller
 	{
 		parent::__construct();
 
-		$this->load->model('M_ImportSiswa');
+		$this->load->model('Siswa_model');
 		//$this->load->library('excel');
 
 		if ($this->session->userdata('role_id') != '2') {
@@ -218,7 +218,7 @@ class ImportSiswa extends CI_Controller
 			$this->db->where($keyArray);
 			$this->db->delete('daftar_pd');
 
-			$inserdata = $this->M_ImportSiswa->insert_pd($data);
+			$inserdata = $this->Siswa_model->insert_pd($data);
 			redirect('profilesekolah');
 		}
 	}

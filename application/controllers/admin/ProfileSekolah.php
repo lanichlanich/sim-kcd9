@@ -38,7 +38,7 @@ class ProfileSekolah extends CI_Controller
     public function index()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAll();
+        $data["pengguna"] = $this->Profile_model->getPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('profile_sekolah', $data);
         $this->load->view('template/footer');
@@ -47,7 +47,7 @@ class ProfileSekolah extends CI_Controller
     public function pengguna()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAllPengguna();
+        $data["pengguna"] = $this->Profile_model->getAllPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('pengguna', $data);
         $this->load->view('template/footer');
@@ -56,8 +56,8 @@ class ProfileSekolah extends CI_Controller
     public function add_pengguna()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAll();
-        $data["user"] = $this->M_profile->getAllPengguna();
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data["user"] = $this->Profile_model->getAllPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('add_pengguna', $data);
         $this->load->view('template/footer');
@@ -106,7 +106,7 @@ class ProfileSekolah extends CI_Controller
             'update_time' => $update_time
         );
 
-        $this->M_profile->simpan_pengguna('pengguna', $data);
+        $this->Profile_model->simpan_pengguna('pengguna', $data);
         redirect('admin/profilesekolah/pengguna');
     }
 
@@ -114,7 +114,7 @@ class ProfileSekolah extends CI_Controller
     public function edit_profile()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAll();
+        $data["pengguna"] = $this->Profile_model->getPengguna();
         $this->load->view('template/header', $data);
         $this->load->view('edit_profile', $data);
         $this->load->view('template/footer');
@@ -125,8 +125,8 @@ class ProfileSekolah extends CI_Controller
     {
         $where = array('id' => $id);
         $data['title'] = "SIM KCD-IX";
-        $data["pengguna"] = $this->M_profile->getAll();
-        $data['user'] = $this->M_profile->edit_pengguna('pengguna', $where)->result();
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data['user'] = $this->Profile_model->edit_pengguna('pengguna', $where)->result();
         $this->load->view('template/header', $data);
         $this->load->view('edit_pengguna', $data);
         $this->load->view('template/footer');
@@ -176,7 +176,7 @@ class ProfileSekolah extends CI_Controller
 
         $where = array('id' => $id,);
 
-        $this->M_profile->update_profile('pengguna', $data, $where);
+        $this->Profile_model->update_profile('pengguna', $data, $where);
         redirect('admin/profilesekolah/pengguna');
     }
 }

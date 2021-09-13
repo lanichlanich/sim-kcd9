@@ -77,7 +77,7 @@ class Authentication extends CI_Controller
             $data['title'] = "Login";
             $this->load->view('login', $data);
         } else {
-            $auth = $this->M_authentication->cek_login();
+            $auth = $this->Auth_model->cek_login();
             if ($auth == FALSE) {
                 $this->session->set_flashdata('pesan_login', '
                     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
@@ -117,7 +117,7 @@ class Authentication extends CI_Controller
                 );
 
                 //Login session
-                $this->M_riwayat->add_riwayat('pengguna_riwayat', $data);
+                $this->Riwayat_model->add_riwayat('pengguna_riwayat', $data);
 
                 switch ($auth->role_id) {
                     case 1:
@@ -161,7 +161,7 @@ class Authentication extends CI_Controller
             'os'            =>  $user_os
         );
 
-        $this->M_riwayat->add_riwayat('pengguna_riwayat', $data);
+        $this->Riwayat_model->add_riwayat('pengguna_riwayat', $data);
 
         // Logout session
         $this->session->sess_destroy();
@@ -183,7 +183,7 @@ class Authentication extends CI_Controller
             $data['title'] = "Forgot Password";
             $this->load->view('forgot_password', $data);
         } else {
-            $npsn = $this->M_authentication->cek_npsn();
+            $npsn = $this->Auth_model->cek_npsn();
             if ($npsn == FALSE) {
                 $this->session->set_flashdata('pesan_reset', '
                     <div class="alert alert-danger alert-dismissible fade show my-1" role="alert">
@@ -212,7 +212,7 @@ class Authentication extends CI_Controller
                     'aprove_time'   => $aprv_time
                 );
 
-                $this->M_authentication->recovery_password('recovery_password', $data);
+                $this->Auth_model->recovery_password('recovery_password', $data);
                 $this->session->set_flashdata('pesan_reset', '
                     <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
                         Permintaan reset password berhasil.

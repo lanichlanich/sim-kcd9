@@ -40,8 +40,8 @@ class Settings extends CI_Controller
     public function informasi()
     {
         $data['title'] = "SIM KCD-IX";
-        $data['pengguna'] = $this->M_profile->getAll();
-        $data['informasi'] = $this->M_settings->getAllInformasi();
+        $data['pengguna'] = $this->Profile_model->getPengguna();
+        $data['informasi'] = $this->Settings_model->getAllInformasi();
         $this->load->view('template/header', $data);
         $this->load->view('informasi', $data);
         $this->load->view('template/footer');
@@ -68,7 +68,7 @@ class Settings extends CI_Controller
             'tema'          =>  $tema
         );
 
-        $this->M_settings->add_informasi('informasi', $data);
+        $this->Settings_model->add_informasi('informasi', $data);
         redirect('admin/settings/informasi');
     }
 
@@ -76,8 +76,8 @@ class Settings extends CI_Controller
     {
         $where = array('id' => $id);
         $data['title'] = "SIM KCD-IX";
-        $data['pengguna'] = $this->M_profile->getAll();
-        $data['informasi'] = $this->M_settings->edit_informasi('informasi', $where)->result();
+        $data['pengguna'] = $this->Profile_model->getPengguna();
+        $data['informasi'] = $this->Settings_model->edit_informasi('informasi', $where)->result();
         $this->load->view('template/header', $data);
         $this->load->view('edit_informasi', $data);
         $this->load->view('template/footer');
@@ -109,13 +109,13 @@ class Settings extends CI_Controller
 
         $where = array('id' => $id);
 
-        $this->M_settings->update_informasi('informasi', $data, $where);
+        $this->Settings_model->update_informasi('informasi', $data, $where);
         redirect('admin/settings/informasi');
     }
 
     public function delete_informasi($id)
     {
-        $this->M_settings->delete_informasi($id);
+        $this->Settings_model->delete_informasi($id);
         redirect('admin/settings/informasi');
     }
 
@@ -124,9 +124,9 @@ class Settings extends CI_Controller
     public function reset_password()
     {
         $data['title'] = "SIM KCD-IX";
-        $data['pengguna'] = $this->M_profile->getAll();
-        $data["user"] = $this->M_profile->getAllPengguna();
-        $data['reset'] = $this->M_settings->getAllResetPassword();
+        $data['pengguna'] = $this->Profile_model->getPengguna();
+        $data["user"] = $this->Profile_model->getAllPengguna();
+        $data['reset'] = $this->Settings_model->getAllResetPassword();
         $this->load->view('template/header', $data);
         $this->load->view('reset_password', $data);
         $this->load->view('template/footer');
@@ -145,11 +145,11 @@ class Settings extends CI_Controller
         //Update data pengguna
         $data = array('nama_pengguna' => $nama_pengguna, 'password' => $password, 'update_by' => $update_by, 'update_time' => $time);
         $where = array('id' => $id);
-        $this->M_profile->update_profile('pengguna', $data, $where);
+        $this->Profile_model->update_profile('pengguna', $data, $where);
         //Update data recovery password
         $data_reset = array('status' => $status, 'aprove_by' => $update_by, 'aprove_time' => $time);
         $where_reset = array('id' => $id_reset);
-        $this->M_settings->update_reset('recovery_password', $data_reset, $where_reset);
+        $this->Settings_model->update_reset('recovery_password', $data_reset, $where_reset);
 
         redirect('admin/settings/reset_password');
     }

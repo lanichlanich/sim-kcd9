@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Siswa extends CI_Model
+class Siswa_model extends CI_Model
 {
     private $table = 'daftar_pd';
 
@@ -33,5 +33,15 @@ class M_Siswa extends CI_Model
         $this->db->from($this->table);
         $query = $this->db->where('npsn', $npsn)->get();
         return $query->result();
+    }
+
+    public function insert_pd($data)
+    {
+        $this->db->insert_batch('daftar_pd', $data);
+        if ($this->db->affected_rows() > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

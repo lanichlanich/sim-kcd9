@@ -1,6 +1,6 @@
 <?php
 
-class M_Riwayat extends CI_model
+class Riwayat_model extends CI_model
 {
     private $table = 'pengguna_riwayat';
 

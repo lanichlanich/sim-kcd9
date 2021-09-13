@@ -28,7 +28,7 @@ class ImportProfile extends CI_Controller
   {
     parent::__construct();
 
-    $this->load->model('m_importprofile');
+    $this->load->model('Profile_model');
     //$this->load->library('excel');
 
     if ($this->session->userdata('role_id') != '2') {
@@ -45,7 +45,7 @@ class ImportProfile extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
     $this->load->view('template/header', $data);
     $this->load->view('import_profile', $data);
     $this->load->view('template/footer');
@@ -112,7 +112,7 @@ class ImportProfile extends CI_Controller
       'id_profile'    => $kode
     );
 
-    $this->m_importprofile->update_profile('profile_sekolah', $data, $where);
+    $this->Profile_model->update_profile('profile_sekolah', $data, $where);
 
     $upload_file = $_FILES['upload_file']['name'];
     $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
@@ -157,7 +157,7 @@ class ImportProfile extends CI_Controller
         );
       }
 
-      $this->m_importprofile->insert_rombel($data);
+      $this->Profile_model->insert_rombel($data);
       redirect('profilesekolah');
     }
   }

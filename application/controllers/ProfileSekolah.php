@@ -38,12 +38,12 @@ class ProfileSekolah extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
-    $data['profile'] = $this->M_profile->getAllProfile();
-    $data['siswa'] = $this->M_profile->countAllSiswa();
-    $data['rombel'] = $this->M_profile->countAllRombel();
-    $data['guru'] = $this->M_profile->countAllGuru();
-    $data['tendik'] = $this->M_profile->countAllTendik();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data['profile'] = $this->Profile_model->getAllProfile();
+    $data['siswa'] = $this->Profile_model->countAllSiswa();
+    $data['rombel'] = $this->Profile_model->countAllRombel();
+    $data['guru'] = $this->Profile_model->countAllGuru();
+    $data['tendik'] = $this->Profile_model->countAllTendik();
     $this->load->view('template/header', $data);
     $this->load->view('profile_sekolah', $data);
     $this->load->view('template/footer');
@@ -53,8 +53,8 @@ class ProfileSekolah extends CI_Controller
   public function data_siswa()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
-    $data["siswa"] = $this->M_profile->getAllSiswa();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["siswa"] = $this->Profile_model->getAllSiswa();
     $this->load->view('template/header', $data);
     $this->load->view('data_siswa', $data);
     $this->load->view('template/footer');
@@ -64,8 +64,8 @@ class ProfileSekolah extends CI_Controller
   public function data_rombel()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
-    $data["rombel"] = $this->M_profile->getAllRombel();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["rombel"] = $this->Profile_model->getAllRombel();
     $this->load->view('template/header', $data);
     $this->load->view('data_rombel', $data);
     $this->load->view('template/footer');
@@ -75,8 +75,8 @@ class ProfileSekolah extends CI_Controller
   public function data_guru()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
-    $data["guru"] = $this->M_profile->getAllGuru();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["guru"] = $this->Profile_model->getAllGuru();
     $this->load->view('template/header', $data);
     $this->load->view('data_guru', $data);
     $this->load->view('template/footer');
@@ -86,8 +86,8 @@ class ProfileSekolah extends CI_Controller
   public function data_tendik()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
-    $data["tendik"] = $this->M_profile->getAllTendik();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["tendik"] = $this->Profile_model->getAllTendik();
     $this->load->view('template/header', $data);
     $this->load->view('data_tendik', $data);
     $this->load->view('template/footer');
@@ -96,7 +96,7 @@ class ProfileSekolah extends CI_Controller
   public function edit_profile()
   {
     $data['title'] = "SIM KCD-IX";
-    $data["pengguna"] = $this->M_profile->getAll();
+    $data["pengguna"] = $this->Profile_model->getPengguna();
     $this->load->view('template/header', $data);
     $this->load->view('edit_profile', $data);
     $this->load->view('template/footer');
@@ -146,7 +146,7 @@ class ProfileSekolah extends CI_Controller
 
     $where = array('id' => $id,);
 
-    $this->M_profile->update_profile('pengguna', $data, $where);
+    $this->Profile_model->update_profile('pengguna', $data, $where);
     redirect('dashboard');
   }
 }

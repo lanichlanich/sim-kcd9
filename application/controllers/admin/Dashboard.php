@@ -38,9 +38,9 @@ class Dashboard extends CI_Controller
   public function index()
   {
     $data['title'] = "SIM KCD-IX";
-    $data['pengguna'] = $this->M_profile->getAll();
-    $data['riwayat'] = $this->M_riwayat->getAll();
-    $data['informasi'] = $this->M_settings->getAllInformasi();
+    $data['pengguna'] = $this->Profile_model->getPengguna();
+    $data['riwayat'] = $this->Riwayat_model->getAll();
+    $data['informasi'] = $this->Settings_model->getAllInformasi();
     $this->load->view('template/header', $data);
     $this->load->view('dashboard', $data);
     $this->load->view('template/footer');

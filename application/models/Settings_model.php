@@ -1,6 +1,6 @@
 <?php
 
-class M_Settings extends CI_model
+class Settings_model extends CI_model
 {
 
     //Informasi

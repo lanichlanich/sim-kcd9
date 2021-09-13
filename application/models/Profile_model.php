@@ -1,7 +1,13 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Profile extends CI_model
+class Profile_model extends CI_model
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     private $table_pengguna = 'pengguna';
 
     private $table_profile = 'profile_sekolah';
@@ -16,7 +22,7 @@ class M_Profile extends CI_model
 
     //DATA
 
-    public function getAll()
+    public function getPengguna()
     {
         $this->db->from($this->table_pengguna);
         $query = $this->db->where('nama_pengguna', $this->session->nama_pengguna)->get();
@@ -122,5 +128,15 @@ class M_Profile extends CI_model
     {
         $this->db->where($where);
         $this->db->delete($table);
+    }
+
+    public function insert_rombel($data)
+    {
+        $this->db->insert_batch('daftar_rombel', $data);
+        if ($this->db->affected_rows() > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

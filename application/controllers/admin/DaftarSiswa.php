@@ -6,7 +6,7 @@ class DaftarSiswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("M_siswa"); //load model mahasiswa
+        $this->load->model("Siswa_model"); //load model mahasiswa
         if ($this->session->userdata('role_id') != '1') {
             $this->session->set_flashdata('pesan', '
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
@@ -22,8 +22,8 @@ class DaftarSiswa extends CI_Controller
     public function index()
     {
         $data["title"] = "SIM KCD-IX";
-        $data["siswa"] = $this->M_siswa->getAll();
-        $data["sekolah"] = $this->M_sekolah->getAll();
+        $data["siswa"] = $this->Siswa_model->getAll();
+        $data["sekolah"] = $this->Sekolah_model->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('daftar_siswa/index', $data);
         $this->load->view('template/footer');
@@ -43,7 +43,7 @@ class DaftarSiswa extends CI_Controller
             $noD = 3;
             $noE = 3;
             $noF = 3;
-            foreach ($this->M_siswa->generateAllSiswa() as $all) {
+            foreach ($this->Siswa_model->generateAllSiswa() as $all) {
                 $npsn = $all->npsn;
                 $judul = 'Data Siswa di Cabang Dinas Pendidikan Wilayah IX';
                 $sheet->getCell('A1')->setValue($judul);
@@ -58,7 +58,7 @@ class DaftarSiswa extends CI_Controller
                 $sheet->getCell('C' . $noC++)->setValue($all->jk);
                 $sheet->getCell('D' . $noD++)->setValue($all->tempat_lahir . ', ' . $all->tanggal_lahir);
                 $sheet->getCell('E' . $noE++)->setValue($all->rombel);
-                foreach ($this->M_sekolah->getWhere($npsn) as $sekolah) {
+                foreach ($this->Sekolah_model->getWhere($npsn) as $sekolah) {
                     $sheet->getCell('F' . $noF++)->setValue($sekolah->nama_sekolah);
                 }
             };
@@ -74,7 +74,7 @@ class DaftarSiswa extends CI_Controller
             $writer->save('php://output');
         } else {
             //Data by Sekolah
-            foreach ($this->M_sekolah->getWHere($npsn) as $s) {
+            foreach ($this->Sekolah_model->getWHere($npsn) as $s) {
                 $spreadsheet = new PhpOffice\PhpSpreadsheet\Spreadsheet();
                 $sheet = $spreadsheet->getActiveSheet();
                 //Mulai baris
@@ -83,7 +83,7 @@ class DaftarSiswa extends CI_Controller
                 $noC = 3;
                 $noD = 3;
                 $noE = 3;
-                foreach ($this->M_siswa->getWhere($npsn) as $row) {
+                foreach ($this->Siswa_model->getWhere($npsn) as $row) {
                     $judul = 'Data Siswa di ' . $s->nama_sekolah;
                     $sheet->getCell('A1')->setValue($judul);
                     $sheet->getCell('A2')->setValue('Nama Siswa');
