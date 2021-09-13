@@ -1,4 +1,3 @@
-<?php echo $this->session->flashdata('pesan'); ?>
 <?php foreach ($pengguna as $pg) : ?>
 <?php endforeach; ?>
 <?php foreach ($profile as $pr) : ?>
@@ -87,10 +86,6 @@
                         <h4 class="mb-1" style="color: white;"><strong><?php echo $pr->nama_sekolah; ?></strong></h4>
                     </div>
                     <div class="card-body">
-                        <?php if ($pg->provinsi == $pr->provinsi) {
-                            echo $this->session->flashdata('success');
-                        } else {
-                        } ?>
                         <div class="row">
                             <div class="col-lg-4 text-center">
                                 <img src="<?php echo base_url() ?>app-assets/images/pages/graphic-1.png" alt="" width="70%">
