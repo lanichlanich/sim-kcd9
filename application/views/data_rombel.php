@@ -31,7 +31,12 @@
                                                     <td><?php echo $r->walikelas; ?></td>
                                                     <td><?php echo $r->lk; ?></td>
                                                     <td><?php echo $r->pr; ?></td>
-                                                    <td><?php echo $r->jml; ?></td>
+                                                    <?php if ($r->jml < 20) {
+                                                        echo "<td><span class='badge badge-danger'>$r->jml</span></td>";
+                                                    } else {
+                                                        echo "<td><span class='badge badge-success'>$r->jml</span></td>";
+                                                    } ?>
+
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

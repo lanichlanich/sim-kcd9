@@ -7,7 +7,7 @@ class DaftarSekolah extends CI_Controller
   {
     parent::__construct();
     $this->load->model("M_Sekolah"); //load model mahasiswa
-    if ($this->session->userdata('role_id') != '2') {
+    if ($this->session->userdata('role_id') != '1') {
       $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                           Maaf, Anda belum Login!
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -22,7 +22,7 @@ class DaftarSekolah extends CI_Controller
   public function index()
   {
     $data["title"] = "SIM KCD-IX";
-    $data["daftar_sekolah"] = $this->M_sekolah->getAll();
+    $data["daftar_sekolah"] = $this->M_Sekolah->getAll();
     $this->load->view('template/header', $data);
     $this->load->view('daftar_sekolah/index', $data);
     $this->load->view('template/footer');

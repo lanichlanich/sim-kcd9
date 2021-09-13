@@ -31,15 +31,15 @@
                                     <tbody>
                                         <?php foreach ($daftar_sekolah as $row) : ?>
                                             <tr>
-                                                <td><?= $row->sekolah ?></td>
-                                                <td><?= $row->nama_pengguna ?></td>
-                                                <td><?= $row->bentuk ?></td>
+                                                <td><?= $row->nama_sekolah ?></td>
+                                                <td><?= $row->npsn ?></td>
+                                                <td><?= $row->jenjang ?></td>
                                                 <td><?= $row->status ?></td>
                                                 <td><?= $row->kabupaten ?></td>
                                                 <td><?= $row->alamat ?></td>
                                                 <td>
-                                                    <a href="daftarsekolah/#"><button class="btn btn-warning" style="width: 100px;">Edit</button></a>
-                                                    <a href="daftarsekolah/#"><button class="btn btn-danger" style="width: 100px;">Hapus</button></a>
+                                                    <a href="daftarsekolah/#" class="btn btn-warning"><i class="feather icon-edit"></i></a>
+                                                    <a href="daftarsekolah/#" class="btn btn-danger"><i class="feather icon-trash"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -28,7 +28,7 @@ class ImportSiswa extends CI_Controller
 	{
 		parent::__construct();
 
-		$this->load->model('m_importsiswa');
+		$this->load->model('M_ImportSiswa');
 		//$this->load->library('excel');
 
 		if ($this->session->userdata('role_id') != '2') {
@@ -214,11 +214,11 @@ class ImportSiswa extends CI_Controller
 				);
 			}
 			$keyArray = array('npsn' => $this->session->nama_pengguna, 'periode' => $periode);
-			//$this->m_importsiswa->delete_pd($keyArray);
+			//$this->M_ImportSiswa->delete_pd($keyArray);
 			$this->db->where($keyArray);
 			$this->db->delete('daftar_pd');
 
-			$inserdata = $this->m_importsiswa->insert_pd($data);
+			$inserdata = $this->M_ImportSiswa->insert_pd($data);
 			redirect('profilesekolah');
 		}
 	}

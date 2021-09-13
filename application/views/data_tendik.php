@@ -17,9 +17,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama</th>
+                                                <th>Status Pegawai</th>
                                                 <th>Tempat, Tanggal Lahir</th>
                                                 <th>NIP/NUPTK</th>
-                                                <th>Status Pegawai</th>
                                                 <!-- <th>Aksi</th> -->
                                             </tr>
                                         </thead>
@@ -32,12 +32,12 @@
                                                     <td>
                                                         <?php
                                                         if ($t->status_kepegawaian == "PNS") {
-                                                            echo $t->nip;
+                                                            echo '<span class="badge badge-danger">' . $t->nip . '</span>';
                                                         } else {
                                                             if ($t->nuptk == "") {
-                                                                echo "-";
+                                                                echo '<span class="badge badge-warning">-</span>';
                                                             } else {
-                                                                echo $t->nuptk;
+                                                                echo '<span class="badge badge-warning">' . $t->nuptk . '</span>';
                                                             }
                                                         }
                                                         ?>
