@@ -12,8 +12,8 @@
                     <div class="card-content">
                         <div class="card-body">
                             <?php
-                            if ($this->session->flashdata('message')) {
-                                echo $this->session->flashdata('message');
+                            if ($this->session->flashdata('error')) {
+                                echo $this->session->flashdata('error');
                             }
                             ?>
                             <h6><i>Silahkan upload file excel yang di unduh dari daftar Tenaga Kependidikan dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>

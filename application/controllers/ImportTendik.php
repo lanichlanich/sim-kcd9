@@ -65,6 +65,24 @@ class ImportTendik extends CI_Controller
         }
 
         $spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
+
+        //Vlidasi file yang diupload apakah benar?
+        $validasi_data = $spreadsheet->getActiveSheet();
+        $validasi = $validasi_data->getCell('A1');
+
+        if ($validasi == 'Daftar Tenaga Kependidikan') {
+        } else {
+            $this->session->set_flashdata('error', '
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Upload data tenaga kependidikan gagal, silahkan coba lagi.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
+            redirect('importtendik');
+        }
+
         $sheetTendik = $spreadsheet->getSheetByName('Daftar tendik')->toArray();
 
         $sheetcount = count($sheetTendik);
@@ -182,7 +200,19 @@ class ImportTendik extends CI_Controller
                 );
             }
 
+            $keyArray = array('npsn' => $this->session->nama_pengguna, 'periode' => $periode);
+            $this->db->where($keyArray);
+            $this->db->delete('daftar_tendik');
+
             $this->Gtk_model->insert_tendik($data);
+            $this->session->set_flashdata('sukses', '
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Upload data tendik sukses.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            ');
             redirect('profilesekolah');
         }
     }

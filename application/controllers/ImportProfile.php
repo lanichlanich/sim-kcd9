@@ -64,14 +64,27 @@ class ImportProfile extends CI_Controller
       $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
     }
     $spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
-    $spreadsheet->setActiveSheetIndex(0);
-    $sheetdata = $spreadsheet->getActiveSheet();
-    // echo '<pre>';
-    // print_r($sheetdata); test upload file excel nya :)
 
+    //Vlidasi file yang diupload apakah benar?
+    $sheetdata = $spreadsheet->getActiveSheet();
+    $validasi = $sheetdata->getCell('A1');
+
+    if ($validasi == 'Profil Sekolah') {
+    } else {
+      $this->session->set_flashdata('error', '
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Upload data pofile gagal, silahkan coba lagi.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
+      redirect('importprofile');
+    }
+
+    //Kode dari input untuk update data
     $kode = $this->input->post('kode');
 
-    //$user_id=$sheetdata[$i][4];
     $nama_sekolah = $sheetdata->getCell('D4');
     $npsn = $sheetdata->getCell('D5');
     $jenjang = $sheetdata->getCell('D6');
@@ -124,6 +137,7 @@ class ImportProfile extends CI_Controller
       $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
     }
     $spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
+
     $sheetRombel = $spreadsheet->getSheetByName('Rombongan Belajar')->toArray();
 
     $sheetcount = count($sheetRombel);
@@ -157,7 +171,19 @@ class ImportProfile extends CI_Controller
         );
       }
 
+      $keyArray = array('npsn' => $this->session->nama_pengguna, 'periode' => $periode);
+      $this->db->where($keyArray);
+      $this->db->delete('daftar_rombel');
+
       $this->Profile_model->insert_rombel($data);
+      $this->session->set_flashdata('sukses', '
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          Upload data profile sukses.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      ');
       redirect('profilesekolah');
     }
   }

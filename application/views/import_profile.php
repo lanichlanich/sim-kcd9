@@ -13,6 +13,11 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
+                            <?php
+                            if ($this->session->flashdata('error')) {
+                                echo $this->session->flashdata('error');
+                            }
+                            ?>
                             <h6><i>Silahkan upload file excel yang di unduh dari profile dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>
                             <div class="row" id="table-hover-row">
                                 <form method="post" action="<?php echo base_url('importprofile/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">

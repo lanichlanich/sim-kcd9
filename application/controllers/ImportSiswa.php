@@ -63,9 +63,28 @@ class ImportSiswa extends CI_Controller
 			$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 		}
 		$spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
+
+		//Vlidasi file yang diupload apakah benar?
+		$validasi_data = $spreadsheet->getActiveSheet();
+		$validasi = $validasi_data->getCell('A1');
+
+		if ($validasi == 'Daftar Peserta Didik') {
+		} else {
+			$this->session->set_flashdata('error', '
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Upload data siswa gagal, silahkan coba lagi.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
+			redirect('importsiswa');
+		}
+
 		$sheetdata = $spreadsheet->getActiveSheet()->toArray();
 		// echo '<pre>';
 		// print_r($sheetdata); test upload file excel nya :)
+
 		$sheetcount = count($sheetdata);
 		if ($sheetcount > 1) {
 			$data = array();
@@ -213,12 +232,20 @@ class ImportSiswa extends CI_Controller
 					'tanggal_daftar' => date("Y-m-d h:i:sa")
 				);
 			}
+
 			$keyArray = array('npsn' => $this->session->nama_pengguna, 'periode' => $periode);
-			//$this->M_ImportSiswa->delete_pd($keyArray);
 			$this->db->where($keyArray);
 			$this->db->delete('daftar_pd');
 
-			$inserdata = $this->Siswa_model->insert_pd($data);
+			$this->Siswa_model->insert_pd($data);
+			$this->session->set_flashdata('sukses', '
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				Upload data siswa sukses.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
 			redirect('profilesekolah');
 		}
 	}

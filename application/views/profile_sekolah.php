@@ -16,6 +16,7 @@
             }
         </style>
         <div class="content-body">
+            <?php echo $this->session->flashdata('sukses'); ?>
             <section id="statistics-card">
                 <div class="row">
                     <div class="col-xl-3 col-md-4 col-sm-6">
