@@ -62,6 +62,14 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>admin/daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Siswa</span></a>
                 </li>
+                <li class="<?php if ($this->uri->segment(3) == "guru") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftargtk/guru"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="Fixed navbar">Data Guru</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(3) == "tendik") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftargtk/tendik"><i class="feather icon-user-check"></i><span class="menu-item" data-i18n="Fixed navbar">Data Tendik</span></a>
+                </li>
             </ul>
         </li>
         <li class=" nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title">Settings</span></a>
