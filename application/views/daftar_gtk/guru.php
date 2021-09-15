@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="<?php echo base_url() ?>admin/daftargtk/export_tendik" method="POST">
+                                <form action="<?php echo base_url() ?>admin/daftargtk/export_guru" method="POST">
                                     <div class="row">
                                         <div class="col-sm-10">
                                             <div class="form-group">
