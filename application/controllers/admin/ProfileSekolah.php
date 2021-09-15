@@ -39,8 +39,57 @@ class ProfileSekolah extends CI_Controller
     {
         $data['title'] = "SIM KCD-IX";
         $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data['profile'] = $this->Profile_model->getAllProfile();
+        $data['siswa'] = $this->Profile_model->countAllSiswa();
+        $data['rombel'] = $this->Profile_model->countAllRombel();
+        $data['guru'] = $this->Profile_model->countAllGuru();
+        $data['tendik'] = $this->Profile_model->countAllTendik();
         $this->load->view('template/header', $data);
         $this->load->view('profile_sekolah', $data);
+        $this->load->view('template/footer');
+    }
+
+    //Data Siswa
+    public function data_siswa()
+    {
+        $data['title'] = "SIM KCD-IX";
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data["siswa"] = $this->Profile_model->getAllSiswa();
+        $this->load->view('template/header', $data);
+        $this->load->view('data_siswa', $data);
+        $this->load->view('template/footer');
+    }
+
+    //Data Rombel
+    public function data_rombel()
+    {
+        $data['title'] = "SIM KCD-IX";
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data["rombel"] = $this->Profile_model->getAllRombel();
+        $this->load->view('template/header', $data);
+        $this->load->view('data_rombel', $data);
+        $this->load->view('template/footer');
+    }
+
+    //Data Guru
+    public function data_guru()
+    {
+        $data['title'] = "SIM KCD-IX";
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data["guru"] = $this->Profile_model->getAllGuru();
+        $this->load->view('template/header', $data);
+        $this->load->view('data_guru', $data);
+        $this->load->view('template/footer');
+    }
+
+    //Data Tendik
+    public function data_tendik()
+    {
+        $data['title'] = "SIM KCD-IX";
+        $data["pengguna"] = $this->Profile_model->getPengguna();
+        $data["tendik"] = $this->Profile_model->getAllTendik();
+        $this->load->view('template/header', $data);
+        $this->load->view('data_tendik', $data);
         $this->load->view('template/footer');
     }
 

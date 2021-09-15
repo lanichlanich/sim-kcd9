@@ -18,16 +18,20 @@
 							?>
     						<h6><i>Silahkan upload file excel yang di unduh dari daftar siswa dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>
     						<div class="row" id="table-hover-row">
-    							<form method="post" action="<?php echo base_url('importsiswa/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
-    								<div class="col-12">
-    									<div class="card">
-    										<div class="card-content">
-    											<input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
-    											<input type="submit" name="submit" class="btn btn-primary">
+    							<?php if ($this->session->role_id == '1') { ?>
+    								<form method="post" action="<?php echo base_url('admin/importsiswa/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
+    								<?php } else { ?>
+    									<form method="post" action="<?php echo base_url('importsiswa/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
+    									<?php } ?>
+    									<div class="col-12">
+    										<div class="card">
+    											<div class="card-content">
+    												<input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
+    												<input type="submit" name="submit" class="btn btn-primary">
+    											</div>
     										</div>
     									</div>
-    								</div>
-    							</form>
+    									</form>
     						</div>
     					</div>
     				</div>

@@ -143,7 +143,7 @@ class Settings extends CI_Controller
         $time           =   date('d-m-Y H:i:s');
         $status         =   '1';
         //Update data pengguna
-        $data = array('nama_pengguna' => $nama_pengguna, 'password' => $password, 'update_by' => $update_by, 'update_time' => $time);
+        $data = array('nama_pengguna' => $nama_pengguna, 'password' => md5($password), 'update_by' => $update_by, 'update_time' => $time);
         $where = array('id' => $id);
         $this->Profile_model->update_profile('pengguna', $data, $where);
         //Update data recovery password

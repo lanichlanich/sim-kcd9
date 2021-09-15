@@ -20,17 +20,22 @@
                             ?>
                             <h6><i>Silahkan upload file excel yang di unduh dari profile dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>
                             <div class="row" id="table-hover-row">
-                                <form method="post" action="<?php echo base_url('importprofile/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
-                                    <div class="col-12">
-                                        <div class="card">
-                                            <div class="card-content">
-                                                <input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
-                                                <input type="hidden" name="kode" value="<?php echo $p->id; ?>">
-                                                <input type="submit" name="submit" class="btn btn-primary">
+                                <?php if ($this->session->role_id == '1') { ?>
+                                    <form method="post" action="<?php echo base_url('admin/importprofile/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
+                                    <?php } else { ?>
+                                        <form method="post" action="<?php echo base_url('importprofile/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
+                                        <?php } ?>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
+                                                    <input type="hidden" name="kode" value="<?php echo $p->id; ?>">
+                                                    <input type="hidden" name="update_by" value="<?php echo $p->nama; ?>">
+                                                    <input type="submit" name="submit" class="btn btn-primary">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        </form>
                             </div>
                         </div>
                     </div>
