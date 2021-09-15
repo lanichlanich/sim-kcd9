@@ -32,10 +32,10 @@ if ($row->role_id == '1') {
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 text-center">
+                        <!-- <div class="col-md-3 text-center">
                             <img src="<?php echo base_url() ?>app-assets/images/logo/cropped-LOGO9-web.png" alt="Logo Sekolah" class="my-2" width="100%">
-                        </div>
-                        <div class="col-md-3">
+                        </div> -->
+                        <div class="col-md-4">
                             <h3 class="mb-1">Info penting</h3>
                             <?php foreach ($informasi as $row) : ?>
                                 <?php if ($row->status == 2) { ?>
@@ -52,7 +52,7 @@ if ($row->role_id == '1') {
                                 <?php } ?>
                             <?php endforeach; ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h3>Riwayat pengguna</h3>
                             <div class="table-responsive">
                                 <table class="table dataTable">
@@ -81,6 +81,140 @@ if ($row->role_id == '1') {
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <?php foreach ($pengguna as $pg) : ?>
+                        <?php endforeach; ?>
+                        <div class="col-md-12">
+                            <?php if ($pg->status == "Negeri" || $pg->status == "Swasta") { ?>
+                                <h3>Progres upload data</h3>
+                                <div class="table-responsive">
+                                    <table class="table dataTable">
+                                        <thead>
+                                            <tr class="bg-gradient-info text-center">
+                                                <th>#</th>
+                                                <th>Data Profile</th>
+                                                <th>Data Siswa</th>
+                                                <th>Data Rombel</th>
+                                                <th>Data Guru</th>
+                                                <th>Data Tendik</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="text-center">
+                                                <td>Status</td>
+                                                <td>
+                                                    <?php if ($rombel == 0) {
+                                                        echo "<i class='fa fa-times text-danger'></i>";
+                                                    } else {
+                                                        echo "<i class='fa fa-check text-success'></i>";
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($siswa == 0) {
+                                                        echo "<i class='fa fa-times text-danger'></i>";
+                                                    } else {
+                                                        echo "<i class='fa fa-check text-success'></i>";
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($rombel == 0) {
+                                                        echo "<i class='fa fa-times text-danger'></i>";
+                                                    } else {
+                                                        echo "<i class='fa fa-check text-success'></i>";
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($guru == 0) {
+                                                        echo "<i class='fa fa-times text-danger'></i>";
+                                                    } else {
+                                                        echo "<i class='fa fa-check text-success'></i>";
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($tendik == 0) {
+                                                        echo "<i class='fa fa-times text-danger'></i>";
+                                                    } else {
+                                                        echo "<i class='fa fa-check text-success'></i>";
+                                                    } ?>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php } else { ?>
+                                <h3>Rekap sekolah yang selesai upload</h3>
+                                <div class="table-responsive">
+                                    <table class="table nowrap" id="sekolah">
+                                        <thead>
+                                            <tr class="bg-gradient-info">
+                                                <th>Nama Sekolah</th>
+                                                <th class="text-center">Data Profile</th>
+                                                <th class="text-center">Data Siswa</th>
+                                                <th class="text-center">Data Rombel</th>
+                                                <th class="text-center">Data Guru</th>
+                                                <th class="text-center">Data Tendik</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($sekolah_admin as $pa) : ?>
+                                                <tr>
+                                                    <td><?php echo $pa->nama_sekolah; ?></td>
+                                                    <td class="text-center">
+                                                        <?php if ($pa->jenjang == 'jenjang') {
+                                                            echo "<i class='fa fa-times text-danger'></i>";
+                                                        } else {
+                                                            echo "<i class='fa fa-check text-success'></i>";
+                                                        } ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php
+                                                        $siswa = $this->db->query("SELECT * FROM daftar_pd WHERE npsn = '$pa->npsn'")->num_rows();
+                                                        if ($siswa <= 0) {
+                                                            echo "<i class='fa fa-times text-danger'></i>";
+                                                        } else {
+                                                            echo "<i class='fa fa-check text-success'></i>";
+                                                        } ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php
+                                                        $siswa = $this->db->query("SELECT * FROM daftar_rombel WHERE npsn = '$pa->npsn'")->num_rows();
+                                                        if ($siswa <= 0) {
+                                                            echo "<i class='fa fa-times text-danger'></i>";
+                                                        } else {
+                                                            echo "<i class='fa fa-check text-success'></i>";
+                                                        } ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php
+                                                        $siswa = $this->db->query("SELECT * FROM daftar_guru WHERE npsn = '$pa->npsn'")->num_rows();
+                                                        if ($siswa <= 0) {
+                                                            echo "<i class='fa fa-times text-danger'></i>";
+                                                        } else {
+                                                            echo "<i class='fa fa-check text-success'></i>";
+                                                        } ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php
+                                                        $siswa = $this->db->query("SELECT * FROM daftar_tendik WHERE npsn = '$pa->npsn'")->num_rows();
+                                                        if ($siswa <= 0) {
+                                                            echo "<i class='fa fa-times text-danger'></i>";
+                                                        } else {
+                                                            echo "<i class='fa fa-check text-success'></i>";
+                                                        } ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php } ?>
+                        </div>
+
                     </div>
                 </div>
             </div>

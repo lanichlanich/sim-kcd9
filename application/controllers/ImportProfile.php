@@ -100,8 +100,9 @@ class ImportProfile extends CI_Controller
     $negara = $sheetdata->getCell('D15');
     $lintang = $sheetdata->getCell('D16');
     $bujur = $sheetdata->getCell('D17');
-
-    date_default_timezone_set("Asia/Jakarta");
+    $update_by = $this->session->nama;
+    $update_time = date_default_timezone_set("Asia/Jakarta");
+    $update_time = date('d-m-Y H:i:s');
 
     $data = array(
       'nama_sekolah'  => $nama_sekolah,
@@ -118,7 +119,9 @@ class ImportProfile extends CI_Controller
       'provinsi'      => $provinsi,
       'negara'        => $negara,
       'lintang'       => $lintang,
-      'bujur'         => $bujur
+      'bujur'         => $bujur,
+      'update_by'     => $update_by,
+      'update_time'   => $update_time
     );
 
     $where = array(

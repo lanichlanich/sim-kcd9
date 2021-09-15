@@ -19,4 +19,12 @@ class Sekolah_model extends CI_Model
         $query = $this->db->where('npsn', $npsn)->get();
         return $query->result();
     }
+
+    public function getAllProfileOrder()
+    {
+        $this->db->from($this->table);
+        $query = $this->db
+            ->order_by('npsn', 'asc')->get();
+        return $query->result();
+    }
 }

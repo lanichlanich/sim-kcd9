@@ -41,6 +41,7 @@ class Dashboard extends CI_Controller
     $data['pengguna'] = $this->Profile_model->getPengguna();
     $data['riwayat'] = $this->Riwayat_model->getAll();
     $data['informasi'] = $this->Settings_model->getAllInformasi();
+    $data['sekolah_admin'] = $this->Sekolah_model->getAllProfileOrder();
     $this->load->view('template/header', $data);
     $this->load->view('dashboard', $data);
     $this->load->view('template/footer');

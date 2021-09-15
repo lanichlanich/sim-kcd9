@@ -15,14 +15,6 @@ class Gtk_model extends CI_Model
         return $query->result();
     }
 
-    public function getAllTendik()
-    {
-        $this->db->from($this->table_tendik);
-        $query = $this->db
-            ->where('npsn', $this->session->nama_pengguna)->get();
-        return $query->result();
-    }
-
     public function insert_guru($data)
     {
         $this->db->insert_batch('daftar_guru', $data);
@@ -31,6 +23,14 @@ class Gtk_model extends CI_Model
         } else {
             return 0;
         }
+    }
+
+    public function getAllTendik()
+    {
+        $this->db->from($this->table_tendik);
+        $query = $this->db
+            ->where('npsn', $this->session->nama_pengguna)->get();
+        return $query->result();
     }
 
     public function insert_tendik($data)
