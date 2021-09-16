@@ -43,13 +43,14 @@
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/forms/wizard-steps.js"></script>
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/pages/bootstrap-toast.js"></script>
 <script src="<?php echo base_url(); ?>app-assets/js/scripts/extensions/toastr.js"></script>
+<script src="<?php echo base_url(); ?>app-assets/js/scripts/components/components-modals.min.js"></script>
 <!-- END: Page JS-->
 <script type="text/javascript">
     $(document).ready(function() {
         $('#sekolah').DataTable({
             responsive: true
         });
-		$('#daftar_siswa').DataTable({
+        $('#daftar_siswa').DataTable({
             responsive: true
         });
     })

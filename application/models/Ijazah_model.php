@@ -12,6 +12,13 @@ class Ijazah_model extends CI_Model
         return $query->result();
     }
 
+    public function getIjazahById($id)
+    {
+        $this->db->from($this->table_ijazah);
+        $query = $this->db->where('id', $id)->get();
+        return $query->result();
+    }
+
     public function getIjazah()
     {
         $this->db->from($this->table_ijazah);
@@ -36,5 +43,19 @@ class Ijazah_model extends CI_Model
         } else {
             return 0;
         }
+    }
+
+    public function save_data()
+    {
+        $data = [
+            'npsn' => $this->input->post('npsn'),
+            'nisn' => $this->input->post('nisn'),
+            'nama_siswa' => $this->input->post('nama_siswa'),
+            'tahun_lulus' => $this->input->post('tahun_lulus'),
+            'no_ijazah' => $this->input->post('no_ijazah'),
+            'ijazah_file' => $this->input->post('ijazah_file'),
+        ];
+
+        $this->db->insert('ijazah', $data);
     }
 }
