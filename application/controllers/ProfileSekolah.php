@@ -149,4 +149,14 @@ class ProfileSekolah extends CI_Controller
     $this->Profile_model->update_profile('pengguna', $data, $where);
     redirect('dashboard');
   }
+
+  function data_ijazah()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["ijazah"] = $this->Ijazah_model->getIjazah();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_ijazah', $data);
+    $this->load->view('template/footer');
+  }
 }
