@@ -25,18 +25,17 @@
 
                                         <div class="modal-body">
                                             <input type="hidden" name="npsn" value="<?php echo $this->session->nama_pengguna; ?>">
-
                                             <div class="form-group">
                                                 <input class="form-control" type="text" name="nisn" placeholder="NISN" required><br>
                                                 <input class="form-control" type="text" name="nama_siswa" placeholder="Nama Siswa" required><br>
                                                 <input class="form-control" type="number" name="tahun_lulus" placeholder="Tahun Lulus" required><br>
                                                 <input class="form-control" type="text" name="no_ijazah" placeholder="No Ijazah" required><br>
-                                                <input class="form-control" type="text" name="ijazah_file" placeholder="File Ijazah" readonly>
+                                                <input class="form-control" type="file" name="userfile" size="20" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                            <button type="reset" class="btn btn-danger">Reset</button>
+                                            <input type="submit" class="btn btn-success" value="upload">
                                         </div>
                                     </div>
                                 </div>
@@ -68,33 +67,38 @@
                                                             <i class="feather icon-upload"></i> Upload
                                                         </button>
                                                     </td>
-                                                    <?php echo form_open_multipart('profilesekolah/upload_ijazah') ?>
-                                                    <input type="hidden" name="id" value="<?php echo $s->id ?>">
-                                                    <div class="modal fade text-left" id="editmodal<?php echo $s->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title" id="myModalLabel1">Upload Ijazah</h4>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <h5>NISN : <?php echo $s->nisn; ?></h5>
-                                                                    <h5>Nama Siswa : <?php echo $s->nama_siswa; ?></h5>
-                                                                    <input class="form-control" type="file">
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-success" data-dismiss="modal">Simpan</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php form_close() ?>
+
                                                 </tr>
                                             <?php endforeach; ?>
+
                                         </tbody>
                                     </table>
+                                    <?php $no = 0;
+                                    foreach ($ijazah as $i) : ?>
+                                        <div class="modal fade text-left" id="editmodal<?php echo $i->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <?php echo form_open_multipart('ijazah/update_data/' . $i->id); ?>
+                                                    <input type="hidden" name="id" value="<?php echo $i->id ?>">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel1">Upload Ijazah</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>NISN : <?php echo $i->nisn; ?></h5>
+                                                        <h5>Nama Siswa : <?php echo $i->nama_siswa; ?></h5>
+                                                        <input class="form-control" type="file" name="userfile">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                                    </div>
+                                                    <?php echo form_close() ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
