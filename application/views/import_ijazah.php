@@ -16,7 +16,7 @@
                                 echo $this->session->flashdata('error');
                             }
                             ?>
-                            <h6><i>Silahkan upload file excel yang di unduh dari daftar siswa dapodik <span class="text-danger">(buka dan save dulu sebelum di import)</span></i></h6>
+                            <h6><i>Template Import Excel: <span class="text-danger"><a href="<?php echo base_url('template_file/import_ijazah.xlsx') ?>">Import Ijazah.xlsx</a></span></i></h6>
                             <div class="row" id="table-hover-row">
                                 <?php if ($this->session->role_id == '1') { ?>
                                     <form method="post" action="<?php echo base_url('admin/importijazah/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">

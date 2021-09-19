@@ -61,7 +61,7 @@ class Ijazah_model extends CI_Model
 
     public function update_data()
     {
-        $config['upload_path']          = './uploads/';
+        $config['upload_path']          = './ijazah/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 10000;
         $config['max_width']            = 10000;
@@ -70,7 +70,7 @@ class Ijazah_model extends CI_Model
         // $this->upload->initialize($config);
         $this->load->library('upload', $config);
 
-        $ijazah_file = $this->upload->data();
+        $ijazah_file = $this->upload->data('userfile');
         $ijazah_file = $ijazah_file['file_name'];
         $data = [
             'ijazah_file' => $ijazah_file,

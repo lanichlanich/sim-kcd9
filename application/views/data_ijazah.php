@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <a href="ijazah/tambah_data" class="btn btn-success float-right ml-2" data-toggle="modal" data-target="#tambahmodal">Tambah Data</a>
+                            <a class="btn btn-success float-right ml-2" data-toggle="modal" data-target="#tambahmodal">Tambah Data</a>
                             <?php echo form_open_multipart('ijazah/save_data'); ?>
                             <div class="modal fade text-left" id="tambahmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -92,7 +92,7 @@
                                                         <input class="form-control" type="file" name="userfile">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                                        <input type="submit" class="btn btn-success" value="upload">
                                                     </div>
                                                     <?php echo form_close() ?>
                                                 </div>
