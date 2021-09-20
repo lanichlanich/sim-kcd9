@@ -19,6 +19,10 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>ijazah/index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Ijazah</span></a>
                 </li>
+                <li class="<?php if ($this->uri->segment(2) == "nilai") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>nilai"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Nilai</span></a>
+                </li>
                 <li class="<?php if ($this->uri->segment(2) == "data_rombel") {
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_rombel"><i class="feather icon-layers"></i><span class="menu-item" data-i18n="Floating navbar">Data Rombel</span></a>
@@ -58,6 +62,11 @@
                                 echo "active";
                             } ?>">
                     <a href="<?php echo base_url() ?>importijazah"><i class="feather icon-upload"></i><span class="menu-item">Import Ijazah</span></a>
+                </li>
+                <li class="<?php if ($this->uri->segment(1) == "importnilai") {
+                                echo "active";
+                            } ?>">
+                    <a href="<?php echo base_url() ?>importnilai"><i class="feather icon-upload"></i><span class="menu-item">Import Nilai</span></a>
                 </li>
             </ul>
         </li>
