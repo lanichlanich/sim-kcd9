@@ -69,3 +69,6 @@
                     </div>
                 </section>
                 <!--/ Description -->
+            </div>
+        </div>
+    </div>
