@@ -36,6 +36,7 @@ class Ijazah extends CI_Controller
         $config['max_size']             = 10000;
         $config['max_width']            = 10000;
         $config['max_height']           = 10000;
+        $config['encrypt_name']         = TRUE;
 
         $this->load->library('upload', $config);
 
@@ -70,6 +71,7 @@ class Ijazah extends CI_Controller
         $config['max_size']             = 10000;
         $config['max_width']            = 10000;
         $config['max_height']           = 10000;
+        $config['encrypt_name']         = TRUE;
 
         $this->load->library('upload', $config);
 
