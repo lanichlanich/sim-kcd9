@@ -3,12 +3,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Ijazah extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
+
+        if ($this->session->userdata('role_id') != '2') {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                      Maaf, Anda belum Login!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>');
+            redirect('authentication/login');
+        }
     }
 
-    public function index()
+    public function data()
     {
         $data['title'] = "SIM KCD-IX";
         $data["pengguna"] = $this->Profile_model->getPengguna();
@@ -48,7 +59,7 @@ class Ijazah extends CI_Controller
                 'ijazah_file' => $ijazah_file,
             );
             $this->db->insert('ijazah', $data);
-            redirect('ijazah/index');
+            redirect('ijazah/data');
         }
     }
 
@@ -73,7 +84,7 @@ class Ijazah extends CI_Controller
                 'ijazah_file' => $ijazah_file,
             );
             $this->db->where('id', $id)->update('ijazah', $data);
-            redirect('ijazah/index');
+            redirect('ijazah/data');
         }
     }
 }

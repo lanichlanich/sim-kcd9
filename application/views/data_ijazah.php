@@ -61,7 +61,7 @@
                                                     <td><?php echo $s->nisn; ?></td>
                                                     <td><?php echo $s->tahun_lulus; ?></td>
                                                     <td><?php echo $s->no_ijazah; ?></td>
-                                                    <td><a href="<?php echo $s->ijazah_file; ?>" class="btn btn-danger"><i class="feather icon-download"></i> Download</a></td>
+                                                    <td><a href="<?php echo $s->ijazah_file; ?>" class="btn btn-danger" target="_blank"><i class="feather icon-download"></i> Download</a></td>
                                                     <td>
                                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editmodal<?php echo $s->id ?>">
                                                             <i class="feather icon-upload"></i> Upload

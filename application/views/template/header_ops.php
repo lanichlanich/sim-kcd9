@@ -15,11 +15,11 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_siswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "ijazah/index") {
+                <li class="<?php if ($this->uri->segment(2) == "data") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>ijazah/index"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Ijazah</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>ijazah/data"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Ijazah</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "nilai") {
+                <li class="<?php if ($this->uri->segment(1) == "nilai") {
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>nilai"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Nilai</span></a>
                 </li>
