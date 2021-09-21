@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <table class="table table-hover display nowrap mb-0" id="nilai_sma_ipa">
+                                <table class="table table-hover display nowrap mb-0" id="ipa">
                                     <thead>
                                         <tr>
                                             <th>Nama Siswa</th>
@@ -89,7 +89,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <table class="table table-hover display nowrap mb-0" id="nilai_sma_ips">
+                                <table class="table table-hover display nowrap mb-0" id="ips">
                                     <thead>
                                         <tr>
                                             <th>Nama Siswa</th>

@@ -43,6 +43,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
     <!-- END: Custom CSS-->
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+
 </head>
 <!-- END: Head-->
 
