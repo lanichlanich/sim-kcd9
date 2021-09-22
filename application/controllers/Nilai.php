@@ -282,7 +282,7 @@ class Nilai extends CI_Controller
             $sheet->getCell('S4')->setValue('mapel_17');
             $sheet->getCell('T4')->setValue('mapel_18');
             $sheet->getCell('U4')->setValue('mapel_19');
-            $sheet->getCell('V4')->setValue('mapel_40');
+            $sheet->getCell('V4')->setValue('mapel_20');
             $sheet->getCell('W4')->setValue('npsn');
             $sheet->getCell('X4')->setValue('jurusan');
             $sheet->getCell('Y4')->setValue('tahun_lulus');

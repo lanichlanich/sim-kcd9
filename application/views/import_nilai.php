@@ -43,12 +43,20 @@
                                             </form>
                                             <!-- Upload data Nilai -->
                                             <div class="row mb-2">
-                                                <div class="col-md-4 mb-1">
-                                                    <input type="file" name="nilai">
-                                                </div>
-                                                <div class="col-md-8 mb-1">
-                                                    <button type="submit" class="btn btn-success"><i class="fa fa-upload"></i> Upload</button>
-                                                </div>
+                                                <?php if ($this->session->role_id == '1') { ?>
+                                                    <form method="post" action="<?php echo base_url('admin/importnilai/import_nilai'); ?>" class="" enctype="multipart/form-data">
+                                                    <?php } else { ?>
+                                                        <form method="post" action="<?php echo base_url('importnilai/import_nilai'); ?>" class="" enctype="multipart/form-data">
+                                                        <?php } ?>
+                                                        <div class="col-12">
+                                                            <div class="card">
+                                                                <div class="card-content">
+                                                                    <input type="file" name="upload_file" placeholder="Enter Name" id="upload_file" required>
+                                                                    <input type="submit" name="submit" class="btn btn-primary">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
                                             </div>
                                         </div>
                                     </div>

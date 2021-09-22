@@ -56,7 +56,10 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <?php foreach ($nilai as $row) : ?>
+                                                                        <?php
+                                                                        $data = array('npsn' => $this->session->nama_pengguna, 'jurusan' => $n->jurusan);
+                                                                        ?>
+                                                                        <?php foreach ($this->Nilai_model->getAllNilaiJurusan($data) as $row) : ?>
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#editmapel<?php echo $row->id ?>"><i class="fa fa-edit"></i></button>
