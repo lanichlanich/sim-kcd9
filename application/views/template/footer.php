@@ -87,6 +87,17 @@
                 className: 'btn-success'
             }]
         });
+        $('#smk').DataTable({
+            // responsive: true
+            responsive: {
+                details: true
+            },
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'excel',
+                className: 'btn-success'
+            }]
+        });
     })
 </script>
 <script>

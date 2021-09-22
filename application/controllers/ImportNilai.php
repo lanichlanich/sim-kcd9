@@ -124,7 +124,7 @@ class ImportNilai extends CI_Controller
             $this->Nilai_model->import_sma_ipa($data);
             $this->session->set_flashdata('sukses', '
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				Upload data Ijazah sukses.
+				Upload data sukses.
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -225,7 +225,108 @@ class ImportNilai extends CI_Controller
             $this->Nilai_model->import_sma_ips($data);
             $this->session->set_flashdata('sukses', '
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				Upload data Ijazah sukses.
+				Upload data sukses.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
+            redirect('importnilai');
+        }
+    }
+
+    public function import_us_smk()
+    {
+
+        $upload_file = $_FILES['upload_file']['name'];
+        $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
+        if ($extension == 'csv') {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+        } else if ($extension == 'xls') {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        } else {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        }
+        $spreadsheet = $reader->load($_FILES['upload_file']['tmp_name']);
+
+        //Vlidasi file yang diupload apakah benar?
+        $validasi_data = $spreadsheet->getActiveSheet();
+        $validasi = $validasi_data->getCell('A1');
+
+        if ($validasi == 'Import Nilai') {
+        } else {
+            $this->session->set_flashdata('error', '
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Upload data gagal, silahkan coba lagi.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			');
+            redirect('importnilai');
+        }
+
+        $sheetdata = $spreadsheet->getActiveSheet()->toArray();
+        // echo '<pre>';
+        // print_r($sheetdata); test upload file excel nya :)
+
+        $sheetcount = count($sheetdata);
+        if ($sheetcount > 1) {
+            $data = array();
+            for ($i = 2; $i < $sheetcount; $i++) {
+                //$user_id=$sheetdata[$i][4];
+                $npsn = $this->session->nama_pengguna;
+                $nisn = $sheetdata[$i][2];
+                $p_agama = $sheetdata[$i][3];
+                $ppkn = $sheetdata[$i][4];
+                $b_indo = $sheetdata[$i][5];
+                $penjas = $sheetdata[$i][6];
+                $seni_budaya = $sheetdata[$i][7];
+                $matematika = $sheetdata[$i][8];
+                $b_inggris = $sheetdata[$i][9];
+                $kkpi = $sheetdata[$i][10];
+                $kewirausahaan = $sheetdata[$i][11];
+                $ipa = $sheetdata[$i][12];
+                $ips = $sheetdata[$i][13];
+                $fisika = $sheetdata[$i][14];
+                $kimia = $sheetdata[$i][15];
+                $mulok = $sheetdata[$i][16];
+                $dasar_kej = $sheetdata[$i][17];
+                $kompetensi_kej = $sheetdata[$i][18];
+
+                date_default_timezone_set("Asia/Jakarta");
+
+                $data[] = array(
+                    //'user_id'=>$user_id,
+                    'nisn' => $nisn,
+                    'p_agama' => $p_agama,
+                    'ppkn' => $ppkn,
+                    'b_indo' => $b_indo,
+                    'penjas' => $penjas,
+                    'seni_budaya' => $seni_budaya,
+                    'matematika' => $matematika,
+                    'b_inggris' => $b_inggris,
+                    'kkpi' => $kkpi,
+                    'kewirausahaan' => $kewirausahaan,
+                    'ipa' => $ipa,
+                    'ips' => $ips,
+                    'fisika' => $fisika,
+                    'kimia' => $kimia,
+                    'mulok' => $mulok,
+                    'dasar_kej' => $dasar_kej,
+                    'kompetensi_kej' => $kompetensi_kej,
+                    'npsn' => $npsn,
+                );
+            }
+
+            $keyArray = array('npsn' => $npsn);
+            $this->db->where($keyArray);
+            $this->db->delete('us_smk');
+
+            $this->Nilai_model->import_smk($data);
+            $this->session->set_flashdata('sukses', '
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				Upload data sukses.
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
