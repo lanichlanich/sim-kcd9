@@ -56,11 +56,6 @@
     $(document).ready(function() {
         $('#sekolah').DataTable({
             responsive: true,
-            dom: 'Bfrtip',
-            buttons: [{
-                extend: 'excel',
-                className: 'btn-success'
-            }]
         });
         $('#daftar_siswa').DataTable({
             responsive: true,
