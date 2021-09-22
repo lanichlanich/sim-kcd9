@@ -93,6 +93,19 @@ class ProfileSekolah extends CI_Controller
     $this->load->view('template/footer');
   }
 
+  //Data Kurikulum
+  public function data_kurikulum()
+  {
+    $data['title'] = "SIM KCD-IX";
+    $data["pengguna"] = $this->Profile_model->getPengguna();
+    $data["mapel"] = $this->Nilai_model->getAllMapel();
+    $data["nilai"] = $this->Nilai_model->getAllNilai();
+    $this->load->view('template/header', $data);
+    $this->load->view('data_kurikulum', $data);
+    $this->load->view('template/footer');
+  }
+
+
   public function edit_profile()
   {
     $data['title'] = "SIM KCD-IX";

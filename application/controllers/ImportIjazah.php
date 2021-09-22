@@ -74,16 +74,18 @@ class ImportIjazah extends CI_Controller
             for ($i = 2; $i < $sheetcount; $i++) {
                 //$user_id=$sheetdata[$i][4];
                 $npsn = $this->session->nama_pengguna;
-                $nisn = $sheetdata[$i][1];
-                $nama_siswa = $sheetdata[$i][2];
-                $tahun_lulus = $sheetdata[$i][3];
-                $no_ijazah = $sheetdata[$i][4];
+                $jurusan = $sheetdata[$i][1];
+                $nisn = $sheetdata[$i][2];
+                $nama_siswa = $sheetdata[$i][3];
+                $tahun_lulus = $sheetdata[$i][4];
+                $no_ijazah = $sheetdata[$i][5];
 
                 date_default_timezone_set("Asia/Jakarta");
 
                 $data[] = array(
                     //'user_id'=>$user_id,
                     'npsn' => $npsn,
+                    'jurusan' => $jurusan,
                     'nisn' => $nisn,
                     'nama_siswa' => $nama_siswa,
                     'tahun_lulus' => $tahun_lulus,

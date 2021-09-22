@@ -7,7 +7,7 @@
             <section id="description" class="card">
                 <div class="card-content">
                     <div class="card-header bg-primary">
-                        <h4 class="mb-1" style="color: white;">DATA IJAZAH</strong></h4>
+                        <h4 class="mb-1" style="color: white;">DATA IJAZAH</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -26,6 +26,13 @@
                                         <div class="modal-body">
                                             <input type="hidden" name="npsn" value="<?php echo $this->session->nama_pengguna; ?>">
                                             <div class="form-group">
+                                                <select class="form-control" name="jurusan" id="basicSelect" required>
+                                                    <option value="">Pilih</option>
+                                                    <?php foreach ($mapel as $row) : ?>
+                                                        <option value="<?php echo $row->jurusan; ?>"><?php echo $row->jurusan; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <br>
                                                 <input class="form-control" type="text" name="nisn" placeholder="NISN" required><br>
                                                 <input class="form-control" type="text" name="nama_siswa" placeholder="Nama Siswa" required><br>
                                                 <input class="form-control" type="number" name="tahun_lulus" placeholder="Tahun Lulus" required><br>
@@ -46,6 +53,7 @@
                                     <table class="table table-hover display nowrap mb-0" id="sekolah">
                                         <thead>
                                             <tr>
+                                                <th>Jurusan</th>
                                                 <th>Nama Siswa</th>
                                                 <th>NISN</th>
                                                 <th>Tahun Lulus</th>
@@ -57,6 +65,7 @@
                                         <tbody>
                                             <?php foreach ($ijazah as $s) : ?>
                                                 <tr>
+                                                    <td><?php echo $s->jurusan; ?></td>
                                                     <td><?php echo $s->nama_siswa; ?></td>
                                                     <td><?php echo $s->nisn; ?></td>
                                                     <td><?php echo $s->tahun_lulus; ?></td>

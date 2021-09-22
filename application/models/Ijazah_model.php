@@ -49,6 +49,7 @@ class Ijazah_model extends CI_Model
     {
         $data = [
             'npsn' => $this->input->post('npsn'),
+            'jurusan' => $this->input->post('jurusan'),
             'nisn' => $this->input->post('nisn'),
             'nama_siswa' => $this->input->post('nama_siswa'),
             'tahun_lulus' => $this->input->post('tahun_lulus'),

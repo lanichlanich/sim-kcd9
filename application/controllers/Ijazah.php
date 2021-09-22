@@ -24,6 +24,8 @@ class Ijazah extends CI_Controller
         $data['title'] = "SIM KCD-IX";
         $data["pengguna"] = $this->Profile_model->getPengguna();
         $data["ijazah"] = $this->Ijazah_model->getIjazah();
+        $data["mapel"] = $this->Nilai_model->getAllMapel();
+        $data["nilai"] = $this->Nilai_model->getAllNilai();
         $this->load->view('template/header', $data);
         $this->load->view('data_ijazah', $data);
         $this->load->view('template/footer');
@@ -46,6 +48,7 @@ class Ijazah extends CI_Controller
             $ijazah_file = $this->upload->data();
             $ijazah_file = $ijazah_file['file_name'];
             $npsn = $this->input->post('npsn', TRUE);
+            $jurusan = $this->input->post('jurusan', TRUE);
             $nisn = $this->input->post('nisn', TRUE);
             $nama_siswa = $this->input->post('nama_siswa', TRUE);
             $tahun_lulus = $this->input->post('tahun_lulus', TRUE);
@@ -53,6 +56,7 @@ class Ijazah extends CI_Controller
 
             $data = array(
                 'npsn' => $npsn,
+                'jurusan' => $jurusan,
                 'nisn' => $nisn,
                 'nama_siswa' => $nama_siswa,
                 'tahun_lulus' => $tahun_lulus,

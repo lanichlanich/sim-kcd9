@@ -11,6 +11,10 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>profilesekolah/index"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                 </li>
+                <li class="<?php if ($this->uri->segment(2) == "data_kurikulum") {
+                                echo "active";
+                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_kurikulum"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Kurikulum</span></a>
+                </li>
                 <li class="<?php if ($this->uri->segment(2) == "data_siswa") {
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_siswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
