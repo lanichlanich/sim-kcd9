@@ -24,13 +24,13 @@ class ProfileSekolah extends CI_Controller
     {
         parent::__construct();
 
-        if ($this->session->userdata('role_id') != '1') {
+        if ($this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                      Maaf, Anda belum Login!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>');
+                    Maaf, Anda belum Login!
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>');
             redirect('authentication/login');
         }
     }
@@ -93,6 +93,7 @@ class ProfileSekolah extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    //Pengguna
     public function pengguna()
     {
         $data['title'] = "SIM KCD-IX";

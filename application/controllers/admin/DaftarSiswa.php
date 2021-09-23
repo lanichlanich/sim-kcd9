@@ -6,8 +6,7 @@ class DaftarSiswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("Siswa_model"); //load model mahasiswa
-        if ($this->session->userdata('role_id') != '1') {
+        if ($this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
             $this->session->set_flashdata('pesan', '
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                 Maaf, Anda belum Login!

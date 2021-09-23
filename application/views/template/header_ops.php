@@ -11,9 +11,9 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>profilesekolah/index"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "data_kurikulum") {
+                <li class="<?php if ($this->uri->segment(1) == "mapel") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>profilesekolah/data_kurikulum"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Floating navbar">Data Kurikulum</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>mapel"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Floating navbar">Jurusan dan Mata Pelajaran</span></a>
                 </li>
                 <li class="<?php if ($this->uri->segment(2) == "data_siswa") {
                                 echo "active";

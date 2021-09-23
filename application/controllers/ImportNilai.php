@@ -28,7 +28,7 @@ class ImportNilai extends CI_Controller
     public function index()
     {
         $data['title'] = "SIM KCD-IX";
-        $data["mapel"] = $this->Nilai_model->getAllMapel();
+        $data["mapel"] = $this->Mapel_model->getAllMapel();
         $data["nilai"] = $this->Nilai_model->getAllNilai();
         $this->load->view('template/header', $data);
         $this->load->view('import_nilai', $data);
@@ -112,9 +112,13 @@ class ImportNilai extends CI_Controller
                 );
             }
 
-            $keyArray = array('tahun_lulus' => $tahun_lulus, 'jurusan' => $jurusan);
-            $this->db->where($keyArray);
-            $this->db->delete('nilai');
+            //Detect
+            if ($this->Nilai_model->countAllNilai() == 0) {
+            } else {
+                $keyArray = array('npsn' => $this->session->nama_pengguna, 'tahun_lulus' => $tahun_lulus, 'jurusan' => $jurusan);
+                $this->db->where($keyArray);
+                $this->db->delete('nilai');
+            }
 
             $this->Nilai_model->import_nilai($data);
             redirect('nilai');

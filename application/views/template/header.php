@@ -64,7 +64,7 @@
                             <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
                         </ul>
                     </div>
-                    <?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?>
+                    <!-- <?php $rows = $this->db->query("SELECT * FROM pengguna where nama_pengguna = '" . $this->session->nama_pengguna . "'")->row_array(); ?> -->
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
@@ -80,7 +80,9 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <?php if ($rows['role_id'] == 1) { ?>
+                                <?php if ($this->session->role_id == 1) { ?>
+                                    <a class="dropdown-item" href="<?php echo base_url() ?>admin/profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
+                                <?php } elseif ($this->session->role_id == 3) { ?>
                                     <a class="dropdown-item" href="<?php echo base_url() ?>admin/profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
                                 <?php } else { ?>
                                     <a class="dropdown-item" href="<?php echo base_url() ?>profilesekolah/edit_profile"><i class="feather icon-user"></i> Edit Profile</a>
@@ -108,7 +110,9 @@
             </ul>
         </div>
         <div class="shadow-bottom"></div>
-        <?php if ($rows['role_id'] == '1') {
+        <?php if ($this->session->role_id == '1') {
+            $this->load->view('template/header_admin');
+        } elseif ($this->session->role_id == '3') {
             $this->load->view('template/header_admin');
         } else {
             $this->load->view('template/header_ops');

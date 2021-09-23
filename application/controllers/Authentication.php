@@ -126,6 +126,9 @@ class Authentication extends CI_Controller
                     case 2:
                         redirect('dashboard');
                         break;
+                    case 3:
+                        redirect('admin/dashboard');
+                        break;
                     default:
                         break;
                 }

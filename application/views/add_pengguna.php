@@ -70,7 +70,7 @@
                                                         <label for="role">Hak Akses</label>
                                                         <select class="form-control" id="role" name="role_id" required>
                                                             <option value="">Pilih</option>
-                                                            <option value="1">Admin</option>
+                                                            <option value="3">Admin</option>
                                                             <option value="2">Operator Sekolah</option>
                                                         </select>
                                                     </div>

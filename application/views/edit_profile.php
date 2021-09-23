@@ -84,15 +84,19 @@
                                                             <div class="form-group">
                                                                 <label for="role">Hak Akses</label>
                                                                 <select class="form-control" id="role" name="role_id">
-                                                                    <option value="<?php echo $row->role_id; ?>">
-                                                                        <?php if ($row->role_id == '1') {
-                                                                            echo "Admin";
-                                                                        } else {
-                                                                            echo "Operator Sekolah";
-                                                                        } ?>
-                                                                    </option>
+                                                                    <option value="<?php echo $row->role_id; ?>">Pilih</option>
                                                                     <option value="1">Admin</option>
+                                                                    <option value="3">Admin KCD</option>
                                                                     <option value="2">Operator Sekolah</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    <?php } elseif ($row->role_id == 3) { ?>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label for="role">Hak Akses</label>
+                                                                <select class="form-control" id="role" name="role_id" readonly>
+                                                                    <option value="<?php echo $row->role_id; ?>">Admin KCD</option>
                                                                 </select>
                                                             </div>
                                                         </div>

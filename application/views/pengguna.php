@@ -34,7 +34,7 @@
                                     <tr>
                                         <td><?php echo $row->sekolah; ?></td>
                                         <td class="text-center">
-                                            <?php if ($row->role_id == 1) {
+                                            <?php if ($row->role_id == '1' || $row->role_id == '3') {
                                                 echo "Admin";
                                             } else {
                                                 echo "Operator Sekolah";

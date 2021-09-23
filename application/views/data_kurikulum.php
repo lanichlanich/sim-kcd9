@@ -16,7 +16,7 @@
                                 <div class="card-body">
                                     <h4>Download template data jurusan dan mata pelajaran <a href="<?php echo base_url(); ?>template_file/data_jurusan_mapel.xlsx"><i class="fa fa-download"></i> Download</a></h4>
                                     <div class="default-collapse collapse-bordered">
-                                        <form method="post" action="<?php echo base_url('nilai/spreadsheet_import'); ?>" class="" enctype="multipart/form-data">
+                                        <form method="post" action="<?php echo base_url('mapel/spreadsheet_import'); ?>" class="mb-2" enctype="multipart/form-data">
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-content">
@@ -28,82 +28,86 @@
                                         </form>
                                         <?php foreach ($mapel as $m) : ?>
                                             <div class="card collapse-header">
-                                                <div id="headingCollapse1" class="card-header collapsed" data-toggle="collapse" role="button" data-target="#collapse<?php echo $m->id ?>" aria-expanded="false" aria-controls="collapse1">
-                                                    <span class="lead collapse-title">
-                                                        <?php echo $m->jurusan . ' ' . $m->tahun_lulus ?>
-                                                    </span>
-                                                </div>
-                                                <div id="collapse<?php echo $m->id ?>" role="tabpanel" aria-labelledby="headingCollapse1" class="collapse" style="">
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table table-hover display nowrap mb-0">
-                                                                    <thead>
-                                                                        <tr class="text-center">
-                                                                            <th>Aksi</th>
-                                                                            <th>Mapel 01</th>
-                                                                            <th>Mapel 02</th>
-                                                                            <th>Mapel 03</th>
-                                                                            <th>Mapel 04</th>
-                                                                            <th>Mapel 05</th>
-                                                                            <th>Mapel 06</th>
-                                                                            <th>Mapel 07</th>
-                                                                            <th>Mapel 08</th>
-                                                                            <th>Mapel 09</th>
-                                                                            <th>Mapel 10</th>
-                                                                            <th>Mapel 11</th>
-                                                                            <th>Mapel 12</th>
-                                                                            <th>Mapel 13</th>
-                                                                            <th>Mapel 14</th>
-                                                                            <th>Mapel 15</th>
-                                                                            <th>Mapel 16</th>
-                                                                            <th>Mapel 17</th>
-                                                                            <th>Mapel 18</th>
-                                                                            <th>Mapel 19</th>
-                                                                            <th>Mapel 20</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr class="text-center">
-                                                                            <td>
-                                                                                <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#editmapel<?php echo $m->id ?>"><i class="fa fa-edit"></i></button>
-                                                                                <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#hapusmapel<?php echo $m->id ?>"><i class="fa fa-trash"></i></button>
-                                                                            </td>
-                                                                            <td><?php echo $m->mapel_01; ?></td>
-                                                                            <td><?php echo $m->mapel_02; ?></td>
-                                                                            <td><?php echo $m->mapel_03; ?></td>
-                                                                            <td><?php echo $m->mapel_04; ?></td>
-                                                                            <td><?php echo $m->mapel_05; ?></td>
-                                                                            <td><?php echo $m->mapel_06; ?></td>
-                                                                            <td><?php echo $m->mapel_07; ?></td>
-                                                                            <td><?php echo $m->mapel_08; ?></td>
-                                                                            <td><?php echo $m->mapel_09; ?></td>
-                                                                            <td><?php echo $m->mapel_10; ?></td>
-                                                                            <td><?php echo $m->mapel_11; ?></td>
-                                                                            <td><?php echo $m->mapel_12; ?></td>
-                                                                            <td><?php echo $m->mapel_13; ?></td>
-                                                                            <td><?php echo $m->mapel_14; ?></td>
-                                                                            <td><?php echo $m->mapel_15; ?></td>
-                                                                            <td><?php echo $m->mapel_16; ?></td>
-                                                                            <td><?php echo $m->mapel_17; ?></td>
-                                                                            <td><?php echo $m->mapel_18; ?></td>
-                                                                            <td><?php echo $m->mapel_19; ?></td>
-                                                                            <td><?php echo $m->mapel_20; ?></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                <?php if ($m->id % 2 == 0) { ?>
+                                                    <div id="headingCollapse1" class="card-header collapsed bg-gradient-info" data-toggle="collapse" role="button" data-target="#collapse<?php echo $m->id ?>" aria-expanded="false" aria-controls="collapse1">
+                                                    <?php } else { ?>
+                                                        <div id="headingCollapse1" class="card-header collapsed bg-gradient-danger" data-toggle="collapse" role="button" data-target="#collapse<?php echo $m->id ?>" aria-expanded="false" aria-controls="collapse1">
+                                                        <?php } ?>
+                                                        <span class="lead collapse-title">
+                                                            <?php echo $m->jurusan . ' ' . $m->tahun_lulus ?>
+                                                        </span>
+                                                        </div>
+                                                        <div id="collapse<?php echo $m->id ?>" role="tabpanel" aria-labelledby="headingCollapse1" class="collapse" style="">
+                                                            <div class="card-content">
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-hover display nowrap mb-0">
+                                                                            <thead>
+                                                                                <tr class="text-center">
+                                                                                    <th>Aksi</th>
+                                                                                    <th>Mapel 01</th>
+                                                                                    <th>Mapel 02</th>
+                                                                                    <th>Mapel 03</th>
+                                                                                    <th>Mapel 04</th>
+                                                                                    <th>Mapel 05</th>
+                                                                                    <th>Mapel 06</th>
+                                                                                    <th>Mapel 07</th>
+                                                                                    <th>Mapel 08</th>
+                                                                                    <th>Mapel 09</th>
+                                                                                    <th>Mapel 10</th>
+                                                                                    <th>Mapel 11</th>
+                                                                                    <th>Mapel 12</th>
+                                                                                    <th>Mapel 13</th>
+                                                                                    <th>Mapel 14</th>
+                                                                                    <th>Mapel 15</th>
+                                                                                    <th>Mapel 16</th>
+                                                                                    <th>Mapel 17</th>
+                                                                                    <th>Mapel 18</th>
+                                                                                    <th>Mapel 19</th>
+                                                                                    <th>Mapel 20</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="text-center">
+                                                                                    <td>
+                                                                                        <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#editmapel<?php echo $m->id ?>"><i class="fa fa-edit"></i></button>
+                                                                                        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#hapusmapel<?php echo $m->id ?>"><i class="fa fa-trash"></i></button>
+                                                                                    </td>
+                                                                                    <td><?php echo $m->mapel_01; ?></td>
+                                                                                    <td><?php echo $m->mapel_02; ?></td>
+                                                                                    <td><?php echo $m->mapel_03; ?></td>
+                                                                                    <td><?php echo $m->mapel_04; ?></td>
+                                                                                    <td><?php echo $m->mapel_05; ?></td>
+                                                                                    <td><?php echo $m->mapel_06; ?></td>
+                                                                                    <td><?php echo $m->mapel_07; ?></td>
+                                                                                    <td><?php echo $m->mapel_08; ?></td>
+                                                                                    <td><?php echo $m->mapel_09; ?></td>
+                                                                                    <td><?php echo $m->mapel_10; ?></td>
+                                                                                    <td><?php echo $m->mapel_11; ?></td>
+                                                                                    <td><?php echo $m->mapel_12; ?></td>
+                                                                                    <td><?php echo $m->mapel_13; ?></td>
+                                                                                    <td><?php echo $m->mapel_14; ?></td>
+                                                                                    <td><?php echo $m->mapel_15; ?></td>
+                                                                                    <td><?php echo $m->mapel_16; ?></td>
+                                                                                    <td><?php echo $m->mapel_17; ?></td>
+                                                                                    <td><?php echo $m->mapel_18; ?></td>
+                                                                                    <td><?php echo $m->mapel_19; ?></td>
+                                                                                    <td><?php echo $m->mapel_20; ?></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                <?php endforeach; ?>
                                             </div>
-                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
             <!-- End Data Jurusan dan Mapel -->
         </div>
@@ -112,7 +116,7 @@
 <!-- END: Content-->
 
 <?php foreach ($mapel as $um) : ?>
-    <form action="<?php echo base_url(); ?>nilai/update_mapel" method="post" enctype="multipart/form-data">
+    <form action="<?php echo base_url(); ?>mapel/update_mapel" method="post" enctype="multipart/form-data">
         <div class="modal fade text-left" id="editmapel<?php echo $um->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
@@ -169,7 +173,7 @@
 <?php endforeach; ?>
 
 <?php foreach ($mapel as $hm) : ?>
-    <form action="<?php echo base_url(); ?>nilai/hapus_mapel" method="post">
+    <form action="<?php echo base_url(); ?>mapel/hapus_mapel" method="post">
         <div class="modal fade text-left" id="hapusmapel<?php echo $hm->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">

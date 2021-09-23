@@ -24,7 +24,7 @@ class Ijazah extends CI_Controller
         $data['title'] = "SIM KCD-IX";
         $data["pengguna"] = $this->Profile_model->getPengguna();
         $data["ijazah"] = $this->Ijazah_model->getIjazah();
-        $data["mapel"] = $this->Nilai_model->getAllMapel();
+        $data["mapel"] = $this->Mapel_model->getAllMapel();
         $data["nilai"] = $this->Nilai_model->getAllNilai();
         $this->load->view('template/header', $data);
         $this->load->view('data_ijazah', $data);

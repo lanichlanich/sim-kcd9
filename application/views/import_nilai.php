@@ -11,7 +11,7 @@
                             <div class="col-sm-12">
                                 <div class="card collapse-icon accordion-icon-rotate">
                                     <div class="card-header">
-                                        <h4 class="mb-1">IMPORT DATA NILAI JURUSAN <?php echo $n->jurusan; ?></h4>
+                                        <h4 class="mb-1">Import Data Nilai Jurusan <?php echo $n->jurusan; ?></h4>
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">
@@ -39,7 +39,11 @@
                                                 <input type="hidden" name="mapel_18" value="<?php echo $n->mapel_18; ?>">
                                                 <input type="hidden" name="mapel_19" value="<?php echo $n->mapel_19; ?>">
                                                 <input type="hidden" name="mapel_20" value="<?php echo $n->mapel_20; ?>">
-                                                <button class="btn btn-info mb-2" type="submit">Download Template Nilai Jurusan <?php echo $n->jurusan ?></button>
+                                                <?php if ($n->id % 2 == 0) { ?>
+                                                    <button class="btn btn-info mb-2" type="submit">Download Template Nilai Jurusan <?php echo $n->jurusan ?></button>
+                                                <?php } else { ?>
+                                                    <button class="btn btn-danger mb-2" type="submit">Download Template Nilai Jurusan <?php echo $n->jurusan ?></button>
+                                                <?php } ?>
                                             </form>
                                             <!-- Upload data Nilai -->
                                             <div class="row mb-2">
