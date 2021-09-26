@@ -9,6 +9,7 @@ class Mapel_model extends CI_Model
     }
 
     private $table_mapel = 'mapel';
+    private $table_pengguna = 'pengguna';
 
     //Mapel
     public function getAllMapel()
@@ -38,5 +39,15 @@ class Mapel_model extends CI_Model
     public function update_mapel($data, $where)
     {
         $this->db->update('mapel', $data, $where);
+    }
+
+    //Admin
+    public function getAll()
+    {
+        $this->db->select('*');
+        $this->db->from('mapel');
+        $this->db->join('pengguna', 'mapel.npsn = pengguna.nama_pengguna');
+        $query = $this->db->get();
+        return $query->result();
     }
 }

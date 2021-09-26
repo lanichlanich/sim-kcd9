@@ -8,14 +8,25 @@
         <?php if ($this->session->role_id == '1') { ?>
             <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Data Sekolah</span></a>
                 <ul class="menu-content">
-
                     <li class="<?php if ($this->uri->segment(3) == "index") {
                                     echo "active";
                                 } ?>"><a href="<?php echo base_url() ?>admin/profilesekolah/index"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Profile Sekolah</span></a>
                     </li>
+                    <li class="<?php if ($this->uri->segment(2) == "mapel") {
+                                    echo "active";
+                                } ?>"><a href="<?php echo base_url() ?>admin/mapel"><i class="feather icon-flag"></i><span class="menu-item" data-i18n="Fixed navbar">Jurusan dan Mata Pelajaran</span></a>
+                    </li>
                     <li class="<?php if ($this->uri->segment(3) == "data_siswa") {
                                     echo "active";
                                 } ?>"><a href="<?php echo base_url() ?>admin/profilesekolah/data_siswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Siswa</span></a>
+                    </li>
+                    <li class="<?php if ($this->uri->segment(3) == "data") {
+                                    echo "active";
+                                } ?>"><a href="<?php echo base_url() ?>admin/ijazah/data"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Ijazah</span></a>
+                    </li>
+                    <li class="<?php if ($this->uri->segment(2) == "nilai") {
+                                    echo "active";
+                                } ?>"><a href="<?php echo base_url() ?>admin/nilai"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Floating navbar">Data Nilai</span></a>
                     </li>
                     <li class="<?php if ($this->uri->segment(3) == "data_rombel") {
                                     echo "active";
@@ -52,6 +63,16 @@
                                 } ?>">
                         <a href="<?php echo base_url() ?>admin/importtendik"><i class="feather icon-upload"></i><span class="menu-item">Import Tendik</span></a>
                     </li>
+                    <li class="<?php if ($this->uri->segment(1) == "importijazah") {
+                                    echo "active";
+                                } ?>">
+                        <a href="<?php echo base_url() ?>admin/importijazah"><i class="feather icon-upload"></i><span class="menu-item">Import Ijazah</span></a>
+                    </li>
+                    <li class="<?php if ($this->uri->segment(1) == "importnilai") {
+                                    echo "active";
+                                } ?>">
+                        <a href="<?php echo base_url() ?>admin/importnilai"><i class="feather icon-upload"></i><span class="menu-item">Import Nilai</span></a>
+                    </li>
                 </ul>
             </li>
         <?php } else { ?>
@@ -68,13 +89,13 @@
                                 echo "active";
                             } ?>"><a href="<?php echo base_url() ?>admin/daftarsiswa"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Siswa</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "mapel") {
+                <li class="<?php if ($this->uri->segment(2) == "daftarjurusanmapel") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>admin/mapel"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Jurusan dan Mata Pelajaran</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftarjurusanmapel"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Jurusan dan Mata Pelajaran</span></a>
                 </li>
-                <li class="<?php if ($this->uri->segment(2) == "ijazah_nilai") {
+                <li class="<?php if ($this->uri->segment(2) == "daftarijazahnilai") {
                                 echo "active";
-                            } ?>"><a href="<?php echo base_url() ?>admin/ijazah_nilai"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Ijazah dan Nilai</span></a>
+                            } ?>"><a href="<?php echo base_url() ?>admin/daftarijazahnilai"><i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">Data Ijazah dan Nilai</span></a>
                 </li>
                 <li class="<?php if ($this->uri->segment(3) == "guru") {
                                 echo "active";

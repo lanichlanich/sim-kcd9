@@ -80,7 +80,7 @@
                                                     </div>
                                                 </div>
 
-                                                <?php if ($u->role_id == 1) { ?>
+                                                <?php if ($p->role_id == 1 || $p->role_id == 3) { ?>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="role">Hak Akses</label>
@@ -89,15 +89,6 @@
                                                                 <option value="1">Admin</option>
                                                                 <option value="3">Admin KCD</option>
                                                                 <option value="2">Operator Sekolah</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                <?php } elseif ($u->role_id == 3) { ?>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label for="role">Hak Akses</label>
-                                                            <select class="form-control" id="role" name="role_id" readonly>
-                                                                <option value="<?php echo $u->role_id; ?>">Admin KCD</option>
                                                             </select>
                                                         </div>
                                                     </div>

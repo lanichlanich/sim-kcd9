@@ -8,6 +8,7 @@ class Nilai_model extends CI_Model
         parent::__construct();
     }
 
+    private $table_mapel = 'mapel';
     private $table_nilai = 'nilai';
     private $table_ijazah = 'ijazah';
 
@@ -53,5 +54,31 @@ class Nilai_model extends CI_Model
     public function update_nilai($data, $where)
     {
         $this->db->update('nilai', $data, $where);
+    }
+
+    //Admin
+    public function getAll()
+    {
+        $this->db->select('*');
+        $this->db->from('pengguna');
+        $this->db->join('mapel', 'pengguna.nama_pengguna = mapel.npsn');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getAllNilaiAdmin($data)
+    {
+        $this->db->from($this->table_nilai);
+        $this->db->where($data);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getAllMapel($npsn)
+    {
+        $this->db->from($this->table_mapel);
+        $query = $this->db
+            ->where('npsn', $npsn)->get();
+        return $query->num_rows();
     }
 }
