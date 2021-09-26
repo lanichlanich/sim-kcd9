@@ -49,7 +49,7 @@
                                                 <th>Status Pegawai</th>
                                                 <th>Tempat, Tanggal Lahir</th>
                                                 <th>NIP/NUPTK</th>
-                                                <th>Aksi</th>
+                                                <!-- <th>Aksi</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,10 +75,10 @@
                                                         }
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <!-- <td>
                                                         <a href="daftarsiswa/#"><button class="btn btn-warning btn-block my-1">Edit</button></a>
                                                         <a href="daftarsiswa/#"><button class="btn btn-danger btn-block my-1">Hapus</button></a>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

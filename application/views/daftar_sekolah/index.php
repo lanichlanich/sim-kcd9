@@ -13,7 +13,7 @@
                         <h4 class="mb-1" style="color: white;"><strong>Daftar Sekolah</strong></h4>
                     </div>
                     <div class="card-body">
-                        <a href="daftarsekolah/tambah_sekolah"><button class="btn btn-success">Tambah Sekolah</button></a>
+                        <!-- <a href="daftarsekolah/tambah_sekolah"><button class="btn btn-success">Tambah Sekolah</button></a> -->
                         <div class="row">
                             <div class="table-responsive mx-1">
                                 <table class="table table-hover display nowrap mb-0" id="sekolah">
@@ -25,7 +25,7 @@
                                             <th>Status</th>
                                             <th>Kabupaten</th>
                                             <th>Alamat</th>
-                                            <th>Aksi</th>
+                                            <!-- <th>Aksi</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,10 +37,10 @@
                                                 <td><?= $row->status ?></td>
                                                 <td><?= $row->kabupaten ?></td>
                                                 <td><?= $row->alamat ?></td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="daftarsekolah/#" class="btn btn-warning"><i class="feather icon-edit"></i></a>
                                                     <a href="daftarsekolah/#" class="btn btn-danger"><i class="feather icon-trash"></i></a>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

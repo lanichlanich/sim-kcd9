@@ -68,17 +68,27 @@ class Nilai_model extends CI_Model
 
     public function getAllNilaiAdmin($data)
     {
-        $this->db->from($this->table_nilai);
+        $this->db->select('*');
+        $this->db->from('pengguna');
+        $this->db->join('nilai', 'pengguna.nama_pengguna = nilai.npsn');
         $this->db->where($data);
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function getAllMapel($npsn)
+    public function getAllMapel($data_m)
     {
         $this->db->from($this->table_mapel);
-        $query = $this->db
-            ->where('npsn', $npsn)->get();
-        return $query->num_rows();
+        $this->db->where('jurusan', $data_m);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getAllIjazah($data_i)
+    {
+        $this->db->from($this->table_ijazah);
+        $this->db->where('nama_siswa', $data_i);
+        $query = $this->db->get();
+        return $query->result();
     }
 }

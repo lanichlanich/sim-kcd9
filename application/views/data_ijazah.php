@@ -12,7 +12,11 @@
                     <div class="card-body">
                         <div class="row">
                             <a class="btn btn-warning ml-1 mb-2 text-white" data-toggle="modal" data-target="#tambahmodal">Tambah Data</a>
-                            <?php echo form_open_multipart('ijazah/save_data'); ?>
+                            <?php if ($this->session->role_id == 1 || $this->session->role_id == 3) { ?>
+                                <?php echo form_open_multipart('admin/ijazah/save_data'); ?>
+                            <?php } else { ?>
+                                <?php echo form_open_multipart('ijazah/save_data'); ?>
+                            <?php } ?>
                             <div class="modal fade text-left" id="tambahmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
@@ -87,7 +91,11 @@
                                         <div class="modal fade text-left" id="editmodal<?php echo $i->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
-                                                    <?php echo form_open_multipart('ijazah/update_data/' . $i->id); ?>
+                                                    <?php if ($this->session->role_id == 1 || $this->session->role_id == 2) { ?>
+                                                        <?php echo form_open_multipart('admin/ijazah/update_data/' . $i->id); ?>
+                                                    <?php } else { ?>
+                                                        <?php echo form_open_multipart('ijazah/update_data/' . $i->id); ?>
+                                                    <?php } ?>
                                                     <input type="hidden" name="id" value="<?php echo $i->id ?>">
                                                     <div class="modal-header">
                                                         <h4 class="modal-title" id="myModalLabel1">Upload Ijazah</h4>
