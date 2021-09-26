@@ -10,12 +10,11 @@ class Gtk_model extends CI_Model
     public function getAllGuru()
     {
         $this->db->from($this->table_guru);
-        $query = $this->db
-            ->where('npsn', $this->session->nama_pengguna)->get();
+        $query = $this->db->get();
         return $query->result();
     }
 
-    //By NPSN
+    //By NPSN 
     public function getWhereGuru($npsn)
     {
         $this->db->from($this->table_guru);
@@ -36,8 +35,7 @@ class Gtk_model extends CI_Model
     public function getAllTendik()
     {
         $this->db->from($this->table_tendik);
-        $query = $this->db
-            ->where('npsn', $this->session->nama_pengguna)->get();
+        $query = $this->db->get();
         return $query->result();
     }
 

@@ -23,7 +23,7 @@ class DaftarGtk extends CI_Controller
     {
         $data["title"] = "SIM KCD-IX";
         $data['pengguna'] = $this->Profile_model->getPengguna();
-        $data["guru"] = $this->Profile_model->getAllGuru();
+        $data["guru"] = $this->Gtk_model->getAllGuru();
         $data["sekolah"] = $this->Sekolah_model->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('daftar_gtk/guru', $data);
@@ -110,7 +110,7 @@ class DaftarGtk extends CI_Controller
     {
         $data["title"] = "SIM KCD-IX";
         $data['pengguna'] = $this->Profile_model->getPengguna();
-        $data["tendik"] = $this->Profile_model->getAllTendik();
+        $data["tendik"] = $this->Gtk_model->getAllTendik();
         $data["sekolah"] = $this->Sekolah_model->getAll();
         $this->load->view('template/header', $data);
         $this->load->view('daftar_gtk/tendik', $data);
