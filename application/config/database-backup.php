@@ -74,10 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'hostname' => 'ec2-54-83-46-116.compute-1.amazonaws.com',
-	'username' => 'yoacbwhoyjhcgp',
-	'password' => 'f472f21215ecb56f23976afc55e62bd71a2a59bb727d8484f99a526dad14ede1',
-	'database' => 'dc172bnuh74i9u',
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'postgres',
+	'password' => 'bebas',
+	'database' => 'db_simkcd9',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
