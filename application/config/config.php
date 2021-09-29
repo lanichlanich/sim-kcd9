@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://sim-kcd9-01.herokuapp.com/';
+$config['base_url'] = 'http://localhost/sim-kcd9/';
 
 /*
 |--------------------------------------------------------------------------
