@@ -49,7 +49,6 @@ class Mapel extends CI_Controller
         if ($sheetcount > 1) {
             $data = array();
             for ($i = 3; $i < $sheetcount; $i++) {
-                $periode = '2122';
                 $npsn = $this->session->nama_pengguna;
                 $jurusan = $sheetJurusanMapel[$i][1];
                 $tahun_lulus = $sheetJurusanMapel[$i][2];
@@ -75,7 +74,6 @@ class Mapel extends CI_Controller
                 $mapel_20 = $sheetJurusanMapel[$i][22];
 
                 $data[] = array(
-                    'periode' => $periode,
                     'npsn' => $npsn,
                     'jurusan' => $jurusan,
                     'tahun_lulus' => $tahun_lulus,
@@ -102,7 +100,7 @@ class Mapel extends CI_Controller
                 );
             }
 
-            $keyArray = array('periode' => $periode);
+            $keyArray = array('npsn' => $this->session->nama_pengguna);
             $this->db->where($keyArray);
             $this->db->delete('mapel');
 
