@@ -5,7 +5,7 @@ require FCPATH . 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ImportSiswa extends CI_Controller
+class Importsiswa extends CI_Controller
 {
 
     /**

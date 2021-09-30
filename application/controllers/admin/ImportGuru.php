@@ -5,7 +5,7 @@ require FCPATH . 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ImportGuru extends CI_Controller
+class Importguru extends CI_Controller
 {
 
     /**

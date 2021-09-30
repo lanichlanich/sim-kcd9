@@ -5,7 +5,7 @@ require FCPATH . 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ImportProfile extends CI_Controller
+class Importprofile extends CI_Controller
 {
 
   /**

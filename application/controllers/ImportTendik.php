@@ -5,7 +5,7 @@ require FCPATH . 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ImportTendik extends CI_Controller
+class Importtendik extends CI_Controller
 {
 
     /**

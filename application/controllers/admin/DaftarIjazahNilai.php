@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class DaftarIjazahNilai extends CI_Controller
+class Daftarijazahnilai extends CI_Controller
 {
   public function __construct()
   {

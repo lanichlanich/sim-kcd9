@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class DaftarSekolah extends CI_Controller
+class Daftarsekolah extends CI_Controller
 {
   public function __construct()
   {

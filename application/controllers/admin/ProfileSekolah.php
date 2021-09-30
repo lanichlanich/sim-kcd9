@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class ProfileSekolah extends CI_Controller
+class Profilesekolah extends CI_Controller
 {
 
     /**
