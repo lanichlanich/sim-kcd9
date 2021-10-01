@@ -19,7 +19,7 @@ if ($row->role_id == '1') {
         <div class="content-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card bg-gradient-primary">
+                    <div class="card bg-gradient-success">
                         <div class="card-body">
                             <h2 style="color: white;"><strong>Selamat datang <?php echo $row->nama; ?></strong></h2>
                             <p>
@@ -43,9 +43,12 @@ if ($row->role_id == '1') {
                                 <?php } else { ?>
                                     <div class="alert alert-<?= $row->tema; ?>" role="alert">
                                         <div class="container">
+                                            <h4 class="alert-heading text-center"><?= $row->kategori ?></h4>
                                             <?= $row->informasi; ?>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <p class="text-secondary font-small-1"><?= $row->add_time; ?></p>
+                                                <p class="font-small-1"><?= $row->add_by; ?></p>
+                                                <p class="font-small-1">#</p>
+                                                <p class="font-small-1"><?= $row->add_time; ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +60,7 @@ if ($row->role_id == '1') {
                             <div class="table-responsive">
                                 <table class="table dataTable">
                                     <thead>
-                                        <tr class="bg-gradient-primary text-center">
+                                        <tr class="bg-gradient-success text-center">
                                             <th>Status</th>
                                             <th>Waktu</th>
                                             <th>Nama</th>
@@ -95,7 +98,7 @@ if ($row->role_id == '1') {
                                 <div class="table-responsive">
                                     <table class="table dataTable">
                                         <thead>
-                                            <tr class="bg-gradient-info text-center">
+                                            <tr class="bg-gradient-success text-center">
                                                 <th>#</th>
                                                 <th>Data Profile</th>
                                                 <th>Data Siswa</th>
