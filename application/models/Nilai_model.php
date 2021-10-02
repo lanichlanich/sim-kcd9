@@ -87,7 +87,7 @@ class Nilai_model extends CI_Model
     public function getAllIjazah($data_i)
     {
         $this->db->from($this->table_ijazah);
-        $this->db->where('nama_siswa', $data_i);
+        $this->db->where('jurusan', $data_i);
         $query = $this->db->get();
         return $query->result();
     }

@@ -80,7 +80,6 @@ class Ijazah extends CI_Controller
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('userfile')) {
-
             var_dump($_FILES['userfile']);
         } else {
             $ijazah_file = $this->upload->data();

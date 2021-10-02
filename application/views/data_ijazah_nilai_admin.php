@@ -22,6 +22,7 @@
                                                     <th>Nama Sekolah</th>
                                                     <th>Jurusan</th>
                                                     <th>Nilai</th>
+                                                    <th>Ijazah</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -38,6 +39,9 @@
                                                         <td><?php echo $row->jurusan; ?></td>
                                                         <td>
                                                             <button class="btn btn-warning" data-toggle="modal" data-target="#lihatnilai<?php echo $row->id ?>"><i class="fa fa-eye"></i> Lihat Nilai</button>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#lihatijazah<?php echo $row->id ?>"><i class="fa fa-eye"></i> Lihat Ijazah</button>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -122,6 +126,55 @@
                                         <td><?php echo $n->mapel_18; ?></td>
                                         <td><?php echo $n->mapel_19; ?></td>
                                         <td><?php echo $n->mapel_20; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<?php foreach ($ijanil as $ij) : ?>
+    <div class="modal fade text-left" id="lihatijazah<?php echo $ij->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title" id="myModalLabel1">Nilai Siswa <?php echo $ij->sekolah; ?> Jurusan <?php echo $ij->jurusan; ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover display nowrap mb-0" id="sekolah">
+                            <thead>
+                                <tr>
+                                    <th>Nama Siswa</th>
+                                    <th>NISN</th>
+                                    <th>Tahun Lulus</th>
+                                    <th>No Lulus</th>
+                                    <th>Ijazah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $data = $ij->jurusan;
+                                foreach ($this->Nilai_model->getAllIjazah($data) as $j) : ?>
+                                    <tr>
+                                        <td><?php echo $j->nama_siswa; ?></td>
+                                        <td><?php echo $j->nisn; ?></td>
+                                        <td><?php echo $j->tahun_lulus; ?></td>
+                                        <td><?php echo $j->no_ijazah; ?></td>
+                                        <td><?php
+                                            if ($j->ijazah_file == null) {
+                                                echo "Belum Upload Ijazah";
+                                            } else {
+                                            ?><a href="<?php echo "../ijazah/" . $j->ijazah_file; ?>" class="btn btn-danger" target="_blank"><i class="feather icon-download"></i> Download</a><?php
+                                                                                                                                                                                            }
+                                                                                                                                                                                                ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

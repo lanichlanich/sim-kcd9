@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <a class="btn btn-warning ml-1 mb-2 text-white" data-toggle="modal" data-target="#tambahmodal">Tambah Data</a>
+                            <!-- <a class="btn btn-warning ml-1 mb-2 text-white" data-toggle="modal" data-target="#tambahmodal">Tambah Data</a> -->
                             <?php if ($this->session->role_id == 1 || $this->session->role_id == 3) { ?>
                                 <?php echo form_open_multipart('admin/ijazah/save_data'); ?>
                             <?php } else { ?>
@@ -74,12 +74,23 @@
                                                     <td><?php echo $s->nisn; ?></td>
                                                     <td><?php echo $s->tahun_lulus; ?></td>
                                                     <td><?php echo $s->no_ijazah; ?></td>
-                                                    <td><a href="<?php echo $s->ijazah_file; ?>" class="btn btn-danger" target="_blank"><i class="feather icon-download"></i> Download</a></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editmodal<?php echo $s->id ?>">
-                                                            <i class="feather icon-upload"></i> Upload
-                                                        </button>
+                                                        <?php
+                                                        if ($s->ijazah_file == null) {
+                                                            echo "Belum Upload Ijazah";
+                                                        } else {
+                                                        ?>
+
+                                                            <a href="<?php echo $s->ijazah_file; ?>" class="btn btn-danger" target="_blank"><i class="feather icon-download"></i> Download</a>
                                                     </td>
+                                                <?php
+                                                        }
+                                                ?>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editmodal<?php echo $s->id ?>">
+                                                        <i class="feather icon-upload"></i> Upload
+                                                    </button>
+                                                </td>
 
                                                 </tr>
                                             <?php endforeach; ?>
