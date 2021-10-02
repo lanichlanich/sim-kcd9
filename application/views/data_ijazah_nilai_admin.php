@@ -161,8 +161,8 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $data = $ij->jurusan;
-                                foreach ($this->Nilai_model->getAllIjazah($data) as $j) : ?>
+                                $data = array('jurusan' => $in->jurusan);
+                                foreach ($this->Nilai_model->getAllIjazahAdmin($data) as $j) : ?>
                                     <tr>
                                         <td><?php echo $j->nama_siswa; ?></td>
                                         <td><?php echo $j->nisn; ?></td>

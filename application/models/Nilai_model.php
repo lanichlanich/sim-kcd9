@@ -91,4 +91,14 @@ class Nilai_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getAllIjazahAdmin($data)
+    {
+        $this->db->select('*');
+        $this->db->from('pengguna');
+        $this->db->join('ijazah', 'pengguna.nama_pengguna = ijazah.npsn');
+        $this->db->where($data);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
