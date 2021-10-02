@@ -88,7 +88,6 @@ class Nilai_model extends CI_Model
     {
         $this->db->from($this->table_ijazah);
         $this->db->where('jurusan', $data_i);
-        $this->db->where('npsn', $this->session->nama_pengguna);
         $query = $this->db->get();
         return $query->result();
     }
