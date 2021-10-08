@@ -103,9 +103,9 @@ class Mapel extends CI_Controller
             }
 
             // $keyArray = array('npsn' => $this->session->nama_pengguna);
-            $keyArray = array('periode' => $periode);
-            $this->db->where($keyArray);
-            $this->db->delete('mapel');
+            // $keyArray = array('periode' => $periode);
+            // $this->db->where($keyArray);
+            // $this->db->delete('mapel');
 
             $this->Mapel_model->insert_jurusan_mapel($data);
             redirect('admin/mapel');
