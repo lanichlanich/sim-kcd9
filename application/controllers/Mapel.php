@@ -179,4 +179,8 @@ class Mapel extends CI_Controller
         $this->db->delete('mapel');
         redirect('mapel');
     }
+
+    function test()
+    {
+    }
 }
