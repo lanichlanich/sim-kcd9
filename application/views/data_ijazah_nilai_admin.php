@@ -100,7 +100,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $data = array('jurusan' => $in->jurusan);
+                                $data = array('jurusan' => $in->jurusan, 'npsn' => $in->npsn);
                                 foreach ($this->Nilai_model->getAllNilaiAdmin($data) as $n) : ?>
                                     <tr>
                                         <td><?php echo $n->nama_siswa; ?></td>
